@@ -1,0 +1,23 @@
+{
+    "name": "konekt/location",
+    "description": "Laravel module for handling countries, cities, addresses",
+    "type": "library",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Attila Fulop",
+            "homepage": "https://github.com/fulopattila122"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/artkonekt/location"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "konekt/concord": "dev-master"
+    },
+    "autoload": {
+        "psr-4": { "Konekt\\Location\\": "src"}
+    }
+}
