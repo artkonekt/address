@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Konekt\Location\Models\ProvinceType;
 
 class CreateProvincesTable extends Migration
 {
@@ -16,7 +17,7 @@ class CreateProvincesTable extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->increments('id');
             $table->char('country_id', 2);
-            $table->enum('type', ['state', 'region', 'province', 'county'])->default('county');
+            $table->enum('type', array_values(ProvinceType::toArray()))->default('county');
             $table->string('code', 16)->nullable();
             $table->string('name');
 

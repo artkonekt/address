@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the ProvinceType.php class.
+ * Contains the ProvinceType class.
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop
