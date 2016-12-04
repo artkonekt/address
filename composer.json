@@ -1,6 +1,6 @@
 {
-    "name": "konekt/location",
-    "description": "Laravel module for handling countries, cities, addresses",
+    "name": "konekt/address",
+    "description": "Laravel module for handling countries, cities, addresses, people and organizations",
     "type": "library",
     "minimum-stability": "dev",
     "license": "MIT",
@@ -11,7 +11,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/artkonekt/location"
+        "issues": "https://github.com/artkonekt/address"
     },
     "require": {
         "php": ">=7.0.0",
@@ -19,6 +19,6 @@
         "konekt/concord": "dev-master"
     },
     "autoload": {
-        "psr-4": { "Konekt\\Location\\": "src"}
+        "psr-4": { "Konekt\\Address\\": "src"}
     }
 }
