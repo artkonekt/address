@@ -17,7 +17,7 @@ class CreateAddressesTable extends Migration
             $table->string('name');
             $table->char('country_id', 2);
             $table->integer('province_id')->unsigned()->nullable();
-            $table->string('zip', 12)->nullable();//12 because: http://stackoverflow.com/a/29280718/1016746
+            $table->string('postalcode', 12)->nullable();//12 because: http://stackoverflow.com/a/29280718/1016746
             $table->string('city')->nullable();
             $table->string('address', 384);
 

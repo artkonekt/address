@@ -15,6 +15,7 @@ namespace Konekt\Address\Models\Entities;
 use DateTime;
 use Konekt\Address\Models\Gender;
 use Konekt\Address\Models\NameOrder;
+use Illuminate\Database\Eloquent\Model;
 
 
 /**
@@ -80,6 +81,20 @@ class Person extends Model
     public function setGenderAttribute(Gender $gender)
     {
         $this->attributes['gender'] = $gender->getValue();
+    }
+
+    /**
+     * Returns the full name of the person (in appropriate name order)
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        if ($this->nameorder && $this->nameorder->equals(NameOrder::EASTERN())) {
+            return sprintf('%s %s', $this->lastname, $this->firstname);
+        }
+
+        return sprintf('%s %s', $this->firstname, $this->lastname);
     }
 
 }

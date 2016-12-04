@@ -25,10 +25,6 @@ class CreatePersonsTable extends Migration
             $table->string('nin', 21)->nullable()->comment('National Identification Number');
             $table->enum('nameorder', array_values(NameOrder::toArray()))->comment(NameOrder::__default);
             $table->timestamps();
-
-            $table->foreign('country_id')
-                  ->references('id')
-                  ->on('countries');
         });
     }
 
@@ -39,6 +35,6 @@ class CreatePersonsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('addresses');
+        Schema::drop('persons');
     }
 }

@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int            $country_id
  * @property int            $province_id
  * @property ProvinceType   $type
- * @property string         $zip       Max 12 characters
+ * @property string         $postalcode     Max 12 characters
  * @property string         $city
  * @property string         $address
  */
