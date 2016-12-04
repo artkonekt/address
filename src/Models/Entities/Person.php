@@ -12,6 +12,8 @@
 
 namespace Konekt\Address\Models\Entities;
 
+use DateTime;
+use Konekt\Address\Models\Gender;
 use Konekt\Address\Models\NameOrder;
 
 
@@ -22,6 +24,8 @@ use Konekt\Address\Models\NameOrder;
  * @property string         $firstname  First Name
  * @property string         $lastname   Last Name
  * @property string         $email
+ * @property DateTime       $birthdate
+ * @property Gender         $gender
  * @property string         $phone      Max 22 chars
  * @property string         $nin        National Identification Number max 21 chars
  * @property NameOrder      $nameorder  Name order (eastern or western)
@@ -36,6 +40,17 @@ class Person extends Model
     protected $table = 'persons';
 
     /**
+     * The attributes to be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'birthdate'
+    ];
+
+    /**
      * @return NameOrder
      */
     public function getNameorderAttribute($value)
@@ -46,9 +61,25 @@ class Person extends Model
     /**
      * @param NameOrder $nameOrder
      */
-    public function setTypeAttribute(NameOrder $nameOrder)
+    public function setNameorderAttribute(NameOrder $nameOrder)
     {
         $this->attributes['nameorder'] = $nameOrder->getValue();
+    }
+
+    /**
+     * @return Gender
+     */
+    public function getGenderAttribute($value)
+    {
+        return new Gender($value);
+    }
+
+    /**
+     * @param Gender $gender
+     */
+    public function setGenderAttribute(Gender $gender)
+    {
+        $this->attributes['gender'] = $gender->getValue();
     }
 
 }
