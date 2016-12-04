@@ -10,7 +10,6 @@
  */
 
 
-namespace Konekt\Location\resources\database\seeds;
 
 use Illuminate\Database\Seeder;
 

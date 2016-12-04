@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Konekt\Location\Models\ProvinceType;
+use Konekt\Address\Models\ProvinceType;
 
 class CreateProvincesTable extends Migration
 {

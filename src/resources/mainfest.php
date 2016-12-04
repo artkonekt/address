@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'name'    => 'Konekt Location Module',
+    'name'    => 'Konekt Address Module',
     'version' => '0.1.0'
 ];

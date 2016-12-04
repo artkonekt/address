@@ -10,7 +10,7 @@
  */
 
 
-namespace Konekt\Location\Providers;
+namespace Konekt\Address\Providers;
 
 use Konekt\Concord\AbstractModuleServiceProvider;
 

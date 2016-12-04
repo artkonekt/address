@@ -10,10 +10,10 @@
  */
 
 
-namespace Konekt\Location\Models\Entities;
+namespace Konekt\Address\Models\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Konekt\Location\Models\ProvinceType;
+use Konekt\Address\Models\ProvinceType;
 
 /**
  * Province Entity class

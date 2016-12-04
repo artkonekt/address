@@ -9,7 +9,7 @@
  *
  */
 
-namespace Konekt\Location\Models\Entities;
+namespace Konekt\Address\Models\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 

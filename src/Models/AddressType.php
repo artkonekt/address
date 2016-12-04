@@ -10,7 +10,7 @@
  */
 
 
-namespace Konekt\Location\Models;
+namespace Konekt\Address\Models;
 
 use Konekt\Enum\Enum;
 
