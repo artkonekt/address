@@ -19,8 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int            $id
  * @property string         $name
- * @property string         $email
- * @property string         $phone      Max 22 chars
  * @property int            $country_id
  * @property int            $province_id
  * @property ProvinceType   $type
