@@ -15,7 +15,7 @@
     },
     "require": {
         "php": ">=7.0.0",
-        "konekt/enum": "^1.1",
+        "konekt/enum": "~1.2",
         "konekt/concord": "dev-master"
     },
     "autoload": {
