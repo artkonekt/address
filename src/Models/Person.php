@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the Person entity class.
+ * Contains the Person model class.
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop
@@ -10,11 +10,10 @@
  */
 
 
-namespace Konekt\Address\Models\Entities;
+namespace Konekt\Address\Models;
 
 use DateTime;
-use Konekt\Address\Models\Gender;
-use Konekt\Address\Models\NameOrder;
+use Konekt\Address\Contracts\Person as PersonContract;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -31,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string         $nin        National Identification Number max 21 chars
  * @property NameOrder      $nameorder  Name order (eastern or western)
  */
-class Person extends Model
+class Person extends Model implements PersonContract
 {
     /**
      * The database table used by the model.

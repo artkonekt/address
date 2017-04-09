@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the AddressType class.
+ * Contains the AddressType enum class.
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the Address entity class.
+ * Contains the Address model class.
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop
@@ -10,9 +10,10 @@
  */
 
 
-namespace Konekt\Address\Models\Entities;
+namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Konekt\Address\Contracts\Address as AddressContract;
 
 /**
  * Address Entity class
@@ -26,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string         $city
  * @property string         $address
  */
-class Address extends Model
+class Address extends Model implements AddressContract
 {
 
     /**
@@ -36,9 +37,14 @@ class Address extends Model
      */
     protected $table = 'countries';
 
+    /**
+     * Relationship to the country the address belongs to
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function country()
     {
-        return $this->belongsTo(Country::class, 'country_id');
+        return $this->belongsTo(CountryProxy::realClass(), 'country_id');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the Organization entity class.
+ * Contains the Organization model class.
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop
@@ -10,9 +10,10 @@
  */
 
 
-namespace Konekt\Address\Models\Entities;
+namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Konekt\Address\Contracts\Organization as OrganizationContract;
 
 /**
  * Organization Entity class
@@ -22,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string         $tax_nr             Tax/VAT Identification Number
  * @property string         $registration_nr    Company/Trade Registration Number
  */
-class Organization extends Model
+class Organization extends Model implements OrganizationContract
 {
 
     /**

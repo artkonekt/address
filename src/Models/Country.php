@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the Province.php
+ * Contains the Country model class
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop
@@ -9,9 +9,10 @@
  *
  */
 
-namespace Konekt\Address\Models\Entities;
+namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Konekt\Address\Contracts\Country as CountryContract;
 
 /**
  * Country Entity class
@@ -21,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int    $phonecode
  * @property bool   $is_eu_member
  */
-class Country extends Model
+class Country extends Model implements CountryContract
 {
     /**
      * The database table used by the model.

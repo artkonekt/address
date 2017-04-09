@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the Province.php
+ * Contains the Province model class
  *
  * @copyright   Copyright (c) 2016 Attila Fulop
  * @author      Attila Fulop
@@ -10,10 +10,10 @@
  */
 
 
-namespace Konekt\Address\Models\Entities;
+namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Konekt\Address\Models\ProvinceType;
+use Konekt\Address\Contracts\Province as ProvinceContract;
 
 /**
  * Province Entity class
@@ -24,7 +24,7 @@ use Konekt\Address\Models\ProvinceType;
  * @property string         $code       Max 16 characters
  * @property string         $name
  */
-class Province extends Model
+class Province extends Model implements ProvinceContract
 {
     /**
      * The database table used by the model.
@@ -35,7 +35,7 @@ class Province extends Model
 
     public function country()
     {
-        return $this->belongsTo(Country::class, 'country_id');
+        return $this->belongsTo(CountryProxy::realClass(), 'country_id');
     }
 
     /**
