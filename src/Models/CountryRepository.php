@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the CountryProxy class.
+ * Contains the CountryRepository class.
  *
  * @copyright   Copyright (c) 2017 Attila Fulop
  * @author      Attila Fulop
@@ -13,9 +13,9 @@
 namespace Konekt\Address\Models;
 
 
-use Konekt\Concord\Database\ModelProxy;
+use Konekt\Concord\Database\Repository;
 
-class CountryProxy extends ModelProxy
+class CountryRepository extends Repository
 {
 
 }

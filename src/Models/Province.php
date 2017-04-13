@@ -35,7 +35,7 @@ class Province extends Model implements ProvinceContract
 
     public function country()
     {
-        return $this->belongsTo(CountryProxy::realClass(), 'country_id');
+        return $this->belongsTo(CountryRepository::modelClass(), 'country_id');
     }
 
     /**
