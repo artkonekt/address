@@ -44,7 +44,7 @@ class Address extends Model implements AddressContract
      */
     public function country()
     {
-        return $this->belongsTo(CountryRepository::modelClass(), 'country_id');
+        return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
     }
 
 }

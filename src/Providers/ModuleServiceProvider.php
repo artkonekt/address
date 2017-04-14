@@ -12,9 +12,21 @@
 
 namespace Konekt\Address\Providers;
 
-use Konekt\Concord\AbstractModuleServiceProvider;
+use Konekt\Address\Models\Address;
+use Konekt\Address\Models\Country;
+use Konekt\Address\Models\Organization;
+use Konekt\Address\Models\Person;
+use Konekt\Address\Models\Province;
+use Konekt\Concord\BaseModuleServiceProvider;
 
-class ModuleServiceProvider extends AbstractModuleServiceProvider
+class ModuleServiceProvider extends BaseModuleServiceProvider
 {
+    protected $models = [
+        Address::class,
+        Country::class,
+        Organization::class,
+        Person::class,
+        Province::class
+    ];
 
 }
