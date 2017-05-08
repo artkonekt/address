@@ -35,7 +35,7 @@ class Address extends Model implements AddressContract
      *
      * @var string
      */
-    protected $table = 'countries';
+    protected $table = 'addresses';
 
     /**
      * Relationship to the country the address belongs to
