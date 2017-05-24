@@ -13,7 +13,7 @@
 namespace Konekt\Address\Models;
 
 
-use Konekt\Concord\Database\ModelProxy;
+use Konekt\Concord\Proxies\ModelProxy;
 
 class CountryProxy extends ModelProxy
 {
