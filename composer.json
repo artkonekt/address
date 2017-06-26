@@ -2,7 +2,6 @@
     "name": "konekt/address",
     "description": "Laravel module for handling countries, cities, addresses, people and organizations",
     "type": "library",
-    "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
         {
@@ -20,5 +19,18 @@
     },
     "autoload": {
         "psr-4": { "Konekt\\Address\\": "src"}
+    },
+    "require-dev": {
+        "monolog/monolog": "^1.22",
+        "orchestra/testbench": "~3.4.2",
+        "phpunit/phpunit" : "~6.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konekt\\Address\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }

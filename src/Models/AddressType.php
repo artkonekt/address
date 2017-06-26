@@ -12,9 +12,10 @@
 
 namespace Konekt\Address\Models;
 
+use Konekt\Address\Contracts\AddressType as AddressTypeContract;
 use Konekt\Enum\Enum;
 
-class AddressType extends Enum
+class AddressType extends Enum implements AddressTypeContract
 {
     const __default = self::SHIPPING;
     const SHIPPING  = 'shipping';

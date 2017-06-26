@@ -13,10 +13,14 @@
 namespace Konekt\Address\Providers;
 
 use Konekt\Address\Models\Address;
+use Konekt\Address\Models\AddressType;
 use Konekt\Address\Models\Country;
+use Konekt\Address\Models\Gender;
+use Konekt\Address\Models\NameOrder;
 use Konekt\Address\Models\Organization;
 use Konekt\Address\Models\Person;
 use Konekt\Address\Models\Province;
+use Konekt\Address\Models\ProvinceType;
 use Konekt\Concord\BaseModuleServiceProvider;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider
@@ -27,6 +31,13 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
         Organization::class,
         Person::class,
         Province::class
+    ];
+
+    protected $enums = [
+        AddressType::class,
+        Gender::class,
+        NameOrder::class,
+        ProvinceType::class
     ];
 
 }

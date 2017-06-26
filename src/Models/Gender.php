@@ -13,9 +13,10 @@
 namespace Konekt\Address\Models;
 
 
+use Konekt\Address\Contracts\Gender as GenderContract;
 use Konekt\Enum\Enum;
 
-class Gender extends Enum
+class Gender extends Enum implements GenderContract
 {
     const MALE   = 'm';
     const FEMALE = 'f';

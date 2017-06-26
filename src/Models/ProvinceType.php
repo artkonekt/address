@@ -12,9 +12,10 @@
 
 namespace Konekt\Address\Models;
 
+use Konekt\Address\Contracts\ProvinceType as ProvinceTypeContract;
 use Konekt\Enum\Enum;
 
-class ProvinceType extends Enum
+class ProvinceType extends Enum implements ProvinceTypeContract
 {
     const __default = self::PROVINCE;
     const STATE     = 'state';
