@@ -13,7 +13,7 @@ namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
 
-class ProvincesOfRomaniaSeeder extends Seeder
+class ProvincesOfRomania extends Seeder
 {
 
     /**
