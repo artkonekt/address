@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains the db seeder with all the countries of the world
  *

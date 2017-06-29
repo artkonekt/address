@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains the db seeder with Romanian counties
  *
@@ -9,6 +8,8 @@
  * @since       2016-12-03
  *
  */
+
+namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
 

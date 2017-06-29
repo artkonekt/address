@@ -9,7 +9,7 @@
  *
  */
 
-
+namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
 
