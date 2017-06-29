@@ -10,6 +10,8 @@
  *
  */
 
+namespace Konekt\Address\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class CountriesSeeder extends Seeder

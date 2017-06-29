@@ -18,7 +18,10 @@
         "konekt/concord": "dev-master"
     },
     "autoload": {
-        "psr-4": { "Konekt\\Address\\": "src"}
+        "psr-4": {
+            "Konekt\\Address\\": "src",
+            "Konekt\\Address\\Seeds\\": "src/resources/database/seeds"
+        }
     },
     "require-dev": {
         "monolog/monolog": "^1.22",
