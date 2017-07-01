@@ -30,4 +30,20 @@ class Country extends Model implements CountryContract
      * @var string
      */
     protected $table = 'countries';
+
+    /**
+     * @var bool Country id's are non-numeric
+     */
+    public $incrementing = false;
+
+
+    public function provinces()
+    {
+        return $this->hasMany(ProvinceProxy::modelClass(), 'country_id', 'id');
+    }
+
+    public function states()
+    {
+        return $this->provinces()->where('type', ProvinceType::STATE);
+    }
 }

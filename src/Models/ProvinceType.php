@@ -18,16 +18,22 @@ use Konekt\Enum\Enum;
 class ProvinceType extends Enum implements ProvinceTypeContract
 {
     const __default = self::PROVINCE;
-    const STATE     = 'state';
-    const REGION    = 'region';
-    const PROVINCE  = 'province';
-    const COUNTY    = 'county';
+    const STATE            = 'state';
+    const REGION           = 'region';
+    const PROVINCE         = 'province';
+    const COUNTY           = 'county';
+    const TERRITORY        = 'territory';
+    const FEDERAL_DISTRICT = 'federal_district';
+    const MILITARY         = 'military';
 
     protected static $displayTexts = [
-        self::STATE    => 'State',
-        self::REGION   => 'Region',
-        self::PROVINCE => 'Province',
-        self::COUNTY   => 'County'
+        self::STATE            => 'State',
+        self::REGION           => 'Region',
+        self::PROVINCE         => 'Province',
+        self::COUNTY           => 'County',
+        self::TERRITORY        => 'Territory',
+        self::FEDERAL_DISTRICT => 'Federal District',
+        self::MILITARY         => 'Military'
     ];
 
 }

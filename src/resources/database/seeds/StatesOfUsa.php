@@ -12,6 +12,7 @@
 namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
+use Konekt\Address\Models\ProvinceType;
 
 class StatesOfUsa extends Seeder
 {
@@ -34,12 +35,6 @@ class StatesOfUsa extends Seeder
                 [
                     "code"       => "AK",
                     "name"       => "Alaska",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
-                    "code"       => "AS",
-                    "name"       => "American Samoa",
                     "country_id" => "US",
                     "type"       => "state"
                 ],
@@ -80,18 +75,6 @@ class StatesOfUsa extends Seeder
                     "type"       => "state"
                 ],
                 [
-                    "code"       => "DC",
-                    "name"       => "District of Columbia",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
-                    "code"       => "FM",
-                    "name"       => "Federated States of Micronesia",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
                     "code"       => "FL",
                     "name"       => "Florida",
                     "country_id" => "US",
@@ -100,12 +83,6 @@ class StatesOfUsa extends Seeder
                 [
                     "code"       => "GA",
                     "name"       => "Georgia",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
-                    "code"       => "GU",
-                    "name"       => "Guam",
                     "country_id" => "US",
                     "type"       => "state"
                 ],
@@ -160,12 +137,6 @@ class StatesOfUsa extends Seeder
                 [
                     "code"       => "ME",
                     "name"       => "Maine",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
-                    "code"       => "MH",
-                    "name"       => "Marshall Islands",
                     "country_id" => "US",
                     "type"       => "state"
                 ],
@@ -260,12 +231,6 @@ class StatesOfUsa extends Seeder
                     "type"       => "state"
                 ],
                 [
-                    "code"       => "MP",
-                    "name"       => "Northern Mariana Islands",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
                     "code"       => "OH",
                     "name"       => "Ohio",
                     "country_id" => "US",
@@ -284,20 +249,8 @@ class StatesOfUsa extends Seeder
                     "type"       => "state"
                 ],
                 [
-                    "code"       => "PW",
-                    "name"       => "Palau",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
                     "code"       => "PA",
                     "name"       => "Pennsylvania",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
-                    "code"       => "PR",
-                    "name"       => "Puerto Rico",
                     "country_id" => "US",
                     "type"       => "state"
                 ],
@@ -344,12 +297,6 @@ class StatesOfUsa extends Seeder
                     "type"       => "state"
                 ],
                 [
-                    "code"       => "VI",
-                    "name"       => "Virgin Islands",
-                    "country_id" => "US",
-                    "type"       => "state"
-                ],
-                [
                     "code"       => "VA",
                     "name"       => "Virginia",
                     "country_id" => "US",
@@ -379,23 +326,60 @@ class StatesOfUsa extends Seeder
                     "country_id" => "US",
                     "type"       => "state"
                 ],
+                // -- END OF STATES
                 [
-                    "code"       => "AE",
-                    "name"       => "Armed Forces Europe, the Middle East, and Canada",
+                    "code"       => "DC",
+                    "name"       => "District of Columbia",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type"       => ProvinceType::FEDERAL_DISTRICT
                 ],
                 [
-                    "code"       => "AP",
-                    "name"       => "Armed Forces Pacific",
+                    "code"       => "AS",
+                    "name"       => "American Samoa",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type"       => ProvinceType::TERRITORY
+                ],
+                [
+                    "code"       => "GU",
+                    "name"       => "Guam",
+                    "country_id" => "US",
+                    "type"       => ProvinceType::TERRITORY
+                ],
+                [
+                    "code"       => "MP",
+                    "name"       => "Northern Mariana Islands",
+                    "country_id" => "US",
+                    "type"       => ProvinceType::TERRITORY
+                ],
+                [
+                    "code"       => "PR",
+                    "name"       => "Puerto Rico",
+                    "country_id" => "US",
+                    "type"       => ProvinceType::TERRITORY
+                ],
+                [
+                    "code"       => "VI",
+                    "name"       => "Virgin Islands",
+                    "country_id" => "US",
+                    "type"       => ProvinceType::TERRITORY
                 ],
                 [
                     "code"       => "AA",
                     "name"       => "Armed Forces Americas (except Canada)",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type"       => ProvinceType::MILITARY
+                ],
+                [
+                    "code"       => "AE",
+                    "name"       => "Armed Forces Europe, the Middle East, and Canada",
+                    "country_id" => "US",
+                    "type"       => ProvinceType::MILITARY
+                ],
+                [
+                    "code"       => "AP",
+                    "name"       => "Armed Forces Pacific",
+                    "country_id" => "US",
+                    "type"       => ProvinceType::MILITARY
                 ]
             ]
 
