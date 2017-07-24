@@ -39,6 +39,8 @@ class Person extends Model implements PersonContract
      */
     protected $table = 'persons';
 
+    protected $fillable = ['firstname', 'lastname', 'gender'];
+
     /**
      * The attributes to be mutated to dates.
      *
