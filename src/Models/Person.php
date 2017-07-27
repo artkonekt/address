@@ -85,11 +85,9 @@ class Person extends Model implements PersonContract
     }
 
     /**
-     * Returns the full name of the person (in appropriate name order)
-     *
-     * @return string
+     * @inheritdoc
      */
-    public function getName()
+    public function name()
     {
         if ($this->nameorder && $this->nameorder->equals(NameOrder::EASTERN())) {
             return sprintf('%s %s', $this->lastname, $this->firstname);

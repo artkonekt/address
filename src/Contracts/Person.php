@@ -16,4 +16,11 @@ namespace Konekt\Address\Contracts;
 interface Person
 {
 
+    /**
+     * Returns the full name of the person (in appropriate name order)
+     *
+     * @return string
+     */
+    public function name();
+
 }
