@@ -2,5 +2,4 @@
 vendor/
 composer.lock
 build
-docs
 tests/temp
