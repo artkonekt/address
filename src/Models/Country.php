@@ -12,15 +12,19 @@
 namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Konekt\Address\Contracts\Country as CountryContract;
 
 /**
- * Country Entity class
+ * Country Model class
  *
- * @property string $id
- * @property string $name
- * @property int    $phonecode
- * @property bool   $is_eu_member
+ * @property string     $id
+ * @property string     $name
+ * @property int        $phonecode
+ * @property bool       $is_eu_member
+ * @property Collection provinces
+ * @property Collection states
+ * @property Collection counties
  */
 class Country extends Model implements CountryContract
 {
@@ -30,6 +34,10 @@ class Country extends Model implements CountryContract
      * @var string
      */
     protected $table = 'countries';
+
+    protected $casts = [
+        'is_eu_member' => 'bool'
+    ];
 
     /**
      * @var bool Country id's are non-numeric
@@ -45,5 +53,10 @@ class Country extends Model implements CountryContract
     public function states()
     {
         return $this->provinces()->where('type', ProvinceType::STATE);
+    }
+
+    public function counties()
+    {
+        return $this->provinces()->where('type', ProvinceType::COUNTY);
     }
 }

@@ -15,3 +15,6 @@
     - [Province Type](province-type.md)
     - [Gender](gender.md)
     - [Name Order](name-order.md)
+
+- IV. Misc
+    - [Seeders](seeders.md)
