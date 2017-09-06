@@ -14,6 +14,7 @@ namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Konekt\Address\Contracts\Province as ProvinceContract;
+use Konekt\Address\Contracts\ProvinceType as ProvinceTypeContract;
 
 /**
  * Province Entity class
@@ -39,19 +40,22 @@ class Province extends Model implements ProvinceContract
     }
 
     /**
-     * @return ProvinceType
+     * @return ProvinceTypeContract
      */
     public function getTypeAttribute($value)
     {
-        return new ProvinceType($value);
+        //Extend the enum proxy with a utility method for this
+        $class = ProvinceTypeProxy::enumClass();
+
+        return new $class($value);
     }
 
     /**
-     * @param ProvinceType $provinceType
+     * @param ProvinceTypeContract|string $value
      */
-    public function setTypeAttribute(ProvinceType $provinceType)
+    public function setTypeAttribute($value)
     {
-        $this->attributes['type'] = $provinceType->getValue();
+        $this->attributes['type'] = $value instanceof ProvinceTypeContract ? $value->getValue() : $value;
     }
 
 }

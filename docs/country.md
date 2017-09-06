@@ -21,28 +21,6 @@
 
 ### Seeders
 
-The package ships with the `Konekt\Address\Seeds\Countries` seeder
-(`src/resources/database/seeds` folder) that loads all the countries of
-the world in the DB.
+The `Konekt\Address\Seeds\Countries` with all the world's countries.
 
-#### Loading With Artisan
-
-```bash
-php artisan db:seed --class="\Konekt\Address\Seeds\Countries"
-```
-
-#### Adding To Your App's DatabaseSeeder
-
-```php
-class DatabaseSeeder extends \Illuminate\Database\Seeder
-{
-    public function run()
-    {
-        //...
-        $this->call(\Konekt\Address\Seeds\Countries::class);
-        //...
-    }
-} 
-```
-
-For more details refer to the [seeds section](https://artkonekt.github.io/concord/#/seeds) in the Concord docs.
+Refer to the [seeders](seeders.md) section for more details.

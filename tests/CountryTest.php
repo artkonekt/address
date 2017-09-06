@@ -45,6 +45,11 @@ class CountryTest extends TestCase
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
+    }
+
+    public function setUp()
+    {
+        parent::setUp();
 
         $this->usa     = CountryProxy::find('US');
         $this->uk      = CountryProxy::find('GB');
