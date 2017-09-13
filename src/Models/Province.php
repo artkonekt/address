@@ -34,6 +34,10 @@ class Province extends Model implements ProvinceContract
      */
     protected $table = 'provinces';
 
+    protected $guarded = ['id'];
+
+    public $timestamps = false;
+
     public function country()
     {
         return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
@@ -42,12 +46,9 @@ class Province extends Model implements ProvinceContract
     /**
      * @return ProvinceTypeContract
      */
-    public function getTypeAttribute($value)
+    public function getTypeAttribute()
     {
-        //Extend the enum proxy with a utility method for this
-        $class = ProvinceTypeProxy::enumClass();
-
-        return new $class($value);
+        return ProvinceTypeProxy::create($this->attributes['type']);
     }
 
     /**
@@ -55,7 +56,7 @@ class Province extends Model implements ProvinceContract
      */
     public function setTypeAttribute($value)
     {
-        $this->attributes['type'] = $value instanceof ProvinceTypeContract ? $value->getValue() : $value;
+        $this->attributes['type'] = $value instanceof ProvinceTypeContract ? $value->value() : $value;
     }
 
 }

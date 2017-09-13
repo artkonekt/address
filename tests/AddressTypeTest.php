@@ -18,11 +18,15 @@ use Konekt\Address\Models\AddressTypeProxy;
 
 class AddressTypeTest extends TestCase
 {
-    public function testCanBeInstantiated()
+    /**
+     * @test
+     */
+    public function can_be_instantiated()
     {
         $type = new AddressType();
+
         $this->assertNotNull($type);
-        $this->assertEquals(AddressType::__default, $type->getValue());
+        $this->assertEquals(AddressType::__default, $type->value());
 
         $shipping = AddressType::SHIPPING();
         $this->assertTrue($shipping->equals(AddressTypeProxy::SHIPPING()));

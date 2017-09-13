@@ -10,7 +10,7 @@
 | country_id   | char(2)    | fk -> countries              |
 | type         | string     |                              |
 | code         | string(16) | National identification code |
-| name         | string     |                              |
+| name         | string     | -                            |
 
 ### Relations
 

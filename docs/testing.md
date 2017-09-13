@@ -17,7 +17,7 @@ vendor/bin/phpunit -c phpunit.xml.dist tests
     - Add or Edit PHPUnit Local,
     - Use Composer Autoloader
     - Path to script: `<path_to_this_folder>/vendor/autoload.php`
-    - Default configuration file: `<path_to_this_folder>/phpunit.xml.dist`
+    - Default configuration file: `<path_to_this_folder>/phpunit.xml`
 3. Mark directory: Settings -> Directories:
     - Mark `tests` folder as test
     - [optional]: On the right sidebar edit properties and set package prefix to `Konekt\Address\Tests`

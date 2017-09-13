@@ -4,12 +4,12 @@
 
 ### Fields
 
-| Name         | Type    |   |
-|--------------|---------|---|
-| id           | char(2) |   |
-| name         | string  |   |
-| phonecode    | int     |   |
-| is_eu_member | bool    |   |
+| Name         | Type    |
+|--------------|---------|
+| id           | char(2) |
+| name         | string  |
+| phonecode    | int     |
+| is_eu_member | bool    |
 
 ### Relations
 
