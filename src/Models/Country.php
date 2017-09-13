@@ -44,6 +44,8 @@ class Country extends Model implements CountryContract
      */
     public $incrementing = false;
 
+    public $timestamps = false;
+
 
     public function provinces()
     {
