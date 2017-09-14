@@ -426,7 +426,10 @@ class Countries extends Seeder
                 'name'         => 'Czech Republic',
                 'phonecode'    => 420,
                 'is_eu_member' => 1
-            ],
+            ]
+        ]);
+
+        \DB::table('countries')->insert([
 
             [
                 'id'           => 'DK',
@@ -664,8 +667,11 @@ class Countries extends Seeder
                 'name'         => 'Guyana',
                 'phonecode'    => 592,
                 'is_eu_member' => 0
-            ],
+            ]
 
+        ]);
+
+        \DB::table('countries')->insert([
             [
                 'id'           => 'HT',
                 'name'         => 'Haiti',
@@ -895,7 +901,11 @@ class Countries extends Seeder
                 'name'         => 'Luxembourg',
                 'phonecode'    => 352,
                 'is_eu_member' => 1
-            ],
+            ]
+
+        ]);
+
+        \DB::table('countries')->insert([
 
             [
                 'id'           => 'MO',
@@ -1238,7 +1248,11 @@ class Countries extends Seeder
                 'name'         => 'Puerto Rico',
                 'phonecode'    => 1787,
                 'is_eu_member' => 0
-            ],
+            ]
+
+        ]);
+
+        \DB::table('countries')->insert([
 
             [
                 'id'           => 'QA',
@@ -1567,7 +1581,11 @@ class Countries extends Seeder
                 'name'         => 'Tuvalu',
                 'phonecode'    => 688,
                 'is_eu_member' => 0
-            ],
+            ]
+
+        ]);
+
+        \DB::table('countries')->insert([
 
             [
                 'id'           => 'UG',
