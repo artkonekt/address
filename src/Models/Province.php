@@ -59,4 +59,22 @@ class Province extends Model implements ProvinceContract
         $this->attributes['type'] = $value instanceof ProvinceTypeContract ? $value->value() : $value;
     }
 
+    /**
+     * Returns a single province object by country and code
+     *
+     * @param \Konekt\Address\Contracts\Country|string  $country
+     * @param string                                    $code
+     *
+     * @return \Konekt\Address\Contracts\Province
+     */
+    public static function findByCountryAndCode($country, $code)
+    {
+        $country = is_object($country) ? $country->id : $country;
+
+        return ProvinceProxy::where([
+            'country_id' => $country,
+            'code'       => $code
+        ])->take(1)->get()->first();
+    }
+
 }

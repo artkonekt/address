@@ -22,6 +22,19 @@
 
 The `type` field is backed with the [ProvinceType](province-type.md) enum.
 
+### Methods
+
+#### findByCountryAndCode
+
+Returns a single province by country and the province's national code.
+
+```php
+$brasov = Province::findByCountryAndCode('RO', 'BV');
+// or
+$romania = Country::find('RO');
+$brasov = Province::findByCountryAndCode($romania, 'BV');
+```
+
 ### Seeders
 
 The package contains several province/state seeders for various countries.

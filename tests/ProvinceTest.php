@@ -14,6 +14,7 @@ namespace Konekt\Address\Tests;
 
 
 use Konekt\Address\Contracts\Country as CountryContract;
+use Konekt\Address\Contracts\Province as ProvinceContract;
 use Konekt\Address\Models\Country;
 use Konekt\Address\Models\CountryProxy;
 use Konekt\Address\Models\Province;
@@ -98,7 +99,7 @@ class ProvinceTest extends TestCase
      */
     public function province_type_can_be_changed_via_plain_string()
     {
-        $bichis = Province::create([
+        $bichis = ProvinceProxy::create([
             'country_id' => $this->romania->id,
             'type'       => ProvinceType::COUNTY,
             'code'       => 'BI',
@@ -111,6 +112,40 @@ class ProvinceTest extends TestCase
         $bichis->save();
 
         $this->assertTrue($bichis->type->equals(ProvinceType::MILITARY()));
+    }
+
+    /**
+     * @test
+     */
+    public function province_can_be_retrieved_by_country_and_code()
+    {
+        $brasov = ProvinceProxy::findByCountryAndCode('RO', 'BV');
+
+        $this->assertInstanceOf(ProvinceContract::class, $brasov);
+        $this->assertEquals('RO', $brasov->country_id);
+        $this->assertEquals('BV', $brasov->code);
+    }
+
+    /**
+     * @test
+     */
+    public function find_by_country_and_code_accepts_country_object_as_first_parameter()
+    {
+        $cluj = ProvinceProxy::findByCountryAndCode($this->romania, 'CJ');
+
+        $this->assertInstanceOf(ProvinceContract::class, $cluj);
+        $this->assertEquals('RO', $cluj->country_id);
+        $this->assertEquals('CJ', $cluj->code);
+    }
+
+    /**
+     * @test
+     */
+    public function find_by_country_and_code_returns_null_on_nonexistent()
+    {
+        $inexistent = ProvinceProxy::findByCountryAndCode('RO', 'VW');
+
+        $this->assertNull($inexistent);
     }
 
 }
