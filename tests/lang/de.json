@@ -1,0 +1,5 @@
+{
+    "Shipping" : "Lieferadresse",
+    "Billing"  : "Rechnungsadresse",
+    "Else"     : "Anders"
+}
