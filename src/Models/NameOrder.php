@@ -19,12 +19,18 @@ use Konekt\Enum\Enum;
 class NameOrder extends Enum implements NameOrderContract
 {
     const __default = self::WESTERN;
+
     const WESTERN   = 'western';
     const EASTERN   = 'eastern';
 
-    protected static $displayTexts = [
-        self::WESTERN => 'Western',
-        self::EASTERN => 'Eastern'
-    ];
+    protected static $labels = [];
+
+    protected static function boot()
+    {
+        static::$labels = [
+            self::WESTERN => __('Western'),
+            self::EASTERN => __('Eastern')
+        ];
+    }
 
 }

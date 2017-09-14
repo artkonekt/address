@@ -18,12 +18,18 @@ use Konekt\Enum\Enum;
 class AddressType extends Enum implements AddressTypeContract
 {
     const __default = self::SHIPPING;
+
     const SHIPPING  = 'shipping';
     const BILLING   = 'billing';
 
-    protected static $displayTexts = [
-        self::SHIPPING => 'Shipping',
-        self::BILLING  => 'Billing'
-    ];
+    protected static $labels = [];
+
+    protected static function boot()
+    {
+        static::$labels = [
+            self::SHIPPING => __('Shipping'),
+            self::BILLING  => __('Billing')
+        ];
+    }
 
 }

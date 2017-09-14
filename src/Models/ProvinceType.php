@@ -27,14 +27,19 @@ class ProvinceType extends Enum implements ProvinceTypeContract
     const FEDERAL_DISTRICT = 'federal_district';
     const MILITARY         = 'military';
 
-    protected static $displayTexts = [
-        self::STATE            => 'State',
-        self::REGION           => 'Region',
-        self::PROVINCE         => 'Province',
-        self::COUNTY           => 'County',
-        self::TERRITORY        => 'Territory',
-        self::FEDERAL_DISTRICT => 'Federal District',
-        self::MILITARY         => 'Military'
-    ];
+    protected static $labels = [];
+
+    protected static function boot()
+    {
+        static::$labels = [
+            self::STATE            => __('State'),
+            self::REGION           => __('Region'),
+            self::PROVINCE         => __('Province'),
+            self::COUNTY           => __('County'),
+            self::TERRITORY        => __('Territory'),
+            self::FEDERAL_DISTRICT => __('Federal District'),
+            self::MILITARY         => __('Military')
+        ];
+    }
 
 }

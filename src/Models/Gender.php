@@ -18,7 +18,20 @@ use Konekt\Enum\Enum;
 
 class Gender extends Enum implements GenderContract
 {
-    const MALE   = 'm';
-    const FEMALE = 'f';
+    const UNKNOWN = null;
+    const MALE    = 'm';
+    const FEMALE  = 'f';
+
+    protected static $labels = [];
+
+    protected static function boot()
+    {
+        static::$labels = [
+            self::UNKNOWN => __('Unknown'),
+            self::MALE    => __('Male'),
+            self::FEMALE  => __('Female')
+        ];
+    }
+
 
 }
