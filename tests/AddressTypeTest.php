@@ -34,6 +34,7 @@ class AddressTypeTest extends TestCase
         $billing = AddressType::BILLING();
         $this->assertTrue($billing->equals(AddressTypeProxy::BILLING()));
 
+        $this->assertInstanceOf(AddressType::class, AddressTypeProxy::create());
     }
 
 }

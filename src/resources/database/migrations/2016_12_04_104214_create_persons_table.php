@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Konekt\Address\Models\Gender;
+use Konekt\Address\Models\GenderProxy;
 use Konekt\Address\Models\NameOrder;
+use Konekt\Address\Models\NameOrderProxy;
 
 class CreatePersonsTable extends Migration
 {
@@ -21,11 +22,10 @@ class CreatePersonsTable extends Migration
             $table->string('email')->nullable();
             $table->string('phone', 22)->nullable();
             $table->date('birthdate')->nullable();
-            $table->enum('gender', array_values(Gender::toArray()))->nullable();
+            $table->enum('gender', GenderProxy::values())->nullable();
             $table->string('nin', 21)->nullable()->comment('National Identification Number');
 
-            $table->enum('nameorder', array_values(NameOrder::toArray()))
-                ->nullable()
+            $table->enum('nameorder', NameOrderProxy::values())
                 ->default(NameOrder::__default)
                 ->comment('western: First Last, eastern: Last First');
 

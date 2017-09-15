@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Konekt\Address\Models\ProvinceType;
+use Konekt\Address\Models\ProvinceTypeProxy;
 
 class CreateProvincesTable extends Migration
 {
@@ -17,7 +18,7 @@ class CreateProvincesTable extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->increments('id');
             $table->char('country_id', 2);
-            $table->enum('type', array_values(ProvinceType::toArray()))->default(ProvinceType::__default);
+            $table->enum('type', ProvinceTypeProxy::values())->default(ProvinceType::__default);
             $table->string('code', 16)->nullable()->comment('National identification code');
             $table->string('name');
 

@@ -46,10 +46,7 @@ class ProvinceTest extends TestCase
         parent::setUp();
 
         $this->romania = CountryProxy::find('RO');
-        $this->cluj    = ProvinceProxy::where([
-            'country_id' => $this->romania->id,
-            'code'       => 'CJ'
-        ])->take(1)->get()->first();
+        $this->cluj    = ProvinceProxy::findByCountryAndCode('RO','CJ');
     }
 
     /**
@@ -117,6 +114,26 @@ class ProvinceTest extends TestCase
     /**
      * @test
      */
+    public function province_type_can_be_set_with_enum()
+    {
+        $haiduc = ProvinceProxy::create([
+            'country_id' => $this->romania->id,
+            'type'       => ProvinceType::COUNTY(),
+            'code'       => 'HA',
+            'name'       => 'Haiduc'
+        ]);
+
+        $this->assertNotEmpty($haiduc->id);
+
+        $haiduc->type = ProvinceType::MILITARY();
+        $haiduc->save();
+
+        $this->assertTrue($haiduc->type->equals(ProvinceType::MILITARY()));
+    }
+
+    /**
+     * @test
+     */
     public function province_can_be_retrieved_by_country_and_code()
     {
         $brasov = ProvinceProxy::findByCountryAndCode('RO', 'BV');
@@ -146,6 +163,19 @@ class ProvinceTest extends TestCase
         $inexistent = ProvinceProxy::findByCountryAndCode('RO', 'VW');
 
         $this->assertNull($inexistent);
+    }
+
+    /**
+     * @test
+     */
+    public function returns_us_states_by_country_and_code()
+    {
+        $california = ProvinceProxy::findByCountryAndCode('US', 'CA');
+
+        $this->assertInstanceOf(ProvinceContract::class, $california);
+        $this->assertEquals('US', $california->country_id);
+        $this->assertEquals('CA', $california->code);
+        $this->assertTrue($california->type->equals(ProvinceType::STATE()));
     }
 
 }

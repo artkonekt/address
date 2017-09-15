@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the EnumTranslationTest.php class.
+ * Contains the EnumTranslationTest class.
  *
  * @copyright   Copyright (c) 2017 Attila Fulop
  * @author      Attila Fulop

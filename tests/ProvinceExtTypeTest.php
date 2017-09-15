@@ -17,6 +17,7 @@ use Konekt\Address\Contracts\ProvinceType as ProvinceTypeContract;
 use Konekt\Address\Models\Country;
 use Konekt\Address\Models\CountryProxy;
 use Konekt\Address\Models\ProvinceProxy;
+use Konekt\Address\Models\ProvinceTypeProxy;
 use Konekt\Address\Tests\ProvinceType\ExtProvinceType;
 use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
@@ -46,10 +47,7 @@ class ProvinceExtTypeTest extends TestCase
         app('concord')->registerEnum(ProvinceTypeContract::class, ExtProvinceType::class);
 
         $this->romania = CountryProxy::find('RO');
-        $this->cluj    = ProvinceProxy::where([
-            'country_id' => $this->romania->id,
-            'code'       => 'CJ'
-        ])->take(1)->get()->first();
+        $this->cluj    = ProvinceProxy::findByCountryAndCode('RO','CJ');
     }
     
     /**
@@ -57,6 +55,7 @@ class ProvinceExtTypeTest extends TestCase
      */
     public function province_type_can_be_extended_and_is_returned_properly()
     {
+        $this->assertEquals(ExtProvinceType::class, ProvinceTypeProxy::enumClass());
         $this->assertInstanceOf(ExtProvinceType::class, $this->cluj->type);
     }
 

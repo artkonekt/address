@@ -22,13 +22,13 @@ use Konekt\Address\Contracts\Address as AddressContract;
  * @property string         $name
  * @property int            $country_id
  * @property int            $province_id
- * @property AddressType    $type
  * @property string         $postalcode     Max 12 characters
  * @property string         $city
  * @property string         $address
  */
 class Address extends Model implements AddressContract
 {
+    protected $guarded = ['id'];
 
     /**
      * The database table used by the model.
@@ -45,6 +45,16 @@ class Address extends Model implements AddressContract
     public function country()
     {
         return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
+    }
+
+    /**
+     * Relationship to the province the address belongs to
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function province()
+    {
+        return $this->belongsTo(ProvinceProxy::modelClass(), 'province_id');
     }
 
 }
