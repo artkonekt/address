@@ -22,7 +22,7 @@ use Konekt\Address\Contracts\Address as AddressContract;
  * @property string         $name
  * @property int            $country_id
  * @property int            $province_id
- * @property ProvinceType   $type
+ * @property AddressType    $type
  * @property string         $postalcode     Max 12 characters
  * @property string         $city
  * @property string         $address

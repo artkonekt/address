@@ -5,7 +5,7 @@ Make sure to run `composer install` first!
 #### Command Line
 
 ```bash
-vendor/bin/phpunit -c phpunit.xml.dist tests
+vendor/bin/phpunit -c phpunit.xml tests/
 ```
 
 #### PhpStorm
