@@ -13,7 +13,6 @@
 namespace Konekt\Address\Tests;
 
 
-use Faker\Guesser\Name;
 use Konekt\Address\Contracts\Person as PersonContract;
 use Konekt\Address\Models\Gender;
 use Konekt\Address\Models\NameOrder;
@@ -171,10 +170,17 @@ class PersonTest extends TestCase
 
         // Assume it's the 2008 coming out:
 
+        $craigWood->firstname = 'Kate';
         $craigWood->gender = Gender::FEMALE();
         $craigWood->save();
 
         $this->assertEquals(GENDER::FEMALE, $craigWood->gender->value());
+        $this->assertEquals('Kate', $craigWood->firstname);
+
+        // Just dblcheck if data has really been persisted:
+        $craigWood = $craigWood->fresh();
+        $this->assertEquals(GENDER::FEMALE, $craigWood->gender->value());
+        $this->assertEquals('Kate', $craigWood->firstname);
     }
 
     /**
@@ -221,7 +227,6 @@ class PersonTest extends TestCase
         $this->assertTrue(Gender::MALE()->equals($chesley->gender));
 
         $this->assertEquals('999-01-0001', $chesley->nin);
-
     }
 
 }
