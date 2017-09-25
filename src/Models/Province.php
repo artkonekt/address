@@ -48,7 +48,7 @@ class Province extends Model implements ProvinceContract
      */
     public function getTypeAttribute()
     {
-        return ProvinceTypeProxy::create($this->attributes['type']);
+        return ProvinceTypeProxy::create(array_get($this->attributes, 'type'));
     }
 
     /**

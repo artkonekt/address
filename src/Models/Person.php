@@ -13,6 +13,8 @@
 namespace Konekt\Address\Models;
 
 use DateTime;
+use Konekt\Address\Contracts\Gender as GenderContract;
+use Konekt\Address\Contracts\NameOrder as NameOrderContract;
 use Konekt\Address\Contracts\Person as PersonContract;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,7 +41,7 @@ class Person extends Model implements PersonContract
      */
     protected $table = 'persons';
 
-    protected $fillable = ['firstname', 'lastname', 'gender'];
+    protected $fillable = ['firstname', 'lastname', 'email', 'phone', 'birthdate', 'nin', 'gender', 'nameorder'];
 
     /**
      * The attributes to be mutated to dates.
@@ -55,33 +57,33 @@ class Person extends Model implements PersonContract
     /**
      * @return NameOrder
      */
-    public function getNameorderAttribute($value)
+    public function getNameorderAttribute()
     {
-        return new NameOrder($value);
+        return NameOrderProxy::create(array_get($this->attributes, 'nameorder'));
     }
 
     /**
-     * @param NameOrder $nameOrder
+     * @param NameOrder|string $value
      */
-    public function setNameorderAttribute(NameOrder $nameOrder)
+    public function setNameorderAttribute($value)
     {
-        $this->attributes['nameorder'] = $nameOrder->getValue();
+        $this->attributes['nameorder'] = $value instanceof NameOrderContract ? $value->value() : $value;
     }
 
     /**
      * @return Gender
      */
-    public function getGenderAttribute($value)
+    public function getGenderAttribute()
     {
-        return new Gender($value);
+        return GenderProxy::create(array_get($this->attributes, 'gender'));
     }
 
     /**
-     * @param Gender $gender
+     * @param Gender|string $value
      */
-    public function setGenderAttribute(Gender $gender)
+    public function setGenderAttribute($value)
     {
-        $this->attributes['gender'] = $gender->getValue();
+        $this->attributes['gender'] = $value instanceof GenderContract ? $value->value() : $value;
     }
 
     /**

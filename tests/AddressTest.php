@@ -98,7 +98,7 @@ class AddressTest extends TestCase
 
         $this->assertInstanceOf(Address::class, $address);
 
-        $address->fresh();
+        $address = $address->fresh();
 
         $this->assertEquals($this->hello['name'], $address->name);
         $this->assertEquals($this->hello['address'], $address->address);
