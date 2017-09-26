@@ -2,5 +2,5 @@
 
 return [
     'name'    => 'Konekt Address Module',
-    'version' => '0.9.1'
+    'version' => '0.9.2'
 ];
