@@ -14,15 +14,18 @@ namespace Konekt\Address\Tests;
 
 
 use Konekt\Address\Contracts\Address as AddressContract;
+use Konekt\Address\Contracts\AddressType as AddressTypeContract;
 use Konekt\Address\Contracts\Province as ProvinceContract;
 use Konekt\Address\Models\Address;
 use Konekt\Address\Models\AddressProxy;
+use Konekt\Address\Models\AddressType;
 use Konekt\Address\Models\Country;
 use Konekt\Address\Models\Province;
 use Konekt\Address\Models\ProvinceType;
 use Konekt\Address\Seeds\CountiesOfRomania;
 use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\StatesOfUsa;
+use Konekt\Enum\Enum;
 
 class AddressTest extends TestCase
 {
@@ -102,6 +105,37 @@ class AddressTest extends TestCase
 
         $this->assertEquals($this->hello['name'], $address->name);
         $this->assertEquals($this->hello['address'], $address->address);
+        $this->assertEquals($this->hello['country_id'], $address->country_id);
+    }
+
+    /**
+     * @test
+     */
+    public function address_type_is_enum()
+    {
+        $address = AddressProxy::create([
+            'name'       => $this->hello['name'],
+            'country_id' => $this->hello['country_id'],
+            'address'    => $this->hello['address']
+        ]);
+
+        $this->assertInstanceOf(Enum::class, $address->type);
+        $this->assertInstanceOf(AddressTypeContract::class, $address->type);
+    }
+
+    /**
+     * @test
+     */
+    public function address_type_is_null_slash_undefined_by_default()
+    {
+        $address = AddressProxy::create([
+            'name'       => $this->hello['name'],
+            'country_id' => $this->hello['country_id'],
+            'address'    => $this->hello['address']
+        ]);
+
+        $this->assertNull($address->type->value());
+        $this->assertTrue(AddressType::UNDEFINED()->equals($address->type));
     }
 
     public function returns_the_country_model()
@@ -155,7 +189,8 @@ class AddressTest extends TestCase
             'country_id'  => $this->avaya['country_id'],
             'province_id' => $state->id,
             'city'        => $this->avaya['city'],
-            'address'     => $this->avaya['address']
+            'address'     => $this->avaya['address'],
+            'type'        => AddressType::BUSINESS
         ]);
 
         $address->fresh(['province', 'country']);
@@ -172,6 +207,8 @@ class AddressTest extends TestCase
 
         $this->assertEquals($this->avaya['city'], $address->city);
         $this->assertEquals($this->avaya['address'], $address->address);
+
+        $this->assertTrue(AddressType::BUSINESS()->equals($address->type));
     }
 
 }
