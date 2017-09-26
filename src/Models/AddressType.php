@@ -17,7 +17,7 @@ use Konekt\Enum\Enum;
 
 class AddressType extends Enum implements AddressTypeContract
 {
-    const __default = self::SHIPPING;
+    const __default = self::UNDEFINED;
 
     /** To display on Invoices */
     const BILLING = 'billing';
@@ -40,6 +40,9 @@ class AddressType extends Enum implements AddressTypeContract
     /** To which ordered goods should be delivered */
     const SHIPPING = 'shipping';
 
+    /** Not specified */
+    const UNDEFINED = null;
+
     protected static $labels = [];
 
     protected static function boot()
@@ -52,6 +55,7 @@ class AddressType extends Enum implements AddressTypeContract
             self::PICKUP      => __('Pickup'),
             self::RESIDENTIAL => __('Residential'),
             self::SHIPPING    => __('Shipping'),
+            self::UNDEFINED   => __('Undefined')
         ];
     }
 

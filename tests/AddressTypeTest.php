@@ -37,4 +37,14 @@ class AddressTypeTest extends TestCase
         $this->assertInstanceOf(AddressType::class, AddressTypeProxy::create());
     }
 
+    /**
+     * @test
+     */
+    public function default_value_is_undefined()
+    {
+        $undefined = AddressTypeProxy::create();
+
+        $this->assertEquals(AddressType::UNDEFINED, $undefined->value());
+    }
+
 }

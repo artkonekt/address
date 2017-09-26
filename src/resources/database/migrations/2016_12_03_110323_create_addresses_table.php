@@ -15,7 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('type', AddressTypeProxy::values())->default(AddressTypeProxy::defaultValue());
+            $table->enum('type', AddressTypeProxy::values())->nullable()->default(AddressTypeProxy::defaultValue());
             $table->string('name');
             $table->char('country_id', 2);
             $table->integer('province_id')->unsigned()->nullable();
