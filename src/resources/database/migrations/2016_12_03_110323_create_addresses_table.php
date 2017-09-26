@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Konekt\Address\Models\AddressTypeProxy;
 
 class CreateAddressesTable extends Migration
 {
@@ -14,6 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('type', AddressTypeProxy::values())->default(AddressTypeProxy::defaultValue());
             $table->string('name');
             $table->char('country_id', 2);
             $table->integer('province_id')->unsigned()->nullable();
@@ -22,6 +24,7 @@ class CreateAddressesTable extends Migration
             $table->string('address', 384);
 
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('country_id')
                   ->references('id')

@@ -3,7 +3,6 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Konekt\Address\Models\GenderProxy;
-use Konekt\Address\Models\NameOrder;
 use Konekt\Address\Models\NameOrderProxy;
 
 class CreatePersonsTable extends Migration
@@ -26,7 +25,7 @@ class CreatePersonsTable extends Migration
             $table->string('nin', 21)->nullable()->comment('National Identification Number');
 
             $table->enum('nameorder', NameOrderProxy::values())
-                ->default(NameOrder::__default)
+                ->default(NameOrderProxy::defaultValue())
                 ->comment('western: First Last, eastern: Last First');
 
             $table->timestamps();
