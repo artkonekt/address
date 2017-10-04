@@ -12,6 +12,7 @@
 
 namespace Konekt\Address\Models;
 
+use Collective\Html\Eloquent\FormAccessible;
 use DateTime;
 use Konekt\Address\Contracts\Gender as GenderContract;
 use Konekt\Address\Contracts\NameOrder as NameOrderContract;
@@ -34,6 +35,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model implements PersonContract
 {
+    use FormAccessible;
+
     /**
      * The database table used by the model.
      *
@@ -85,6 +88,12 @@ class Person extends Model implements PersonContract
     {
         $this->attributes['gender'] = $value instanceof GenderContract ? $value->value() : $value;
     }
+
+    public function formGenderAttribute()
+    {
+        return array_get($this->attributes, 'gender');
+    }
+
 
     /**
      * @inheritdoc
