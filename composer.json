@@ -2,6 +2,8 @@
     "name": "konekt/address",
     "description": "Laravel module for handling countries, cities, addresses, people and organizations",
     "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "license": "MIT",
     "authors": [
         {
@@ -14,8 +16,7 @@
     },
     "require": {
         "php": ">=7.0.0",
-        "konekt/enum": "^2.0.2",
-        "konekt/concord": "dev-master"
+        "konekt/concord": ">=0.9.6"
     },
     "autoload": {
         "psr-4": {

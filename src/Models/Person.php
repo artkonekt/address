@@ -12,12 +12,10 @@
 
 namespace Konekt\Address\Models;
 
-use Collective\Html\Eloquent\FormAccessible;
 use DateTime;
-use Konekt\Address\Contracts\Gender as GenderContract;
-use Konekt\Address\Contracts\NameOrder as NameOrderContract;
 use Konekt\Address\Contracts\Person as PersonContract;
 use Illuminate\Database\Eloquent\Model;
+use Konekt\Enum\Eloquent\CastsEnums;
 
 
 /**
@@ -35,7 +33,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model implements PersonContract
 {
-    use FormAccessible;
+    use CastsEnums;
 
     /**
      * The database table used by the model.
@@ -57,43 +55,10 @@ class Person extends Model implements PersonContract
         'birthdate'
     ];
 
-    /**
-     * @return NameOrder
-     */
-    public function getNameorderAttribute()
-    {
-        return NameOrderProxy::create(array_get($this->attributes, 'nameorder'));
-    }
-
-    /**
-     * @param NameOrder|string $value
-     */
-    public function setNameorderAttribute($value)
-    {
-        $this->attributes['nameorder'] = $value instanceof NameOrderContract ? $value->value() : $value;
-    }
-
-    /**
-     * @return Gender
-     */
-    public function getGenderAttribute()
-    {
-        return GenderProxy::create(array_get($this->attributes, 'gender'));
-    }
-
-    /**
-     * @param Gender|string $value
-     */
-    public function setGenderAttribute($value)
-    {
-        $this->attributes['gender'] = $value instanceof GenderContract ? $value->value() : $value;
-    }
-
-    public function formGenderAttribute()
-    {
-        return array_get($this->attributes, 'gender');
-    }
-
+    protected $enums = [
+        'gender'    => Gender::class,
+        'nameorder' => NameOrder::class
+    ];
 
     /**
      * @inheritdoc

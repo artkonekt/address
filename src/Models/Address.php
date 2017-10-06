@@ -14,7 +14,7 @@ namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Konekt\Address\Contracts\Address as AddressContract;
-use Konekt\Address\Contracts\AddressType as AddressTypeContract;
+use Konekt\Enum\Eloquent\CastsEnums;
 
 /**
  * Address Entity class
@@ -29,7 +29,13 @@ use Konekt\Address\Contracts\AddressType as AddressTypeContract;
  */
 class Address extends Model implements AddressContract
 {
+    use CastsEnums;
+
     protected $guarded = ['id'];
+
+    protected $enums = [
+        'type' => AddressType::class
+    ];
 
     /**
      * The database table used by the model.
@@ -57,21 +63,4 @@ class Address extends Model implements AddressContract
     {
         return $this->belongsTo(ProvinceProxy::modelClass(), 'province_id');
     }
-
-    /**
-     * @return AddressTypeContract
-     */
-    public function getTypeAttribute()
-    {
-        return AddressTypeProxy::create(array_get($this->attributes, 'type'));
-    }
-
-    /**
-     * @param AddressTypeContract|string $value
-     */
-    public function setTypeAttribute($value)
-    {
-        $this->attributes['type'] = $value instanceof AddressTypeContract ? $value->value() : $value;
-    }
-
 }

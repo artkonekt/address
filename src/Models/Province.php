@@ -14,7 +14,7 @@ namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Konekt\Address\Contracts\Province as ProvinceContract;
-use Konekt\Address\Contracts\ProvinceType as ProvinceTypeContract;
+use Konekt\Enum\Eloquent\CastsEnums;
 
 /**
  * Province Entity class
@@ -27,6 +27,8 @@ use Konekt\Address\Contracts\ProvinceType as ProvinceTypeContract;
  */
 class Province extends Model implements ProvinceContract
 {
+    use CastsEnums;
+
     /**
      * The database table used by the model.
      *
@@ -36,27 +38,15 @@ class Province extends Model implements ProvinceContract
 
     protected $guarded = ['id'];
 
+    protected $enums = [
+        'type' => ProvinceType::class
+    ];
+
     public $timestamps = false;
 
     public function country()
     {
         return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
-    }
-
-    /**
-     * @return ProvinceTypeContract
-     */
-    public function getTypeAttribute()
-    {
-        return ProvinceTypeProxy::create(array_get($this->attributes, 'type'));
-    }
-
-    /**
-     * @param ProvinceTypeContract|string $value
-     */
-    public function setTypeAttribute($value)
-    {
-        $this->attributes['type'] = $value instanceof ProvinceTypeContract ? $value->value() : $value;
     }
 
     /**
