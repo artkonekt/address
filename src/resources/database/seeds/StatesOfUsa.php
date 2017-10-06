@@ -24,7 +24,6 @@ class StatesOfUsa extends Seeder
      */
     public function run()
     {
-
         \DB::table('provinces')->insert([
                 [
                     "code"       => "AL",
@@ -385,5 +384,4 @@ class StatesOfUsa extends Seeder
 
         );
     }
-
 }

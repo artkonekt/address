@@ -12,8 +12,6 @@
 
 namespace Konekt\Address\Contracts;
 
-
 interface Address
 {
-
 }

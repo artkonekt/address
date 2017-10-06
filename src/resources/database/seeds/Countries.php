@@ -23,8 +23,6 @@ class Countries extends Seeder
      */
     public function run()
     {
-
-
         \DB::table('countries')->delete();
 
         \DB::table('countries')->insert([
@@ -1812,7 +1810,5 @@ class Countries extends Seeder
             ],
 
         ]);
-
-
     }
 }

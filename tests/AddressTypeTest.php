@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Konekt\Address\Models\AddressType;
 use Konekt\Address\Models\AddressTypeProxy;
 
@@ -46,5 +45,4 @@ class AddressTypeTest extends TestCase
 
         $this->assertEquals(AddressType::UNDEFINED, $undefined->value());
     }
-
 }

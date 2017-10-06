@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Konekt\Address\Contracts\Organization as OrganizationContract;
 use Konekt\Address\Models\Organization;
 use Konekt\Address\Models\OrganizationProxy;
@@ -81,5 +80,4 @@ class OrganizationTest extends TestCase
         $this->assertEquals('DE136629780', $startAlliance->tax_nr);
         $this->assertEquals('HRB 13072 B', $startAlliance->registration_nr);
     }
-
 }

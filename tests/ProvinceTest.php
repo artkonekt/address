@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Konekt\Address\Contracts\Country as CountryContract;
 use Konekt\Address\Contracts\Province as ProvinceContract;
 use Konekt\Address\Models\Country;
@@ -46,7 +45,7 @@ class ProvinceTest extends TestCase
         parent::setUp();
 
         $this->romania = CountryProxy::find('RO');
-        $this->cluj    = ProvinceProxy::findByCountryAndCode('RO','CJ');
+        $this->cluj    = ProvinceProxy::findByCountryAndCode('RO', 'CJ');
     }
 
     /**
@@ -177,5 +176,4 @@ class ProvinceTest extends TestCase
         $this->assertEquals('CA', $california->code);
         $this->assertTrue($california->type->equals(ProvinceType::STATE()));
     }
-
 }

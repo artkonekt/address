@@ -80,5 +80,4 @@ abstract class TestCase extends Orchestra
             ModuleServiceProvider::class
         ]);
     }
-
 }

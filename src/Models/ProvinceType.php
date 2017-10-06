@@ -41,5 +41,4 @@ class ProvinceType extends Enum implements ProvinceTypeContract
             self::MILITARY         => __('Military')
         ];
     }
-
 }

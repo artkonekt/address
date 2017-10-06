@@ -24,7 +24,6 @@ class CreateProvincesTable extends Migration
             $table->foreign('country_id')
                 ->references('id')
                 ->on('countries');
-
         });
     }
 

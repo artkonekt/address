@@ -39,5 +39,4 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
         NameOrder::class,
         ProvinceType::class
     ];
-
 }

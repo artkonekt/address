@@ -66,5 +66,4 @@ class Province extends Model implements ProvinceContract
             'code'       => $code
         ])->take(1)->get()->first();
     }
-
 }

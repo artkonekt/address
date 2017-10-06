@@ -17,7 +17,6 @@ use Konekt\Address\Contracts\Person as PersonContract;
 use Illuminate\Database\Eloquent\Model;
 use Konekt\Enum\Eloquent\CastsEnums;
 
-
 /**
  * Person Entity class
  *
@@ -71,5 +70,4 @@ class Person extends Model implements PersonContract
 
         return sprintf('%s %s', $this->firstname, $this->lastname);
     }
-
 }

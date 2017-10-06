@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Models;
 
-
 use Konekt\Concord\Proxies\EnumProxy;
 
 /**
@@ -23,5 +22,4 @@ use Konekt\Concord\Proxies\EnumProxy;
  */
 class GenderProxy extends EnumProxy
 {
-
 }
