@@ -58,5 +58,4 @@ class AddressType extends Enum implements AddressTypeContract
             self::UNDEFINED   => __('Undefined')
         ];
     }
-
 }

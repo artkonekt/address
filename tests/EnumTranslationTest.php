@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Konekt\Address\Models\AddressType;
 
 class EnumTranslationTest extends TestCase
@@ -35,6 +34,4 @@ class EnumTranslationTest extends TestCase
 
         $app['config']->set('app.locale', 'de');
     }
-
-
 }

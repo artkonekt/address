@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Contracts;
 
-
 interface Person
 {
 
@@ -22,5 +21,4 @@ interface Person
      * @return string
      */
     public function name();
-
 }

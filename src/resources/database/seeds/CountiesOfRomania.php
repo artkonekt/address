@@ -23,7 +23,6 @@ class CountiesOfRomania extends Seeder
      */
     public function run()
     {
-
         \DB::table('provinces')->insert([
 
                 [
@@ -321,5 +320,4 @@ class CountiesOfRomania extends Seeder
                 ],
         ]);
     }
-
 }

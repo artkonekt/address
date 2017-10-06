@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Konekt\Address\Contracts\Address as AddressContract;
 use Konekt\Address\Contracts\AddressType as AddressTypeContract;
 use Konekt\Address\Contracts\Province as ProvinceContract;
@@ -210,5 +209,4 @@ class AddressTest extends TestCase
 
         $this->assertTrue(AddressType::BUSINESS()->equals($address->type));
     }
-
 }

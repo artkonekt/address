@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Models;
 
-
 use Konekt\Address\Contracts\NameOrder as NameOrderContract;
 use Konekt\Enum\Enum;
 
@@ -32,5 +31,4 @@ class NameOrder extends Enum implements NameOrderContract
             self::EASTERN => __('Eastern')
         ];
     }
-
 }

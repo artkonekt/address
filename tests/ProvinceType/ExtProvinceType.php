@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests\ProvinceType;
 
-
 use Konekt\Address\Models\ProvinceType;
 
 class ExtProvinceType extends ProvinceType

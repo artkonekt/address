@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Konekt\Address\Contracts\Person as PersonContract;
 use Konekt\Address\Models\Gender;
 use Konekt\Address\Models\NameOrder;
@@ -171,7 +170,7 @@ class PersonTest extends TestCase
         // Assume it's the 2008 coming out:
 
         $craigWood->firstname = 'Kate';
-        $craigWood->gender = Gender::FEMALE();
+        $craigWood->gender    = Gender::FEMALE();
         $craigWood->save();
 
         $this->assertEquals(GENDER::FEMALE, $craigWood->gender->value());
@@ -228,5 +227,4 @@ class PersonTest extends TestCase
 
         $this->assertEquals('999-01-0001', $chesley->nin);
     }
-
 }

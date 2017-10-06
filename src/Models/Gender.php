@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Models;
 
-
 use Konekt\Address\Contracts\Gender as GenderContract;
 use Konekt\Enum\Enum;
 
@@ -32,6 +31,4 @@ class Gender extends Enum implements GenderContract
             self::FEMALE  => __('Female')
         ];
     }
-
-
 }

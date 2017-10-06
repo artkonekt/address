@@ -12,7 +12,6 @@
 
 namespace Konekt\Address\Tests;
 
-
 use Carbon\Carbon;
 use Konekt\Address\Contracts\Country as CountryContract;
 use Konekt\Address\Models\Country;
@@ -66,7 +65,6 @@ class CountryTest extends TestCase
         $this->assertInstanceOf(CountryContract::class, $this->romania);
         $this->assertInstanceOf(CountryContract::class, $this->germany);
         $this->assertInstanceOf(CountryContract::class, $this->uk);
-
     }
 
     /**
@@ -96,7 +94,5 @@ class CountryTest extends TestCase
             $brexit->isFuture(),
             $this->uk->is_eu_member
         );
-
     }
-
 }
