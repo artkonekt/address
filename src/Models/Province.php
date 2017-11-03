@@ -39,7 +39,7 @@ class Province extends Model implements ProvinceContract
     protected $guarded = ['id'];
 
     protected $enums = [
-        'type' => ProvinceType::class
+        'type' => 'ProvinceTypeProxy@enumClass'
     ];
 
     public $timestamps = false;

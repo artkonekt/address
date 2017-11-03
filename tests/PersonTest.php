@@ -83,7 +83,7 @@ class PersonTest extends TestCase
 
         $this->assertInstanceOf(Enum::class, $person->nameorder);
         $this->assertTrue(NameOrder::create()->equals($person->nameorder));
-        $this->assertEquals(NameOrder::WESTERN, $person->nameorder->value());
+        $this->assertTrue($person->nameorder->isWestern());
     }
 
     /**
@@ -105,11 +105,11 @@ class PersonTest extends TestCase
             'nameorder' => NameOrder::EASTERN
         ]);
 
-        $this->assertTrue(NameOrder::EASTERN()->equals($puskas->nameorder), 'Name order should be eastern');
+        $this->assertTrue($puskas->nameorder->isEastern(), 'Name order should be eastern');
         $this->assertEquals('Puskás Ferenc', $puskas->name());
 
         $puskas = $puskas->fresh(); // Check if OK even after refetching from DB
-        $this->assertTrue(NameOrder::EASTERN()->equals($puskas->nameorder), 'Name order should be eastern');
+        $this->assertTrue($puskas->nameorder->isEastern(), 'Name order should be eastern');
         $this->assertEquals('Puskás Ferenc', $puskas->name());
     }
 
@@ -126,7 +126,7 @@ class PersonTest extends TestCase
         $soros->nameorder = NameOrder::EASTERN;
         $soros->save();
 
-        $this->assertTrue(NameOrder::EASTERN()->equals($soros->nameorder));
+        $this->assertTrue($soros->nameorder->isEastern());
 
         $soros->firstname = 'George';
         $soros->nameorder = NameOrder::WESTERN();
@@ -135,7 +135,7 @@ class PersonTest extends TestCase
         $soros = $soros->fresh();
 
         $this->assertEquals('George', $soros->firstname);
-        $this->assertEquals(NameOrder::WESTERN, $soros->nameorder->value());
+        $this->assertTrue($soros->nameorder->isWestern());
     }
 
     /**
@@ -149,7 +149,7 @@ class PersonTest extends TestCase
         ]);
 
         $this->assertNull($conchita->gender->value());
-        $this->assertTrue(Gender::UNKNOWN()->equals($conchita->gender));
+        $this->assertTrue($conchita->gender->isUnknown());
     }
 
     /**
@@ -165,7 +165,7 @@ class PersonTest extends TestCase
 
         $craigWood = $craigWood->fresh();
 
-        $this->assertTrue(Gender::MALE()->equals($craigWood->gender));
+        $this->assertTrue($craigWood->gender->isMale());
 
         // Assume it's the 2008 coming out:
 
@@ -173,12 +173,12 @@ class PersonTest extends TestCase
         $craigWood->gender    = Gender::FEMALE();
         $craigWood->save();
 
-        $this->assertEquals(GENDER::FEMALE, $craigWood->gender->value());
+        $this->assertTrue($craigWood->gender->isFemale());
         $this->assertEquals('Kate', $craigWood->firstname);
 
         // Just dblcheck if data has really been persisted:
         $craigWood = $craigWood->fresh();
-        $this->assertEquals(GENDER::FEMALE, $craigWood->gender->value());
+        $this->assertTrue($craigWood->gender->isFemale());
         $this->assertEquals('Kate', $craigWood->firstname);
     }
 
@@ -195,7 +195,7 @@ class PersonTest extends TestCase
         $craigWood->gender = 'm';
         $craigWood->save();
 
-        $this->assertTrue(Gender::MALE()->equals($craigWood->gender));
+        $this->assertTrue($craigWood->gender->isMale());
     }
 
     /**
@@ -223,7 +223,7 @@ class PersonTest extends TestCase
         $this->assertInstanceOf(\DateTime::class, $chesley->birthdate);
         $this->assertEquals('1951-01-15', $chesley->birthdate->format('Y-m-d'));
 
-        $this->assertTrue(Gender::MALE()->equals($chesley->gender));
+        $this->assertTrue($chesley->gender->isMale());
 
         $this->assertEquals('999-01-0001', $chesley->nin);
     }
