@@ -20,5 +20,5 @@ interface Person
      *
      * @return string
      */
-    public function name();
+    public function getFullName();
 }

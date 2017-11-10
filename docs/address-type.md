@@ -1,6 +1,6 @@
 # Address Type
 
-Address type is an [enum](https://github.com/artkonekt/enum) and is used by the [Address](province.md) model.
+Address type is an [enum](https://github.com/artkonekt/enum) and is used by the [Address](address.md) model.
 
 The following types are supported out of the box:
 

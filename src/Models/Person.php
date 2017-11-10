@@ -55,16 +55,16 @@ class Person extends Model implements PersonContract
     ];
 
     protected $enums = [
-        'gender'    => Gender::class,
-        'nameorder' => NameOrder::class
+        'gender'    => 'GenderProxy@enumClass',
+        'nameorder' => 'NameOrderProxy@enumClass'
     ];
 
     /**
      * @inheritdoc
      */
-    public function name()
+    public function getFullName()
     {
-        if ($this->nameorder && $this->nameorder->equals(NameOrder::EASTERN())) {
+        if ($this->nameorder && $this->nameorder->isEastern()) {
             return sprintf('%s %s', $this->lastname, $this->firstname);
         }
 

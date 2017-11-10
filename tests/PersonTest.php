@@ -97,7 +97,7 @@ class PersonTest extends TestCase
 
         ]);
 
-        $this->assertEquals('Johnny Firpo', $johnny->name());
+        $this->assertEquals('Johnny Firpo', $johnny->getFullName());
 
         $puskas = PersonProxy::create([
             'firstname' => 'Ferenc',
@@ -106,11 +106,11 @@ class PersonTest extends TestCase
         ]);
 
         $this->assertTrue($puskas->nameorder->isEastern(), 'Name order should be eastern');
-        $this->assertEquals('Puskás Ferenc', $puskas->name());
+        $this->assertEquals('Puskás Ferenc', $puskas->getFullName());
 
         $puskas = $puskas->fresh(); // Check if OK even after refetching from DB
         $this->assertTrue($puskas->nameorder->isEastern(), 'Name order should be eastern');
-        $this->assertEquals('Puskás Ferenc', $puskas->name());
+        $this->assertEquals('Puskás Ferenc', $puskas->getFullName());
     }
 
     /**
