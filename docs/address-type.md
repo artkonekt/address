@@ -6,6 +6,7 @@ The following types are supported out of the box:
 
 | Type        | Meaning                                                                    |
 |-------------|----------------------------------------------------------------------------|
+| undefined   | NULL, (default) if no type is set                                          |
 | billing     | To display on Invoices                                                     |
 | business    | At which a business is located                                             |
 | contract    | Aka legal address: that is the registered address of a person/organization |
