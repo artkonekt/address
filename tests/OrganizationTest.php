@@ -71,7 +71,9 @@ class OrganizationTest extends TestCase
         $startAlliance = OrganizationProxy::create([
             'name'            => 'Berlin Partner für Wirtschaft und Technologie GmbH',
             'tax_nr'          => 'DE136629780',
-            'registration_nr' => 'HRB 13072 B'
+            'registration_nr' => 'HRB 13072 B',
+            'email'           => 'lukas.engenbach@berlin-partner.de',
+            'phone'           => '+49 30 46302-599'
         ]);
 
         $startAlliance = $startAlliance->fresh();
@@ -79,5 +81,7 @@ class OrganizationTest extends TestCase
         $this->assertEquals('Berlin Partner für Wirtschaft und Technologie GmbH', $startAlliance->name);
         $this->assertEquals('DE136629780', $startAlliance->tax_nr);
         $this->assertEquals('HRB 13072 B', $startAlliance->registration_nr);
+        $this->assertEquals('lukas.engenbach@berlin-partner.de', $startAlliance->email);
+        $this->assertEquals('+49 30 46302-599', $startAlliance->phone);
     }
 }

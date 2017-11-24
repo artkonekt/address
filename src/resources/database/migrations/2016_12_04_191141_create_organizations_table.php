@@ -17,6 +17,8 @@ class CreateOrganizationsTable extends Migration
             $table->string('name');
             $table->string('tax_nr', 17)->nullable()->comment('Tax/VAT Identification Number'); //https://www.wikiwand.com/en/VAT_identification_number
             $table->string('registration_nr')->nullable()->comment('Company/Trade Registration Number');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }

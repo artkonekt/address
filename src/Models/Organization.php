@@ -33,5 +33,5 @@ class Organization extends Model implements OrganizationContract
      */
     protected $table = 'organizations';
 
-    protected $fillable = ['name', 'tax_nr', 'registration_nr'];
+    protected $fillable = ['name', 'tax_nr', 'registration_nr', 'email', 'phone'];
 }
