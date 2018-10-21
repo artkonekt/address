@@ -19,6 +19,7 @@ use Konekt\Address\Models\CountryProxy;
 use Konekt\Address\Models\Province;
 use Konekt\Address\Models\ProvinceProxy;
 use Konekt\Address\Models\ProvinceType;
+use Konekt\Address\Seeds\CountiesOfHungary;
 use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
 use Konekt\Address\Seeds\StatesOfUsa;
@@ -37,6 +38,7 @@ class ProvinceTest extends TestCase
 
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
     }
 
@@ -175,5 +177,50 @@ class ProvinceTest extends TestCase
         $this->assertEquals('US', $california->country_id);
         $this->assertEquals('CA', $california->code);
         $this->assertTrue($california->type->equals(ProvinceType::STATE()));
+    }
+
+    /** @test */
+    public function provinces_can_be_returned_by_country()
+    {
+        $this->assertCount(20, Province::byCountry('HU')->get());
+
+        $hungary = CountryProxy::find('HU');
+        $this->assertCount(20, ProvinceProxy::byCountry($hungary)->get());
+
+    }
+
+    /** @test */
+    public function hungary_has_all_its_of_counties()
+    {
+        $hungary = CountryProxy::find('HU');
+        $this->assertEquals('Hungary', $hungary->name);
+
+        $countiesOfHungary = Province::byCountry($hungary)->get();
+        $this->assertCount(20, $countiesOfHungary);
+
+        $names = $countiesOfHungary->map(function ($county) {
+            return $county->name;
+        });
+
+        $this->assertContains('Baranya', $names);
+        $this->assertContains('Bács-Kiskun', $names);
+        $this->assertContains('Békés', $names);
+        $this->assertContains('Borsod-Abaúj-Zemplén', $names);
+        $this->assertContains('Budapest', $names);
+        $this->assertContains('Csongrád', $names);
+        $this->assertContains('Fejér', $names);
+        $this->assertContains('Győr-Moson-Sopron', $names);
+        $this->assertContains('Hajdú-Bihar', $names);
+        $this->assertContains('Heves', $names);
+        $this->assertContains('Jász-Nagykun-Szolnok', $names);
+        $this->assertContains('Komárom-Esztergom', $names);
+        $this->assertContains('Nógrád', $names);
+        $this->assertContains('Pest', $names);
+        $this->assertContains('Somogy', $names);
+        $this->assertContains('Szabolcs-Szatmár-Bereg', $names);
+        $this->assertContains('Tolna', $names);
+        $this->assertContains('Vas', $names);
+        $this->assertContains('Veszprém', $names);
+        $this->assertContains('Zala', $names);
     }
 }
