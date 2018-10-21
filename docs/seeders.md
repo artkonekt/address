@@ -5,7 +5,9 @@ This package contains the following seeders in the `src/resources/database/seeds
 | Name                | Type                    | Contains                       |
 |---------------------|-------------------------|--------------------------------|
 | `Countries`         | [Country](country.md)   | All the countries in the World |
+| `CountiesOfHungary` | [Province](province.md) | Counties of Hungary            |
 | `CountiesOfRomania` | [Province](province.md) | Counties of Romania            |
+| `StatesOfGermany`   | [Province](province.md) | States of the Germany          |
 | `StatesOfUsa`       | [Province](province.md) | States of the USA              |
 
 ### Loading

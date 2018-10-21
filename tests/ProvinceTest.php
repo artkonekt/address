@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Tests;
 
 use Konekt\Address\Contracts\Country as CountryContract;
@@ -22,6 +21,7 @@ use Konekt\Address\Models\ProvinceType;
 use Konekt\Address\Seeds\CountiesOfHungary;
 use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\StatesOfGermany;
 use Konekt\Address\Seeds\StatesOfUsa;
 
 class ProvinceTest extends TestCase
@@ -37,6 +37,7 @@ class ProvinceTest extends TestCase
         parent::setUpDatabase($application);
 
         $this->artisan('db:seed', ['--class' => Countries::class]);
+        $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
@@ -190,7 +191,7 @@ class ProvinceTest extends TestCase
     }
 
     /** @test */
-    public function hungary_has_all_its_of_counties()
+    public function hungary_has_all_of_its_counties()
     {
         $hungary = CountryProxy::find('HU');
         $this->assertEquals('Hungary', $hungary->name);
@@ -222,5 +223,36 @@ class ProvinceTest extends TestCase
         $this->assertContains('Vas', $names);
         $this->assertContains('Veszprém', $names);
         $this->assertContains('Zala', $names);
+    }
+
+    /** @test */
+    public function germany_has_all_of_its_states()
+    {
+        $germany = CountryProxy::find('DE');
+        $this->assertEquals('Germany', $germany->name);
+
+        $statesOfGermany = Province::byCountry($germany)->get();
+        $this->assertCount(16, $statesOfGermany);
+
+        $names = $statesOfGermany->map(function ($state) {
+            return $state->name;
+        });
+
+        $this->assertContains('Baden-Württemberg', $names);
+        $this->assertContains('Bayern', $names);
+        $this->assertContains('Berlin', $names);
+        $this->assertContains('Brandenburg', $names);
+        $this->assertContains('Bremen', $names);
+        $this->assertContains('Hamburg', $names);
+        $this->assertContains('Hessen', $names);
+        $this->assertContains('Mecklenburg-Vorpommern', $names);
+        $this->assertContains('Niedersachsen', $names);
+        $this->assertContains('Nordrhein-Westfalen', $names);
+        $this->assertContains('Rheinland-Pfalz', $names);
+        $this->assertContains('Saarland', $names);
+        $this->assertContains('Sachsen', $names);
+        $this->assertContains('Sachsen-Anhalt', $names);
+        $this->assertContains('Schleswig-Holstein', $names);
+        $this->assertContains('Thüringen', $names);
     }
 }
