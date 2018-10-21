@@ -1,9 +1,10 @@
 # Konekt Addressing Module
 
-[![Build Status](https://travis-ci.org/artkonekt/address.svg?branch=master)](https://travis-ci.org/artkonekt/address)
-[![Latest Stable Version](https://poser.pugx.org/konekt/address/version.svg)](https://packagist.org/packages/konekt/address)
-[![Total Downloads](https://poser.pugx.org/konekt/address/downloads.svg)](https://packagist.org/packages/konekt/address)
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![Travis Build Status](https://img.shields.io/travis/artkonekt/address.svg?style=flat-square)](https://travis-ci.org/artkonekt/address)
+[![Packagist Stable Version](https://img.shields.io/packagist/v/konekt/address.svg?style=flat-square&label=stable)](https://packagist.org/packages/konekt/address)
+[![StyleCI](https://styleci.io/repos/74651867/shield?branch=master)](https://styleci.io/repos/74651867)
+[![Packagist downloads](https://img.shields.io/packagist/dt/konekt/address.svg?style=flat-square)](https://packagist.org/packages/konekt/address)
+[![MIT Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
 Konekt Address is a [Concord module](https://artkonekt.github.io/concord/#/modules) that adds support for countries, provinces (state, county, region, etc), cities, addresses, organizations, people and locations.
 
