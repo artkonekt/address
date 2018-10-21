@@ -191,7 +191,6 @@ class ProvinceTest extends TestCase
 
         $hungary = CountryProxy::find('HU');
         $this->assertCount(20, ProvinceProxy::byCountry($hungary)->get());
-
     }
 
     /** @test */
