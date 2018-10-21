@@ -27,9 +27,10 @@
         }
     },
     "require-dev": {
+        "ext-sqlite3": "*",
         "monolog/monolog": "^1.22",
         "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit" : "~6.2"
+        "phpunit/phpunit" : "6.2 - 7.3"
     },
     "autoload-dev": {
         "psr-4": {
