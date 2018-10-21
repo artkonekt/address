@@ -31,8 +31,8 @@ class PersonNameSplitter
      */
     public static function split($name, NameOrder $nameOrder = null)
     {
-        $name  = trim($name);
-        $parts = explode(' ', $name);
+        $name      = trim($name);
+        $parts     = explode(' ', $name);
         $nameOrder = $nameOrder ?: NameOrderProxy::create(); // create default if none was given
 
         switch (count($parts)) {
@@ -78,7 +78,5 @@ class PersonNameSplitter
             'firstname' => array_first($parts),
             'lastname'  => implode(' ', array_except($parts, 0))
         ];
-
     }
-
 }
