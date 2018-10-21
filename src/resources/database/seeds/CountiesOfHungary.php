@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the CountiesOfHungary class.
+ * Contains the db seeder with the counties of Hungary
  *
  * @copyright   Copyright (c) 2018 Attila Fulop
  * @author      Attila Fulop

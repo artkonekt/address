@@ -21,6 +21,7 @@ use Konekt\Address\Models\ProvinceType;
 use Konekt\Address\Seeds\CountiesOfHungary;
 use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\ProvincesOfNetherlands;
 use Konekt\Address\Seeds\StatesOfGermany;
 use Konekt\Address\Seeds\StatesOfUsa;
 
@@ -39,6 +40,7 @@ class ProvinceTest extends TestCase
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => ProvincesOfNetherlands::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
     }
@@ -254,5 +256,32 @@ class ProvinceTest extends TestCase
         $this->assertContains('Sachsen-Anhalt', $names);
         $this->assertContains('Schleswig-Holstein', $names);
         $this->assertContains('Thüringen', $names);
+    }
+
+    /** @test */
+    public function the_netherlands_has_all_of_its_provinces()
+    {
+        $netherlands = CountryProxy::find('NL');
+        $this->assertEquals('Netherlands', $netherlands->name);
+
+        $provincesOfNetherlands = Province::byCountry($netherlands)->get();
+        $this->assertCount(12, $provincesOfNetherlands);
+
+        $names = $provincesOfNetherlands->map(function ($state) {
+            return $state->name;
+        });
+
+        $this->assertContains('Drenthe', $names);
+        $this->assertContains('Flevoland', $names);
+        $this->assertContains('Friesland', $names);
+        $this->assertContains('Gelderland', $names);
+        $this->assertContains('Groningen', $names);
+        $this->assertContains('Limburg', $names);
+        $this->assertContains('Noord-Brabant', $names);
+        $this->assertContains('Noord-Holland', $names);
+        $this->assertContains('Overijssel', $names);
+        $this->assertContains('Utrecht', $names);
+        $this->assertContains('Zeeland', $names);
+        $this->assertContains('Zuid-Holland', $names);
     }
 }
