@@ -21,6 +21,7 @@ use Konekt\Address\Models\ProvinceType;
 use Konekt\Address\Seeds\CountiesOfHungary;
 use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\ProvincesAndRegionsOfBelgium;
 use Konekt\Address\Seeds\ProvincesOfNetherlands;
 use Konekt\Address\Seeds\StatesOfGermany;
 use Konekt\Address\Seeds\StatesOfUsa;
@@ -40,6 +41,7 @@ class ProvinceTest extends TestCase
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => ProvincesAndRegionsOfBelgium::class]);
         $this->artisan('db:seed', ['--class' => ProvincesOfNetherlands::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
@@ -283,5 +285,50 @@ class ProvinceTest extends TestCase
         $this->assertContains('Utrecht', $names);
         $this->assertContains('Zeeland', $names);
         $this->assertContains('Zuid-Holland', $names);
+    }
+
+    /** @test */
+    public function belgium_has_all_of_its_provinces_and_regions()
+    {
+        $belgium = CountryProxy::find('BE');
+        $this->assertEquals('Belgium', $belgium->name);
+
+        $allProvincesOfBelgium = Province::byCountry($belgium)->get();
+        $this->assertCount(13, $allProvincesOfBelgium);
+
+        $provinces = $allProvincesOfBelgium->filter(function ($province) {
+            return $province->type->isProvince();
+        });
+
+        $this->assertCount(10, $provinces);
+
+        $regions = $allProvincesOfBelgium->filter(function ($region) {
+            return $region->type->isRegion();
+        });
+
+        $this->assertCount(3, $regions);
+
+        $provinceNames = $allProvincesOfBelgium->map(function ($province) {
+            return $province->name;
+        });
+
+        $this->assertContains('Antwerp', $provinceNames);
+        $this->assertContains('East Flanders', $provinceNames);
+        $this->assertContains('Flemish Brabant', $provinceNames);
+        $this->assertContains('Limburg', $provinceNames);
+        $this->assertContains('West Flanders', $provinceNames);
+        $this->assertContains('Hainaut', $provinceNames);
+        $this->assertContains('Liège', $provinceNames);
+        $this->assertContains('Luxembourg', $provinceNames);
+        $this->assertContains('Namur', $provinceNames);
+        $this->assertContains('Walloon Brabant', $provinceNames);
+
+        $regionNames = $regions->map(function ($region) {
+            return $region->name;
+        });
+
+        $this->assertContains('Flanders', $regionNames);
+        $this->assertContains('Brussels', $regionNames);
+        $this->assertContains('Wallonia', $regionNames);
     }
 }
