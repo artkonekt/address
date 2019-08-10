@@ -84,15 +84,8 @@ class CountryTest extends TestCase
      */
     public function eu_countries_have_the_eu_flag_on()
     {
-        $brexit = Carbon::createFromDate(2019, 03, 29);
-
         $this->assertTrue($this->romania->is_eu_member);
         $this->assertTrue($this->germany->is_eu_member);
         $this->assertFalse($this->usa->is_eu_member);
-
-        $this->assertEquals(
-            $brexit->isFuture(),
-            $this->uk->is_eu_member
-        );
     }
 }
