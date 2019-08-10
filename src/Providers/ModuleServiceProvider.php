@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Providers;
 
 use Konekt\Address\Models\Address;

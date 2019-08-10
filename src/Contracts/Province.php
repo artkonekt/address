@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Contracts;
 
 interface Province

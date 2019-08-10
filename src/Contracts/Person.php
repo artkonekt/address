@@ -9,12 +9,10 @@
  *
  */
 
-
 namespace Konekt\Address\Contracts;
 
 interface Person
 {
-
     /**
      * Returns the full name of the person (in appropriate name order)
      *

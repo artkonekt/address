@@ -15,7 +15,6 @@ use Illuminate\Database\Seeder;
 
 class CountiesOfRomania extends Seeder
 {
-
     /**
      * Inserts the counties of Romania into the provinces table
      *

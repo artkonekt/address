@@ -9,10 +9,8 @@
  *
  */
 
-
 namespace Konekt\Address\Tests;
 
-use Carbon\Carbon;
 use Konekt\Address\Contracts\Country as CountryContract;
 use Konekt\Address\Models\Country;
 use Konekt\Address\Models\CountryProxy;
@@ -34,19 +32,7 @@ class CountryTest extends TestCase
     /** @var  Country */
     protected $germany;
 
-    /**
-     * @inheritdoc
-     */
-    protected function setUpDatabase($application)
-    {
-        parent::setUpDatabase($application);
-
-        $this->artisan('db:seed', ['--class' => Countries::class]);
-        $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
-        $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
-    }
-
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
@@ -87,5 +73,17 @@ class CountryTest extends TestCase
         $this->assertTrue($this->romania->is_eu_member);
         $this->assertTrue($this->germany->is_eu_member);
         $this->assertFalse($this->usa->is_eu_member);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function setUpDatabase($application)
+    {
+        parent::setUpDatabase($application);
+
+        $this->artisan('db:seed', ['--class' => Countries::class]);
+        $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
     }
 }

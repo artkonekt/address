@@ -15,7 +15,6 @@ use Illuminate\Database\Seeder;
 
 class Countries extends Seeder
 {
-
     /**
      * Empties the countries table and then inserts all the countries of the world into it
      *

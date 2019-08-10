@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Tests;
 
 use Konekt\Address\Contracts\Address as AddressContract;
@@ -45,19 +44,6 @@ class AddressTest extends TestCase
 
     /** @var  Province */
     protected $california;
-
-    /**
-     * @inheritdoc
-     */
-    protected function setUpDatabase($application)
-    {
-        parent::setUpDatabase($application);
-
-        $this->artisan('db:seed', ['--class' => Countries::class]);
-        $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
-        $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
-    }
-
 
     /**
      * @test
@@ -208,5 +194,17 @@ class AddressTest extends TestCase
         $this->assertEquals($this->avaya['address'], $address->address);
 
         $this->assertTrue(AddressType::BUSINESS()->equals($address->type));
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function setUpDatabase($application)
+    {
+        parent::setUpDatabase($application);
+
+        $this->artisan('db:seed', ['--class' => Countries::class]);
+        $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
     }
 }

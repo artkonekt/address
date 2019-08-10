@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Models;
 
 use Konekt\Address\Contracts\Gender as GenderContract;

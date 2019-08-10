@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +28,8 @@ class Province extends Model implements ProvinceContract
 {
     use CastsEnums;
 
+    public $timestamps = false;
+
     /**
      * The database table used by the model.
      *
@@ -41,8 +42,6 @@ class Province extends Model implements ProvinceContract
     protected $enums = [
         'type' => 'ProvinceTypeProxy@enumClass'
     ];
-
-    public $timestamps = false;
 
     public function country()
     {

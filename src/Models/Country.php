@@ -29,6 +29,13 @@ use Konekt\Address\Contracts\Country as CountryContract;
 class Country extends Model implements CountryContract
 {
     /**
+     * @var bool Country id's are non-numeric
+     */
+    public $incrementing = false;
+
+    public $timestamps = false;
+
+    /**
      * The database table used by the model.
      *
      * @var string
@@ -38,14 +45,6 @@ class Country extends Model implements CountryContract
     protected $casts = [
         'is_eu_member' => 'bool'
     ];
-
-    /**
-     * @var bool Country id's are non-numeric
-     */
-    public $incrementing = false;
-
-    public $timestamps = false;
-
 
     public function provinces()
     {

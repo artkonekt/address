@@ -31,23 +31,7 @@ class ProvinceTest extends TestCase
     /** @var  Country */
     protected $romania;
 
-    /**
-     * @inheritdoc
-     */
-    protected function setUpDatabase($application)
-    {
-        parent::setUpDatabase($application);
-
-        $this->artisan('db:seed', ['--class' => Countries::class]);
-        $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
-        $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
-        $this->artisan('db:seed', ['--class' => ProvincesAndRegionsOfBelgium::class]);
-        $this->artisan('db:seed', ['--class' => ProvincesOfNetherlands::class]);
-        $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
-        $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
-    }
-
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
@@ -329,5 +313,21 @@ class ProvinceTest extends TestCase
         $this->assertContains('Flanders', $regionNames);
         $this->assertContains('Brussels', $regionNames);
         $this->assertContains('Wallonia', $regionNames);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function setUpDatabase($application)
+    {
+        parent::setUpDatabase($application);
+
+        $this->artisan('db:seed', ['--class' => Countries::class]);
+        $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
+        $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => ProvincesAndRegionsOfBelgium::class]);
+        $this->artisan('db:seed', ['--class' => ProvincesOfNetherlands::class]);
+        $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
+        $this->artisan('db:seed', ['--class' => CountiesOfRomania::class]);
     }
 }

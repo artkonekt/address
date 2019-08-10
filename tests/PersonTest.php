@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Tests;
 
 use Konekt\Address\Contracts\Person as PersonContract;

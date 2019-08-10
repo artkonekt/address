@@ -16,7 +16,6 @@ use Konekt\Address\Models\ProvinceType;
 
 class StatesOfUsa extends Seeder
 {
-
     /**
      * Inserts the states of USA into the provinces table
      *

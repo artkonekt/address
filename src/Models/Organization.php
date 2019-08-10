@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -25,7 +24,6 @@ use Konekt\Address\Contracts\Organization as OrganizationContract;
  */
 class Organization extends Model implements OrganizationContract
 {
-
     /**
      * The database table used by the model.
      *

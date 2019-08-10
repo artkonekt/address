@@ -9,7 +9,6 @@
  *
  */
 
-
 namespace Konekt\Address\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
@@ -19,7 +18,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 

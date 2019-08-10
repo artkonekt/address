@@ -9,14 +9,12 @@
  *
  */
 
-
 namespace Konekt\Address\Tests;
 
 use Konekt\Address\Models\AddressType;
 
 class EnumTranslationTest extends TestCase
 {
-
     /**
      * @test
      */

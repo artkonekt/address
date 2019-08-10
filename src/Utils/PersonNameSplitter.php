@@ -55,7 +55,7 @@ class PersonNameSplitter
             case 3:
                 if ($nameOrder->isEastern()) {
                     return [
-                        'firstname' => $parts[1] . ' ' . $parts[2] ,
+                        'firstname' => $parts[1] . ' ' . $parts[2],
                         'lastname'  => $parts[0]
                     ];
                 }
