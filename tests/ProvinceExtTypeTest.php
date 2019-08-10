@@ -26,7 +26,7 @@ class ProvinceExtTypeTest extends TestCase
     /** @var  Country */
     protected $romania;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

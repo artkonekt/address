@@ -32,7 +32,7 @@ class CountryTest extends TestCase
     /** @var  Country */
     protected $germany;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
