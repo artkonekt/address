@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the StatesOfIndia class.
+ * Contains the StatesAndTerritoriesOfIndia class.
  *
  * @copyright   Copyright (c) 2019 Attila Fulop
  * @author      Attila Fulop
@@ -14,7 +14,7 @@ namespace Konekt\Address\Seeds;
 use Illuminate\Database\Seeder;
 use Konekt\Address\Models\ProvinceType;
 
-class StatesOfIndia extends Seeder
+class StatesAndTerritoriesOfIndia extends Seeder
 {
     public function run()
     {
@@ -180,16 +180,61 @@ class StatesOfIndia extends Seeder
                 "name"       => "Uttar Pradesh",
                 "country_id" => "IN",
                 "type"       => ProvinceType::STATE
-            ],            [
+            ],
+            [
                 "code"       => "UT",
                 "name"       => "Uttarakhand",
                 "country_id" => "IN",
                 "type"       => ProvinceType::STATE
-            ],            [
+            ],
+            [
                 "code"       => "WB",
                 "name"       => "West Bengal",
                 "country_id" => "IN",
                 "type"       => ProvinceType::STATE
+            ],
+            // Union Territories
+            [
+                "code"       => "AN",
+                "name"       => "Andaman and Nicobar Islands",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "CH",
+                "name"       => "Chandigarh",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "DN",
+                "name"       => "Dadra and Nagar Haveli",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "DD",
+                "name"       => "Daman and Diu",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "DL",
+                "name"       => "Delhi",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "LD",
+                "name"       => "Lakshadweep",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "PY",
+                "name"       => "Puducherry",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
             ],
         ]);
     }

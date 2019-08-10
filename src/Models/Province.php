@@ -73,4 +73,11 @@ class Province extends Model implements ProvinceContract
 
         return $query->where('country_id', $country);
     }
+
+    public function scopeByType($query, $provinceType)
+    {
+        $type = is_object($provinceType) ? $provinceType->value() : $provinceType;
+
+        return $query->where('type', $type);
+    }
 }

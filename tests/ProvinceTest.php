@@ -24,7 +24,7 @@ use Konekt\Address\Seeds\CountiesOfRomania;
 use Konekt\Address\Seeds\ProvincesAndRegionsOfBelgium;
 use Konekt\Address\Seeds\ProvincesOfNetherlands;
 use Konekt\Address\Seeds\StatesOfGermany;
-use Konekt\Address\Seeds\StatesOfIndia;
+use Konekt\Address\Seeds\StatesAndTerritoriesOfIndia;
 use Konekt\Address\Seeds\StatesOfUsa;
 
 class ProvinceTest extends TestCase
@@ -250,7 +250,7 @@ class ProvinceTest extends TestCase
         $india = CountryProxy::find('IN');
         $this->assertEquals('India', $india->name);
 
-        $statesOfIndia = Province::byCountry($india)->get();
+        $statesOfIndia = Province::byCountry($india)->byType(ProvinceType::STATE())->get();
         $this->assertCount(29, $statesOfIndia);
 
         $names = $statesOfIndia->map(function ($state) {
@@ -286,6 +286,28 @@ class ProvinceTest extends TestCase
         $this->assertContains('Uttar Pradesh', $names);
         $this->assertContains('Uttarakhand', $names);
         $this->assertContains('West Bengal', $names);
+    }
+
+    /** @test */
+    public function india_has_all_of_its_territories()
+    {
+        $india = CountryProxy::find('IN');
+        $this->assertEquals('India', $india->name);
+
+        $territoriesOfIndia = Province::byCountry($india)->byType(ProvinceType::TERRITORY)->get();
+        $this->assertCount(7, $territoriesOfIndia);
+
+        $names = $territoriesOfIndia->map(function ($territory) {
+            return $territory->name;
+        });
+
+        $this->assertContains('Andaman and Nicobar Islands', $names);
+        $this->assertContains('Chandigarh', $names);
+        $this->assertContains('Dadra and Nagar Haveli', $names);
+        $this->assertContains('Daman and Diu', $names);
+        $this->assertContains('Delhi', $names);
+        $this->assertContains('Lakshadweep', $names);
+        $this->assertContains('Puducherry', $names);
     }
 
     /** @test */
@@ -370,7 +392,7 @@ class ProvinceTest extends TestCase
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
-        $this->artisan('db:seed', ['--class' => StatesOfIndia::class]);
+        $this->artisan('db:seed', ['--class' => StatesAndTerritoriesOfIndia::class]);
         $this->artisan('db:seed', ['--class' => ProvincesAndRegionsOfBelgium::class]);
         $this->artisan('db:seed', ['--class' => ProvincesOfNetherlands::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
