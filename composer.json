@@ -30,7 +30,7 @@
         "ext-sqlite3": "*",
         "monolog/monolog": "^1.22",
         "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit" : "6.2 - 8",
+        "phpunit/phpunit" : "6.2 - 7.5",
         "mockery/mockery": "^1.1"
     },
     "autoload-dev": {
