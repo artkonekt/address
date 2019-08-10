@@ -15,8 +15,8 @@
         "issues": "https://github.com/artkonekt/address"
     },
     "require": {
-        "php": ">=7.0.0",
-        "konekt/concord": ">=0.9.7",
+        "php": "^7.1.3",
+        "konekt/concord": "~1.0",
         "konekt/enum": "~2.1",
         "konekt/enum-eloquent": "~1.1"
     },
@@ -30,7 +30,7 @@
         "ext-sqlite3": "*",
         "monolog/monolog": "^1.22",
         "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit" : "6.2 - 7.3",
+        "phpunit/phpunit" : "6.2 - 8",
         "mockery/mockery": "^1.1"
     },
     "autoload-dev": {
