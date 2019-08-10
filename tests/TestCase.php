@@ -54,7 +54,7 @@ abstract class TestCase extends Orchestra
             'database' => 'sqlite' == $engine ? ':memory:' : 'address_test',
             'prefix'   => '',
             'host'     => '127.0.0.1',
-            'username' => env('TEST_DB_USERNAME', 'root'),
+            'username' => env('TEST_DB_USERNAME', 'pgsql' === $engine ? 'postgres' : 'root'),
             'password' => env('TEST_DB_PASSWORD', ''),
         ]);
 
@@ -70,11 +70,6 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase($app)
     {
-        $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('email');
-        });
-
         \Artisan::call('migrate', ['--force' => true]);
     }
 

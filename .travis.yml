@@ -37,7 +37,7 @@ matrix:
     - php: 7.3
       env: L5_VER=8 TEST_DB_ENGINE=mysql
     - php: 7.3
-      env: L5_VER=8 TEST_DB_ENGINE=pgsql TEST_DB_USERNAME=postgres
+      env: L5_VER=8 TEST_DB_ENGINE=pgsql
 script:
   - vendor/bin/phpunit --testdox
 before_install:

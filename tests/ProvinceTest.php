@@ -24,6 +24,7 @@ use Konekt\Address\Seeds\CountiesOfRomania;
 use Konekt\Address\Seeds\ProvincesAndRegionsOfBelgium;
 use Konekt\Address\Seeds\ProvincesOfNetherlands;
 use Konekt\Address\Seeds\StatesOfGermany;
+use Konekt\Address\Seeds\StatesOfIndia;
 use Konekt\Address\Seeds\StatesOfUsa;
 
 class ProvinceTest extends TestCase
@@ -244,6 +245,50 @@ class ProvinceTest extends TestCase
     }
 
     /** @test */
+    public function india_has_all_of_its_states()
+    {
+        $india = CountryProxy::find('IN');
+        $this->assertEquals('India', $india->name);
+
+        $statesOfIndia = Province::byCountry($india)->get();
+        $this->assertCount(29, $statesOfIndia);
+
+        $names = $statesOfIndia->map(function ($state) {
+            return $state->name;
+        });
+
+        $this->assertContains('Andhra Pradesh', $names);
+        $this->assertContains('Arunachal Pradesh', $names);
+        $this->assertContains('Assam', $names);
+        $this->assertContains('Bihar', $names);
+        $this->assertContains('Chhattisgarh', $names);
+        $this->assertContains('Goa', $names);
+        $this->assertContains('Gujarat', $names);
+        $this->assertContains('Haryana', $names);
+        $this->assertContains('Himachal Pradesh', $names);
+        $this->assertContains('Jammu and Kashmir', $names);
+        $this->assertContains('Jharkhand', $names);
+        $this->assertContains('Karnataka', $names);
+        $this->assertContains('Kerala', $names);
+        $this->assertContains('Madhya Pradesh', $names);
+        $this->assertContains('Maharashtra', $names);
+        $this->assertContains('Manipur', $names);
+        $this->assertContains('Meghalaya', $names);
+        $this->assertContains('Mizoram', $names);
+        $this->assertContains('Nagaland', $names);
+        $this->assertContains('Odisha', $names);
+        $this->assertContains('Punjab', $names);
+        $this->assertContains('Rajasthan', $names);
+        $this->assertContains('Sikkim', $names);
+        $this->assertContains('Tamil Nadu', $names);
+        $this->assertContains('Telangana', $names);
+        $this->assertContains('Tripura', $names);
+        $this->assertContains('Uttar Pradesh', $names);
+        $this->assertContains('Uttarakhand', $names);
+        $this->assertContains('West Bengal', $names);
+    }
+
+    /** @test */
     public function the_netherlands_has_all_of_its_provinces()
     {
         $netherlands = CountryProxy::find('NL');
@@ -325,6 +370,7 @@ class ProvinceTest extends TestCase
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
+        $this->artisan('db:seed', ['--class' => StatesOfIndia::class]);
         $this->artisan('db:seed', ['--class' => ProvincesAndRegionsOfBelgium::class]);
         $this->artisan('db:seed', ['--class' => ProvincesOfNetherlands::class]);
         $this->artisan('db:seed', ['--class' => CountiesOfHungary::class]);
