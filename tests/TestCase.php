@@ -46,12 +46,21 @@ abstract class TestCase extends Orchestra
     {
         $app['path.lang'] = __DIR__ . '/lang';
 
-        $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
+        $engine = env('TEST_DB_ENGINE', 'sqlite');
+
+        $app['config']->set('database.default', $engine);
+        $app['config']->set('database.connections.' . $engine, [
+            'driver'   => $engine,
+            'database' => 'sqlite' == $engine ? ':memory:' : 'address_test',
             'prefix'   => '',
+            'host'     => '127.0.0.1',
+            'username' => env('TEST_DB_USERNAME', 'root'),
+            'password' => env('TEST_DB_PASSWORD', ''),
         ]);
+
+        if ('pgsql' === $engine) {
+            $app['config']->set("database.connections.{$engine}.charset", 'utf8');
+        }
     }
 
     /**

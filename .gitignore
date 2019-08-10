@@ -1,5 +1,4 @@
 .idea/
 vendor/
 composer.lock
-build
-tests/temp
+phpunit.xml
