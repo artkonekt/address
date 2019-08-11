@@ -25,6 +25,8 @@ class ProvinceType extends Enum implements ProvinceTypeContract
     const TERRITORY        = 'territory';
     const FEDERAL_DISTRICT = 'federal_district';
     const MILITARY         = 'military';
+    const UNIT             = 'unit';
+    const MUNICIPALITY     = 'municipality';
 
     protected static $labels = [];
 
@@ -37,7 +39,9 @@ class ProvinceType extends Enum implements ProvinceTypeContract
             self::COUNTY           => __('County'),
             self::TERRITORY        => __('Territory'),
             self::FEDERAL_DISTRICT => __('Federal District'),
-            self::MILITARY         => __('Military')
+            self::MILITARY         => __('Military'),
+            self::UNIT             => __('Geographical Unit'),
+            self::MUNICIPALITY     => __('Municipality'),
         ];
     }
 }

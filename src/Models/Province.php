@@ -11,7 +11,10 @@
 
 namespace Konekt\Address\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Konekt\Address\Contracts\Province as ProvinceContract;
 use Konekt\Enum\Eloquent\CastsEnums;
 
@@ -23,6 +26,8 @@ use Konekt\Enum\Eloquent\CastsEnums;
  * @property ProvinceType $type
  * @property string       $code       Max 16 characters
  * @property string       $name
+ * @property ?Province    $parent
+ * @property Collection   $children
  */
 class Province extends Model implements ProvinceContract
 {
@@ -30,11 +35,6 @@ class Province extends Model implements ProvinceContract
 
     public $timestamps = false;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'provinces';
 
     protected $guarded = ['id'];
@@ -43,20 +43,38 @@ class Province extends Model implements ProvinceContract
         'type' => 'ProvinceTypeProxy@enumClass'
     ];
 
-    public function country()
+    public function country(): BelongsTo
     {
         return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
     }
 
-    /**
-     * Returns a single province object by country and code
-     *
-     * @param \Konekt\Address\Contracts\Country|string $country
-     * @param string                                   $code
-     *
-     * @return \Konekt\Address\Contracts\Province
-     */
-    public static function findByCountryAndCode($country, $code)
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(ProvinceProxy::modelClass(), 'parent_id');
+    }
+
+    public function removeParent(): void
+    {
+        $this->parent()->dissociate();
+    }
+
+    public function setParent(ProvinceContract $province): void
+    {
+        $this->parent()->associate($province);
+    }
+
+    public function hasParent(): bool
+    {
+        return null !== $this->parent_id;
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(ProvinceProxy::modelClass(), 'parent_id');
+    }
+
+    /** @inheritDoc */
+    public static function findByCountryAndCode($country, string $code): ?ProvinceContract
     {
         $country = is_object($country) ? $country->id : $country;
 
@@ -80,4 +98,10 @@ class Province extends Model implements ProvinceContract
 
         return $query->where('type', $type);
     }
+
+    public function scopeSortByName($query)
+    {
+        return $query->orderBy('name');
+    }
+
 }

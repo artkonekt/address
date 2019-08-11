@@ -2,15 +2,17 @@
 
 This package contains the following seeders in the `src/resources/database/seeds` folder:
 
-| Name                          | Type                    | Contains                       |
-|:------------------------------|:------------------------|:-------------------------------|
-| `Countries`                   | [Country](country.md)   | All the countries in the World |
-| `CountiesOfHungary`           | [Province](province.md) | Counties of Hungary            |
-| `CountiesOfRomania`           | [Province](province.md) | Counties of Romania            |
-| `ProvincesOfNetherlands`      | [Province](province.md) | Provinces of Netherlands       |
-| `StatesOfGermany`             | [Province](province.md) | States of Germany              |
-| `StatesAndTerritoriesOfIndia` | [Province](province.md) | States of India                |
-| `StatesOfUsa`                 | [Province](province.md) | States of the USA              |
+| Name                           | Type of Entries         | Contains                                               |
+|:-------------------------------|:------------------------|:-------------------------------------------------------|
+| `Countries`                    | [Country](country.md)   | All the countries in the World                         |
+| `CountiesOfHungary`            | [Province](province.md) | Hungarian counties (megye)                             |
+| `CountiesOfRomania`            | [Province](province.md) | Romanian counties (județ)                              |
+| `ProvincesOfNetherlands`       | [Province](province.md) | Provinces of Netherlands (provincie)                   |
+| `ProvincesAndRegionsOfBelgium` | [Province](province.md) | Belgian Provinces & Regions (gewest/région)            |
+| `ProvincesOfIndonesia`         | [Province](province.md) | Provinces, geographical units and regions of Indonesia |
+| `StatesOfGermany`              | [Province](province.md) | States of Germany (Bundesland)                         |
+| `StatesAndTerritoriesOfIndia`  | [Province](province.md) | Indian States & Union territories                      |
+| `StatesOfUsa`                  | [Province](province.md) | States, DC, territories and military areas of the USA  |
 
 ### Loading
 

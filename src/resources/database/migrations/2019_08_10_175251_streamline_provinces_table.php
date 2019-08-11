@@ -29,8 +29,15 @@ class StreamlineProvincesTable extends Migration
         Schema::table('provinces', function (Blueprint $table) {
             // Get rid of enum field, they're fkcn painful with Laravel
             $table->string('type', 16)->default(ProvinceTypeProxy::defaultValue())->change();
+            $table->integer('parent_id')->unsigned()->nullable();
+
             $table->index('code', 'provinces_code_index');
             $table->unique(['country_id', 'code'], 'provinces_country_id_code_index');
+            $table->foreign('parent_id')
+                  ->references('id')
+                  ->on('provinces')
+                  ->onDelete('cascade');
+
         });
     }
 
@@ -40,6 +47,7 @@ class StreamlineProvincesTable extends Migration
             $table->dropUnique('provinces_country_id_code_index');
             $table->dropIndex('provinces_code_index');
             $table->enum('type', ProvinceTypeProxy::values())->default(ProvinceTypeProxy::defaultValue())->change();
+            $table->dropColumn('parent_id');
         });
     }
 }

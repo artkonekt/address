@@ -25,6 +25,8 @@ use Konekt\Address\Contracts\Country as CountryContract;
  * @property Collection provinces
  * @property Collection states
  * @property Collection counties
+ *
+ * @method static Country|null find(string $id)
  */
 class Country extends Model implements CountryContract
 {
