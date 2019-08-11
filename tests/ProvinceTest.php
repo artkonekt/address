@@ -11,6 +11,7 @@
 
 namespace Konekt\Address\Tests;
 
+use Illuminate\Database\QueryException;
 use Konekt\Address\Contracts\Country as CountryContract;
 use Konekt\Address\Contracts\Province as ProvinceContract;
 use Konekt\Address\Models\Country;
@@ -141,7 +142,7 @@ class ProvinceTest extends TestCase
     public function country_and_province_code_combination_is_unique()
     {
         Province::create(['country_id' => 'ID', 'name' => 'Whaat?', 'code' => 'WWW']);
-        $this->expectExceptionMessageRegExp('/UNIQUE constraint failed: provinces\.country_id, provinces\.code/');
+        $this->expectException(QueryException::class);
         Province::create(['country_id' => 'ID', 'name' => 'Puaaff', 'code' => 'WWW']);
     }
 
