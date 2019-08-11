@@ -78,7 +78,7 @@ class IndonesiaTest extends TestCase
     /** @test */
     public function java_has_4_provinces()
     {
-        $java = Province::findByCountryAndCode($this->indonesia, 'JW');
+        $java      = Province::findByCountryAndCode($this->indonesia, 'JW');
         $provinces = $java->children()->byType(ProvinceType::PROVINCE)->get();
 
         $names = $provinces->map(function ($province) {
@@ -95,7 +95,7 @@ class IndonesiaTest extends TestCase
     /** @test */
     public function java_has_2_special_regions()
     {
-        $java = Province::findByCountryAndCode($this->indonesia, 'JW');
+        $java    = Province::findByCountryAndCode($this->indonesia, 'JW');
         $regions = $java->children()->byType(ProvinceType::REGION())->get();
 
         $names = $regions->map(function ($region) {

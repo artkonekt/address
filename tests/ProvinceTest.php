@@ -39,7 +39,7 @@ class ProvinceTest extends TestCase
     /** @test */
     public function is_aware_of_its_country()
     {
-        $cluj = Province::findByCountryAndCode('RO', 'CJ');
+        $cluj    = Province::findByCountryAndCode('RO', 'CJ');
         $romania = Country::find('RO');
 
         $this->assertInstanceOf(CountryContract::class, $cluj->country);

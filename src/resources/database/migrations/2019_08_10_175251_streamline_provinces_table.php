@@ -37,7 +37,6 @@ class StreamlineProvincesTable extends Migration
                   ->references('id')
                   ->on('provinces')
                   ->onDelete('cascade');
-
         });
     }
 

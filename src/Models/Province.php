@@ -103,5 +103,4 @@ class Province extends Model implements ProvinceContract
     {
         return $query->orderBy('name');
     }
-
 }
