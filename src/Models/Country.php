@@ -55,11 +55,26 @@ class Country extends Model implements CountryContract
 
     public function states()
     {
-        return $this->provinces()->where('type', ProvinceType::STATE);
+        return $this->provinces()->byType(ProvinceType::STATE());
     }
 
     public function counties()
     {
-        return $this->provinces()->where('type', ProvinceType::COUNTY);
+        return $this->provinces()->byType(ProvinceType::COUNTY());
+    }
+
+    public function regions()
+    {
+        return $this->provinces()->byType(ProvinceType::REGION());
+    }
+
+    public function territories()
+    {
+        return $this->provinces()->byType(ProvinceType::TERRITORY());
+    }
+
+    public function units()
+    {
+        return $this->provinces()->byType(ProvinceType::UNIT());
     }
 }

@@ -8,7 +8,6 @@
 
 This library adds address related support for countries, provinces (state, county, region, etc), cities, addresses, organizations, people and locations.
 
-
 Being a [Concord Module](https://konekt.dev/concord/1.3/modules) it is intended to be used by Laravel Applications.
 
 ## Documentation

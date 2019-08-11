@@ -4,17 +4,14 @@
 
 ### Fields
 
-| Name      | Type                             | Details                                  |
-|:----------|:---------------------------------|:-----------------------------------------|
-| id        | autoinc                          |                                          |
-| firstname | string                           |                                          |
-| lastname  | string                           |                                          |
-| email     | string                           | [opt]                                    |
-| phone     | string(22)                       | [opt]                                    |
-| birthdate | date                             | [opt]                                    |
-| gender    | enum, [Gender](gender.md)        | [opt]                                    |
-| nin       | string(21)                       | [opt] National Identification Number     |
-| nameorder | enum, [NameOrder](name-order.md) | western: First Last, eastern: Last First |
-
-
-
+| Name      | Type                             | Details                                   |
+|:----------|:---------------------------------|:------------------------------------------|
+| id        | autoinc                          |                                           |
+| firstname | string                           |                                           |
+| lastname  | string                           |                                           |
+| email     | string                           | (optional)                                |
+| phone     | string(22)                       | (optional)                                |
+| birthdate | date                             | (optional)                                |
+| gender    | enum, [Gender](gender.md)        | (optional)                                |
+| nin       | string(21)                       | (optional) National Identification Number |
+| nameorder | enum, [NameOrder](name-order.md) | western: First Last, eastern: Last First  |

@@ -5,7 +5,7 @@ Make sure to run `composer install` first!
 #### Command Line
 
 ```bash
-vendor/bin/phpunit -c phpunit.xml tests/
+vendor/bin/phpunit -c phpunit.xml.dist
 ```
 
 #### PhpStorm
@@ -20,7 +20,7 @@ vendor/bin/phpunit -c phpunit.xml tests/
     - Default configuration file: `<path_to_this_folder>/phpunit.xml`
 3. Mark directory: Settings -> Directories:
     - Mark `tests` folder as test
-    - [optional]: On the right sidebar edit properties and set package prefix to `Konekt\Address\Tests`
+    - (optional): On the right sidebar edit properties and set package prefix to `Konekt\Address\Tests`
 
 **Example:**
 

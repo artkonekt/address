@@ -32,4 +32,4 @@ European areas.
 > [Name Order Confusion](http://tvtropes.org/pmwiki/pmwiki.php/Main/NameOrderConfusion)
 
 For extending this list refer to
-[Extending Enums](https://artkonekt.github.io/concord/#/enums?id=extending-enums).
+[Extending Enums](https://konekt.dev/concord/1.3/enums#extending-enums).

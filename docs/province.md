@@ -6,7 +6,7 @@ states) of countries.
 
 > Although the name of the model/table is `Province` it actually supports multiple types of
 > country subdivisions like states, counties, territories, municipalities, etc.
-> See [Province Types](province-types.md) for a list of predefined types.
+> See [Province Types](province-type.md) for a list of predefined types.
 
 ## Database Table Fields
 

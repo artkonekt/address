@@ -15,5 +15,6 @@ The following types are supported out of the box:
 | residential | Where a person lives                                                       |
 | shipping    | To which goods should be delivered                                         |
 
-If you want to extend this list for your application refer to [Extending Enums](https://artkonekt.github.io/concord/#/enums?id=extending-enums) in Concord's documentation.
+If you want to extend this list for your application refer to
+[Extending Enums](https://konekt.dev/concord/1.3/enums#extending-enums) in Concord's documentation.
 
