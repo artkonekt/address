@@ -37,6 +37,8 @@ class Country extends Model implements CountryContract
 
     public $timestamps = false;
 
+    protected $guarded = ['created_at', 'updated_at'];
+
     /**
      * The database table used by the model.
      *

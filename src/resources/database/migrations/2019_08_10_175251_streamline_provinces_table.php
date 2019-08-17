@@ -29,6 +29,9 @@ class StreamlineProvincesTable extends Migration
         Schema::table('provinces', function (Blueprint $table) {
             // Get rid of enum field, they're fkcn painful with Laravel
             $table->string('type', 16)->default(ProvinceTypeProxy::defaultValue())->change();
+        });
+
+        Schema::table('provinces', function (Blueprint $table) {
             $table->integer('parent_id')->unsigned()->nullable();
 
             $table->index('code', 'provinces_code_index');
@@ -43,10 +46,23 @@ class StreamlineProvincesTable extends Migration
     public function down()
     {
         Schema::table('provinces', function (Blueprint $table) {
+            // This index has to be added back manually, because
+            // creating a composite index with a field that's
+            // an fkey causes original index to be dropped
+            $table->index('country_id', 'provinces_country_id_foreign');
             $table->dropUnique('provinces_country_id_code_index');
             $table->dropIndex('provinces_code_index');
-            $table->enum('type', ProvinceTypeProxy::values())->default(ProvinceTypeProxy::defaultValue())->change();
+            $table->dropForeign('provinces_parent_id_foreign');
             $table->dropColumn('parent_id');
         });
+        
+        echo "WARNING: `provinces.type` field wasn't rolled back to be an enum\n";
+        echo "Due to limitations of enums in migrations.\n";
+        echo "See https://laravel.com/docs/5.8/migrations#modifying-columns\n";
+
+//        This does not work:
+//        Schema::table('provinces', function (Blueprint $table) {
+//            $table->enum('type', ProvinceTypeProxy::values())->default(ProvinceTypeProxy::defaultValue())->change();
+//        });
     }
 }
