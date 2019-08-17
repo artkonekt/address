@@ -55,7 +55,7 @@ class StreamlineProvincesTable extends Migration
             $table->dropForeign('provinces_parent_id_foreign');
             $table->dropColumn('parent_id');
         });
-        
+
         echo "WARNING: `provinces.type` field wasn't rolled back to be an enum\n";
         echo "Due to limitations of enums in migrations.\n";
         echo "See https://laravel.com/docs/5.8/migrations#modifying-columns\n";
