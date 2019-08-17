@@ -2,6 +2,13 @@
 
 ## 1.0
 
+## 1.0.1
+##### 2019-08-17
+
+- Migration fix (for downwards direction with MySQL)
+
+## 1.0
+
 ## 1.0.0
 ##### 2019-08-11
 
