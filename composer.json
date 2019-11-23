@@ -30,7 +30,7 @@
     "require-dev": {
         "ext-sqlite3": "*",
         "monolog/monolog": "^1.22",
-        "orchestra/testbench": "~3.5|~4.9",
+        "orchestra/testbench": "~3.5|~4.0",
         "phpunit/phpunit" : "6.2 - 7.5|~8.0",
         "mockery/mockery": "^1.1"
     },
