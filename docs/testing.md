@@ -1,6 +1,6 @@
 # Testing
 
-Make sure to run `composer install` first!
+> Make sure to run `composer install` first!
 
 #### Command Line
 
@@ -12,7 +12,7 @@ vendor/bin/phpunit -c phpunit.xml.dist
 
 > Based on PhpStorm 2017.2
 
-1. Set the project interpreter (php >= 7.0) Settings -> Languages & Frameworks -> PHP: CLI Interpreter
+1. Set the project interpreter (php >= 7.1) Settings -> Languages & Frameworks -> PHP: CLI Interpreter
 2. Configure PHPUnit: Settings -> Languages & Frameworks -> PHP -> Test Frameworks:
     - Add or Edit PHPUnit Local,
     - Use Composer Autoloader

@@ -21,6 +21,6 @@ php artisan concord:modules -a
 +----+-----------------------+--------+---------+------------------+-----------------+
 | #  | Name                  | Kind   | Version | Id               | Namespace       |
 +----+-----------------------+--------+---------+------------------+-----------------+
-| 1. | Konekt Address Module | Module | 1.0.0   | konekt.address   | Konekt\Address  |
+| 1. | Konekt Address Module | Module | 1.1.0   | konekt.address   | Konekt\Address  |
 +----+-----------------------+--------+---------+------------------+-----------------+
 ```
