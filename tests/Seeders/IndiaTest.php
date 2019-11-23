@@ -37,7 +37,7 @@ class IndiaTest extends TestCase
     }
 
     /** @test */
-    public function india_has_all_of_its_29_states()
+    public function india_has_all_of_its_28_states()
     {
         $statesOfIndia = Province::byCountry($this->india)->byType(ProvinceType::STATE())->get();
 
@@ -45,7 +45,7 @@ class IndiaTest extends TestCase
             return $state->name;
         });
 
-        $this->assertCount(29, $statesOfIndia);
+        $this->assertCount(28, $statesOfIndia);
         $this->assertContains('Andhra Pradesh', $names);
         $this->assertContains('Arunachal Pradesh', $names);
         $this->assertContains('Assam', $names);
@@ -55,7 +55,6 @@ class IndiaTest extends TestCase
         $this->assertContains('Gujarat', $names);
         $this->assertContains('Haryana', $names);
         $this->assertContains('Himachal Pradesh', $names);
-        $this->assertContains('Jammu and Kashmir', $names);
         $this->assertContains('Jharkhand', $names);
         $this->assertContains('Karnataka', $names);
         $this->assertContains('Kerala', $names);
@@ -78,7 +77,7 @@ class IndiaTest extends TestCase
     }
 
     /** @test */
-    public function india_has_all_of_its_7_territories()
+    public function india_has_all_of_its_9_territories()
     {
         $territoriesOfIndia = Province::byCountry($this->india)->byType(ProvinceType::TERRITORY)->get();
 
@@ -86,12 +85,14 @@ class IndiaTest extends TestCase
             return $territory->name;
         });
 
-        $this->assertCount(7, $territoriesOfIndia);
+        $this->assertCount(9, $territoriesOfIndia);
         $this->assertContains('Andaman and Nicobar Islands', $names);
         $this->assertContains('Chandigarh', $names);
         $this->assertContains('Dadra and Nagar Haveli', $names);
         $this->assertContains('Daman and Diu', $names);
         $this->assertContains('Delhi', $names);
+        $this->assertContains('Jammu and Kashmir', $names);
+        $this->assertContains('Ladakh', $names);
         $this->assertContains('Lakshadweep', $names);
         $this->assertContains('Puducherry', $names);
     }

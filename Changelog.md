@@ -5,6 +5,7 @@
 
 - Added Laravel 6 support
 - Removed Laravel 5.4 support
+- India seeder has been updated according to Jammu and Kashmir Reorganisation act
 - Minimum required Concord version is 1.4+
 
 ## 1.0.1
