@@ -178,7 +178,7 @@ class AddressTest extends TestCase
             'type'        => AddressType::BUSINESS
         ]);
 
-        $address->fresh(['province', 'country']);
+        $address->refresh();
 
         $this->assertNotNull($address->id);
         $this->assertEquals($this->avaya['name'], $address->name);
