@@ -74,12 +74,6 @@ class StatesAndTerritoriesOfIndia extends Seeder
                 "type"       => ProvinceType::STATE
             ],
             [
-                "code"       => "JK",
-                "name"       => "Jammu and Kashmir",
-                "country_id" => "IN",
-                "type"       => ProvinceType::STATE
-            ],
-            [
                 "code"       => "JH",
                 "name"       => "Jharkhand",
                 "country_id" => "IN",
@@ -221,6 +215,18 @@ class StatesAndTerritoriesOfIndia extends Seeder
             [
                 "code"       => "DL",
                 "name"       => "Delhi",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "JK",
+                "name"       => "Jammu and Kashmir",
+                "country_id" => "IN",
+                "type"       => ProvinceType::TERRITORY
+            ],
+            [
+                "code"       => "LA",
+                "name"       => "Ladakh",
                 "country_id" => "IN",
                 "type"       => ProvinceType::TERRITORY
             ],
