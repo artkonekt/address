@@ -1,6 +1,11 @@
 # Address Module Changelog
 
-## 1.0
+## Unreleased
+##### 2019-11-XX
+
+- Added Laravel 6 support
+- Removed Laravel 5.4 support
+- Minimum required Concord version is 1.4+
 
 ## 1.0.1
 ##### 2019-08-17
