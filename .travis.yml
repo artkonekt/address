@@ -2,48 +2,29 @@ language: php
 cache:
   directories:
     - "$HOME/.composer/cache"
-matrix:
-  include:
-    - php: 7.1
-      env: LARAVEL=5.5
-    - php: 7.1
-      env: LARAVEL=5.5 TEST_DB_ENGINE=mysql
-    - php: 7.1
-      env: LARAVEL=5.5 TEST_DB_ENGINE=pgsql
-    - php: 7.1
-      env: LARAVEL=5.6
-    - php: 7.1
-      env: LARAVEL=5.7
-    - php: 7.1
-      env: LARAVEL=5.8
-    - php: 7.2
-      env: LARAVEL=5.5
-    - php: 7.2
-      env: LARAVEL=5.6
-    - php: 7.2
-      env: LARAVEL=5.7
-    - php: 7.2
-      env: LARAVEL=5.8
-    - php: 7.2
-      env: LARAVEL=6.0
-    - php: 7.3
-      env: LARAVEL=5.5
-    - php: 7.3
-      env: LARAVEL=5.6
-    - php: 7.3
-      env: LARAVEL=5.7
-    - php: 7.3
-      env: LARAVEL=5.8
-    - php: 7.3
-      env: LARAVEL=5.8 TEST_DB_ENGINE=mysql
-    - php: 7.3
-      env: LARAVEL=5.8 TEST_DB_ENGINE=pgsql
-    - php: 7.3
-      env: LARAVEL=6.5
-    - php: 7.3
-      env: LARAVEL=6.5 TEST_DB_ENGINE=mysql
-    - php: 7.3
-      env: LARAVEL=6.5 TEST_DB_ENGINE=pgsql
+
+php:
+  - '7.2'
+  - '7.3'
+  - '7.4'
+
+env:
+  - LARAVEL=5.5
+  - LARAVEL=5.5 TEST_DB_ENGINE=mysql
+  - LARAVEL=5.5 TEST_DB_ENGINE=pgsql
+  - LARAVEL=5.6
+  - LARAVEL=5.7
+  - LARAVEL=5.8
+  - LARAVEL=5.8 TEST_DB_ENGINE=mysql
+  - LARAVEL=5.8 TEST_DB_ENGINE=pgsql
+  - LARAVEL=6.0
+  - LARAVEL=6.18
+  - LARAVEL=6.18 TEST_DB_ENGINE=mysql
+  - LARAVEL=6.18 TEST_DB_ENGINE=pgsql
+  - LARAVEL=7.0
+  - LARAVEL=7.1
+  - LARAVEL=7.1 TEST_DB_ENGINE=mysql
+  - LARAVEL=7.1 TEST_DB_ENGINE=pgsql
 
 script:
   - vendor/bin/phpunit --testdox

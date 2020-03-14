@@ -1,5 +1,11 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2020-03-XX
+
+- Added Laravel 7 support
+- Dropped PHP 7.1 support
+
 ## 1.1.0
 ##### 2019-11-23
 
