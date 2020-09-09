@@ -16,7 +16,7 @@
     },
     "require": {
         "php": "^7.2",
-        "doctrine/dbal": "~2.3",
+        "doctrine/dbal": "~2.3, !2.10.3",
         "konekt/concord": "~1.5",
         "konekt/enum": "~2.1",
         "konekt/enum-eloquent": "~1.5"

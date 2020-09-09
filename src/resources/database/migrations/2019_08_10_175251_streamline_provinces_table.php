@@ -50,22 +50,9 @@ class StreamlineProvincesTable extends Migration
             // creating a composite index with a field that's
             // an fkey causes original index to be dropped
             $table->index('country_id', 'provinces_country_id_foreign');
-        });
-
-        Schema::table('provinces', function (Blueprint $table) {
             $table->dropUnique('provinces_country_id_code_index');
-
-        });
-
-        Schema::table('provinces', function (Blueprint $table) {
             $table->dropIndex('provinces_code_index');
-        });
-
-        Schema::table('provinces', function (Blueprint $table) {
             $table->dropForeign('provinces_parent_id_foreign');
-        });
-
-        Schema::table('provinces', function (Blueprint $table) {
             $table->dropColumn('parent_id');
         });
 
