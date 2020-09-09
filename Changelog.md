@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## 1.2.1
+##### 2020-09-09
+
+- Excluded doctrine/dbal `v2.10.3` that breaks the streamline_provinces migration on SQLite.
+
 ## 1.2.0
 ##### 2020-03-14
 
