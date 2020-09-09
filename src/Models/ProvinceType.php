@@ -14,6 +14,17 @@ namespace Konekt\Address\Models;
 use Konekt\Address\Contracts\ProvinceType as ProvinceTypeContract;
 use Konekt\Enum\Enum;
 
+/**
+ * @method static ProvinceType STATE()
+ * @method static ProvinceType REGION()
+ * @method static ProvinceType PROVINCE()
+ * @method static ProvinceType COUNTY()
+ * @method static ProvinceType TERRITORY()
+ * @method static ProvinceType FEDERAL()
+ * @method static ProvinceType MILITARY()
+ * @method static ProvinceType UNIT()
+ * @method static ProvinceType MUNICIPALITY()
+ */
 class ProvinceType extends Enum implements ProvinceTypeContract
 {
     const __default        = self::PROVINCE;

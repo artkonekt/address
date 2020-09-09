@@ -14,6 +14,16 @@ namespace Konekt\Address\Models;
 use Konekt\Address\Contracts\AddressType as AddressTypeContract;
 use Konekt\Enum\Enum;
 
+/**
+ *  @method static AddressType BILLING()
+ *  @method static AddressType BUSINESS()
+ *  @method static AddressType CONTRACT()
+ *  @method static AddressType MAILING()
+ *  @method static AddressType PICKUP()
+ *  @method static AddressType RESIDENTIAL()
+ *  @method static AddressType SHIPPING()
+ *  @method static AddressType UNDEFINED()
+ */
 class AddressType extends Enum implements AddressTypeContract
 {
     const __default = self::UNDEFINED;

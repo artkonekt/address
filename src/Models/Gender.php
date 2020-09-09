@@ -14,6 +14,11 @@ namespace Konekt\Address\Models;
 use Konekt\Address\Contracts\Gender as GenderContract;
 use Konekt\Enum\Enum;
 
+/**
+ * @method static Gender UNKNOWN()
+ * @method static Gender MALE()
+ * @method static Gender FEMALE()
+ */
 class Gender extends Enum implements GenderContract
 {
     const UNKNOWN = null;
