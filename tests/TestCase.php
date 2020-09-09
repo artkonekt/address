@@ -58,7 +58,7 @@ abstract class TestCase extends Orchestra
             'host'     => '127.0.0.1',
             'username' => env('TEST_DB_USERNAME', 'pgsql' === $engine ? 'postgres' : 'root'),
             'password' => env('TEST_DB_PASSWORD', ''),
-            'foreign_key_constraints' => true,
+            'foreign_key_constraints' => false,
         ]);
 
         if ('pgsql' === $engine) {
