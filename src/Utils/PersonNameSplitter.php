@@ -11,6 +11,7 @@
 
 namespace Konekt\Address\Utils;
 
+use Illuminate\Support\Arr;
 use Konekt\Address\Contracts\NameOrder;
 use Konekt\Address\Models\NameOrderProxy;
 
@@ -69,14 +70,14 @@ class PersonNameSplitter
 
         if ($nameOrder->isEastern()) {
             return [
-                'firstname' => array_last($parts),
-                'lastname'  => implode(' ', array_except($parts, count($parts) - 1))
+                'firstname' => Arr::last($parts),
+                'lastname'  => implode(' ', Arr::except($parts, count($parts) - 1))
             ];
         }
 
         return [
-            'firstname' => array_first($parts),
-            'lastname'  => implode(' ', array_except($parts, 0))
+            'firstname' => Arr::first($parts),
+            'lastname'  => implode(' ', Arr::except($parts, 0))
         ];
     }
 }
