@@ -32,12 +32,14 @@ class ProvincesOfIndonesia extends Seeder
 
         \DB::table('provinces')->insert(
             $this->getProvincesInsertArray(
-                $idOfJava, [
+                $idOfJava,
+                [
                 'BT' => 'Banten',
                 'JB' => 'West Java',
                 'JT' => 'Central Java',
                 'JI' => 'East Java',
-            ])
+            ]
+            )
         );
 
         \DB::table('provinces')->insert([
@@ -104,14 +106,16 @@ class ProvincesOfIndonesia extends Seeder
     {
         \DB::table('provinces')->insert(
             $this->getProvincesInsertArray(
-                $this->createUnitAndReturnId('SL', 'Sulawesi'), [
+                $this->createUnitAndReturnId('SL', 'Sulawesi'),
+                [
                 'SN' => 'South Sulawesi',
                 'ST' => 'Central Sulawesi',
                 'SG' => 'Southeast Sulawesi',
                 'SA' => 'North Sulawesi',
                 'SR' => 'West Sulawesi',
                 'GO' => 'Gorontalo',
-            ])
+            ]
+            )
         );
     }
 
@@ -119,11 +123,13 @@ class ProvincesOfIndonesia extends Seeder
     {
         \DB::table('provinces')->insert(
             $this->getProvincesInsertArray(
-                $this->createUnitAndReturnId('NU', 'Lesser Sunda Islands'), [
+                $this->createUnitAndReturnId('NU', 'Lesser Sunda Islands'),
+                [
                 'BA' => 'Bali',
                 'NB' => 'West Nusa Tenggara',
                 'NT' => 'East Nusa Tenggara'
-            ])
+            ]
+            )
         );
     }
 
@@ -131,7 +137,8 @@ class ProvincesOfIndonesia extends Seeder
     {
         \DB::table('provinces')->insert(
             $this->getProvincesInsertArray(
-                $this->createUnitAndReturnId('SM', 'Sumatra'), [
+                $this->createUnitAndReturnId('SM', 'Sumatra'),
+                [
                 'AC' => 'Aceh',
                 'BB' => 'Bangka Belitung Islands',
                 'BE' => 'Bengkulu',
@@ -142,7 +149,8 @@ class ProvincesOfIndonesia extends Seeder
                 'SB' => 'West Sumatra',
                 'SS' => 'South Sumatra',
                 'SU' => 'North Sumatra',
-            ])
+            ]
+            )
         );
     }
 

@@ -23,7 +23,8 @@ class StatesOfUsa extends Seeder
      */
     public function run()
     {
-        \DB::table('provinces')->insert([
+        \DB::table('provinces')->insert(
+            [
                 [
                     "code"       => "AL",
                     "name"       => "Alabama",
@@ -380,7 +381,6 @@ class StatesOfUsa extends Seeder
                     "type"       => ProvinceType::MILITARY
                 ]
             ]
-
         );
     }
 }
