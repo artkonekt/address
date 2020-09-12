@@ -9,31 +9,43 @@ php:
   - '7.4'
 
 env:
-  - LARAVEL=5.5
-  - LARAVEL=5.5 TEST_DB_ENGINE=mysql
-  - LARAVEL=5.5 TEST_DB_ENGINE=pgsql
-  - LARAVEL=5.6
-  - LARAVEL=5.7
-  - LARAVEL=5.8
-  - LARAVEL=5.8 TEST_DB_ENGINE=mysql
-  - LARAVEL=5.8 TEST_DB_ENGINE=pgsql
-  - LARAVEL=6.0
-  - LARAVEL=6.18
-  - LARAVEL=6.18 TEST_DB_ENGINE=mysql
-  - LARAVEL=6.18 TEST_DB_ENGINE=pgsql
-  - LARAVEL=7.0
-  - LARAVEL=7.28
-  - LARAVEL=7.28 TEST_DB_ENGINE=mysql
-  - LARAVEL=7.28 TEST_DB_ENGINE=pgsql
+#  - LARAVEL=5.5
+#  - LARAVEL=5.5 TEST_DB_ENGINE=mysql
+#  - LARAVEL=5.5 TEST_DB_ENGINE=pgsql
+#  - LARAVEL=5.6
+#  - LARAVEL=5.7
+#  - LARAVEL=5.8
+#  - LARAVEL=5.8 TEST_DB_ENGINE=mysql
+#  - LARAVEL=5.8 TEST_DB_ENGINE=pgsql
+#  - LARAVEL=6.0
+#  - LARAVEL=6.18
+#  - LARAVEL=6.18 TEST_DB_ENGINE=mysql
+#  - LARAVEL=6.18 TEST_DB_ENGINE=pgsql
+#  - LARAVEL=7.0
+#  - LARAVEL=7.28
+#  - LARAVEL=7.28 TEST_DB_ENGINE=mysql
+#  - LARAVEL=7.28 TEST_DB_ENGINE=pgsql
+  - LARAVEL=8.0
+  - LARAVEL=8.0 TEST_DB_ENGINE=mysql
+  - LARAVEL=8.0 TEST_DB_ENGINE=pgsql
+
+matrix:
+  exclude:
+    - php: '7.2'
+      env: 'LARAVEL=8.0'
+    - php: '7.2'
+      env: 'LARAVEL=8.0 TEST_DB_ENGINE=mysql'
+    - php: '7.2'
+      env: 'LARAVEL=8.0 TEST_DB_ENGINE=pgsql'
 
 script:
   - vendor/bin/phpunit --testdox
 before_install:
-  - MINOR=`echo $LARAVEL | sed 's/[5|6|7]\.\([0-9]\+\)/\1/'`
+  - MINOR=`echo $LARAVEL | sed 's/[5|6|7|8]\.\([0-9]\+\)/\1/'`
   - '[[ $LARAVEL =~ ^6\.[0-9]+$ ]] && MAJOR=6 || MAJOR=5'
   - '[[ $LARAVEL =~ ^7\.[0-9]+$ ]] && MAJOR=7 || true'
-  - '[ 6 -eq $MAJOR ] && ORCH=4 || ORCH=3'
-  - '[ 7 -eq $MAJOR ] && ORCH=5 || true'
+  - '[[ $LARAVEL =~ ^8\.[0-9]+$ ]] && MAJOR=8 || true'
+  - echo "Testing against Laravel ${MAJOR}.${MINOR}"
   - composer require "illuminate/support:${MAJOR}.${MINOR}.*" --no-update -v
   - composer require "illuminate/console:${MAJOR}.${MINOR}.*" --no-update -v
   - sh -c "[ ! -z $TEST_DB_ENGINE ] && [ 'mysql' = $TEST_DB_ENGINE ] && mysql -e 'DROP DATABASE IF EXISTS address_test;CREATE DATABASE address_test;'" || true
