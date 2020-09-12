@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## 1.3.0
+##### 2020-09-12
+
+- Added Laravel 8 support
+
 ## 1.2.1
 ##### 2020-09-09
 

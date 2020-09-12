@@ -22,3 +22,4 @@ within your applications structure.
 | 5.8     | 1.0 - 1.2 |
 | 6.x     | 1.1+      |
 | 7.x     | 1.2+      |
+| 8.x     | 1.3+      |
