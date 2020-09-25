@@ -27,7 +27,7 @@ use Konekt\Enum\Enum;
  */
 class ProvinceType extends Enum implements ProvinceTypeContract
 {
-    const __default        = self::PROVINCE;
+    const __DEFAULT        = self::PROVINCE;
 
     const STATE            = 'state';
     const REGION           = 'region';

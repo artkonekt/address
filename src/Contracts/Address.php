@@ -11,6 +11,11 @@
 
 namespace Konekt\Address\Contracts;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 interface Address
 {
+    public function country(): BelongsTo;
+
+    public function province(): BelongsTo;
 }

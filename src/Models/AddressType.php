@@ -26,7 +26,7 @@ use Konekt\Enum\Enum;
  */
 class AddressType extends Enum implements AddressTypeContract
 {
-    const __default = self::UNDEFINED;
+    const __DEFAULT = self::UNDEFINED;
 
     /** To display on Invoices */
     const BILLING = 'billing';

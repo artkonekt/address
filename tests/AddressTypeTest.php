@@ -24,7 +24,7 @@ class AddressTypeTest extends TestCase
         $type = new AddressType();
 
         $this->assertNotNull($type);
-        $this->assertEquals(AddressType::__default, $type->value());
+        $this->assertEquals(AddressType::defaultValue(), $type->value());
 
         $shipping = AddressType::SHIPPING();
         $this->assertTrue($shipping->equals(AddressTypeProxy::SHIPPING()));

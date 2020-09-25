@@ -12,6 +12,7 @@
 namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Konekt\Address\Contracts\Address as AddressContract;
 use Konekt\Enum\Eloquent\CastsEnums;
 
@@ -43,22 +44,12 @@ class Address extends Model implements AddressContract
      */
     protected $table = 'addresses';
 
-    /**
-     * Relationship to the country the address belongs to
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function country()
+    public function country(): BelongsTo
     {
         return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
     }
 
-    /**
-     * Relationship to the province the address belongs to
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function province()
+    public function province(): BelongsTo
     {
         return $this->belongsTo(ProvinceProxy::modelClass(), 'province_id');
     }

@@ -15,8 +15,6 @@ interface Person
 {
     /**
      * Returns the full name of the person (in appropriate name order)
-     *
-     * @return string
      */
-    public function getFullName();
+    public function getFullName(): string;
 }

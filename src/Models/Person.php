@@ -61,7 +61,7 @@ class Person extends Model implements PersonContract
     /**
      * @inheritdoc
      */
-    public function getFullName()
+    public function getFullName(): string
     {
         if ($this->nameorder && $this->nameorder->isEastern()) {
             return sprintf('%s %s', $this->lastname, $this->firstname);

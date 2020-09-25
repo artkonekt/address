@@ -12,6 +12,7 @@
 namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 use Konekt\Address\Contracts\Country as CountryContract;
 
@@ -50,7 +51,7 @@ class Country extends Model implements CountryContract
         'is_eu_member' => 'bool'
     ];
 
-    public function provinces()
+    public function provinces(): HasMany
     {
         return $this->hasMany(ProvinceProxy::modelClass(), 'country_id', 'id');
     }

@@ -1,5 +1,13 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2020-XX-YY
+
+- BC: Address, Country and Person interfaces have been extended
+- BC: Enums have been upgraded to v3
+- Dropped Laravel 5 support
+- Dropped PHP 7.2 support
+
 ## 1.3.0
 ##### 2020-09-12
 

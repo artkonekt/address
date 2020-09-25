@@ -11,6 +11,9 @@
 
 namespace Konekt\Address\Contracts;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 interface Country
 {
+    public function provinces(): HasMany;
 }
