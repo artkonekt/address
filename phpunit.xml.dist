@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Address Module Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix="Test.php">src/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <!--      To test with Postgres:                           -->
+        <!--        <env name="TEST_DB_USERNAME" value="postgres"/>-->
+        <!--        <env name="TEST_DB_PASSWORD" value="password"/>-->
+        <!--        <env name="TEST_DB_ENGINE" value="pgsql"/>-->
+
+        <!--      To test with MySQL:                           -->
+        <!--        <env name="TEST_DB_USERNAME" value="mysql"/>-->
+        <!--        <env name="TEST_DB_PASSWORD" value="password"/>-->
+        <!--        <env name="TEST_DB_ENGINE" value="mysql"/>-->
+    </php>
+</phpunit>
