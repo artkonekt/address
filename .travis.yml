@@ -23,7 +23,7 @@ env:
 
 
 script:
-  - vendor/bin/phpunit -c phpunit.xml --testdox
+  - vendor/bin/phpunit --testdox
 before_install:
   - MINOR=`echo $LARAVEL | sed 's/[6|7|8]\.\([0-9]\+\)/\1/'`
   - '[[ $LARAVEL =~ ^7\.[0-9]+$ ]] && MAJOR=7 || MAJOR=6'
