@@ -1,7 +1,7 @@
 - I. Introduction
     - [Overview](overview.md)
     - [Installation](installation.md)
-    - [Testing](testing.md)
+    - [Upgrade](upgrade.md)
 
 - II. Models
     - [Country](country.md)
