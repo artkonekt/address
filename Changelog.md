@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2020-XX-YY
+## 2.0.0
+##### 2020-10-11
 
 - BC: Address, Country and Person interfaces have been extended
 - BC: Enums have been upgraded to v3

@@ -53,7 +53,7 @@ dd($zdish);
 
 ### Locate by Country
 
-The predefined `byCountry` [scope](https://laravel.com/docs/5.8/eloquent#local-scopes) can fetch
+The predefined `byCountry` [scope](https://laravel.com/docs/8.x/eloquent#local-scopes) can fetch
 provinces by country:
 
 ```php
@@ -66,7 +66,7 @@ $provincesOfHolland = Province::byCountry($holland)->get();
 
 ### Locate by Type
 
-The predefined `byType` [scope](https://laravel.com/docs/5.8/eloquent#local-scopes) can fetch
+The predefined `byType` [scope](https://laravel.com/docs/8.x/eloquent#local-scopes) can fetch
 provinces by type:
 
 ```php
