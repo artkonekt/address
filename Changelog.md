@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2020-XX-YY
+## 2.1.0
+##### 2020-12-07
 
 - Added PHP 8 support
 
