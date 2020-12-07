@@ -15,7 +15,7 @@
         "issues": "https://github.com/artkonekt/address"
     },
     "require": {
-        "php": "^7.3",
+        "php": "^7.3 | ^8.0",
         "doctrine/dbal": "~2.3, !=2.10.3",
         "konekt/concord": "^1.5.1",
         "konekt/enum": "~3.0",
