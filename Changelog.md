@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2021-XX-YY
+## 2.1.1
+##### 2021-11-05
 
 - Fixed SQLite incompatibility in downwards migration
 
