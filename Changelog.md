@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2022-XX-YY
+## 2.1.2
+##### 2022-02-28
 
 - Added PHP 8.1 and Laravel 9 support
 - Fixed some model annotations
