@@ -55,7 +55,8 @@ abstract class TestCase extends Orchestra
             'driver'   => $engine,
             'database' => 'sqlite' == $engine ? ':memory:' : 'address_test',
             'prefix'   => '',
-            'host'     => '127.0.0.1',
+            'host' => env('TEST_DB_HOST', '127.0.0.1'),
+            'port' => env('TEST_DB_PORT'),
             'username' => env('TEST_DB_USERNAME', 'pgsql' === $engine ? 'postgres' : 'root'),
             'password' => env('TEST_DB_PASSWORD', '')
         ]);
