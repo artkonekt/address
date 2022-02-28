@@ -21,7 +21,7 @@ use Konekt\Enum\Eloquent\CastsEnums;
  *
  * @property int            $id
  * @property string         $name
- * @property int            $country_id
+ * @property string         $country_id
  * @property int            $province_id
  * @property string         $postalcode     Max 12 characters
  * @property string         $city

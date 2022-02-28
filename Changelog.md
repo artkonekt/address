@@ -1,5 +1,12 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2022-XX-YY
+
+- Added PHP 8.1 and Laravel 9 support
+- Fixed some model annotations
+- Replaced Travis CI with GitHub Actions
+
 ## 2.1.1
 ##### 2021-11-05
 

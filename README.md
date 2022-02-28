@@ -1,6 +1,6 @@
 # Address Module for Laravel
 
-[![Travis Build Status](https://img.shields.io/travis/com/artkonekt/address.svg?style=flat-square)](https://app.travis-ci.com/github/artkonekt/address/builds)
+[![Tests](https://img.shields.io/github/workflow/status/artkonekt/address/tests/master?style=flat-square)](https://github.com/artkonekt/address/actions?query=workflow%3Atests)
 [![Packagist Stable Version](https://img.shields.io/packagist/v/konekt/address.svg?style=flat-square&label=stable)](https://packagist.org/packages/konekt/address)
 [![StyleCI](https://styleci.io/repos/74651867/shield?branch=master)](https://styleci.io/repos/74651867)
 [![Packagist downloads](https://img.shields.io/packagist/dt/konekt/address.svg?style=flat-square)](https://packagist.org/packages/konekt/address)
