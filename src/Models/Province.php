@@ -22,12 +22,14 @@ use Konekt\Enum\Eloquent\CastsEnums;
  * Province Entity class
  *
  * @property int          $id
- * @property int          $country_id
+ * @property string       $country_id
  * @property ProvinceType $type
  * @property string       $code       Max 16 characters
  * @property string       $name
  * @property ?Province    $parent
  * @property Collection   $children
+ *
+ * @property-read Country $country
  */
 class Province extends Model implements ProvinceContract
 {

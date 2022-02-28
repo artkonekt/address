@@ -21,11 +21,15 @@ use Konekt\Enum\Eloquent\CastsEnums;
  *
  * @property int            $id
  * @property string         $name
+ * @property AddressType|null $type
  * @property string         $country_id
- * @property int            $province_id
- * @property string         $postalcode     Max 12 characters
- * @property string         $city
+ * @property int|null       $province_id
+ * @property string|null    $postalcode     Max 12 characters
+ * @property string|null    $city
  * @property string         $address
+ *
+ * @property-read Country $country
+ * @property-read null|Province $province
  */
 class Address extends Model implements AddressContract
 {
