@@ -3,9 +3,9 @@
 ## Unreleased
 ##### 2022-03-XX
 
+- Added Enum v4 support
 - Dropped PHP 7.3 & 7.4 support
 - Dropped Laravel 6 & 7 support
-- Added Enum v4 support
 
 ## 2.1.2
 ##### 2022-02-28
