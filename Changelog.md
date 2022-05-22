@@ -1,9 +1,9 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2022-XX-YY
+## 2.2.1
+##### 2022-05-22
 
-- Removed theatrical warnings from the streamline provinces migration's down method
+- Removed theatrical warnings from the streamline provinces' migrations down method
 
 ## 2.2.0
 ##### 2022-03-10
