@@ -59,15 +59,6 @@ class StreamlineProvincesTable extends Migration
 
             $table->dropColumn('parent_id');
         });
-
-        echo "WARNING: `provinces.type` field wasn't rolled back to be an enum\n";
-        echo "Due to limitations of enums in migrations.\n";
-        echo "See https://laravel.com/docs/5.8/migrations#modifying-columns\n";
-
-//        This does not work:
-//        Schema::table('provinces', function (Blueprint $table) {
-//            $table->enum('type', ProvinceTypeProxy::values())->default(ProvinceTypeProxy::defaultValue())->change();
-//        });
     }
 
     private function isSqlite(): bool
