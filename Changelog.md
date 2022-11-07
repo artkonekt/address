@@ -3,8 +3,9 @@
 ## Unreleased
 ##### 2022-XX-YY
 
+- Added PHP 8.2 support
 - Dropped Laravel 8 support
-- Changed minimum Laravel version to 9.32 
+- Changed minimum Laravel version to 9.2
 
 ## 2.2.2
 ##### 2022-11-07
