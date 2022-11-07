@@ -1,5 +1,11 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2022-XX-YY
+
+- Dropped Laravel 8 support
+- Changed minimum Laravel version to 9.32 
+
 ## 2.2.2
 ##### 2022-11-07
 
