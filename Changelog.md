@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## 2.2.2
+##### 2022-11-07
+
+- Fixed UK to be non-EU in the Country Seeder
+
 ## 2.2.1
 ##### 2022-05-22
 
