@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2022-XX-YY
+## 2.3.0
+##### 2022-11-24
 
 - Added PHP 8.2 support
 - Dropped Laravel 8 support
