@@ -9,8 +9,9 @@ jobs:
     strategy:
       matrix:
         php: ['8.0', '8.1', '8.2']
-        laravel: ['9.2', '9.38']
+        laravel: ['9.2', '9.40']
         enum: ['3', '4']
+        doctrine: ['2', '3']
     name: PHP ${{ matrix.php }} Laravel ${{ matrix.laravel }} Enum ${{ matrix.enum }}
     steps:
       - name: Checkout
@@ -25,6 +26,7 @@ jobs:
         run: |
           composer require "konekt/enum:${{ matrix.enum }}.*" --no-update -v
           composer require "laravel/framework:${{ matrix.laravel }}.*" --no-update -v
+          composer require "doctrine/dbal:${{ matrix.doctrine }}.*" --no-update -v
           [[ "${{ matrix.laravel }}" < "9.32" ]] && composer req "orchestra/testbench-core:7.7.1" --no-update
           [[ "${{ matrix.laravel }}" < "9.12" ]] && composer req "orchestra/testbench-core:7.4.0" --no-update
           [[ "${{ matrix.laravel }}" < "9.7" ]] && composer req "orchestra/testbench-core:7.3.0" --no-update
