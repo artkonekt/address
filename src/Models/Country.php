@@ -23,9 +23,12 @@ use Konekt\Address\Contracts\Country as CountryContract;
  * @property string     $name
  * @property int        $phonecode
  * @property bool       $is_eu_member
- * @property Collection provinces
- * @property Collection states
- * @property Collection counties
+ * @property-read Collection $provinces
+ * @property-read Collection $states
+ * @property-read Collection $counties
+ * @property-read Collection $regions
+ * @property-read Collection $territories
+ * @property-read Collection $units
  *
  * @method static Country|null find(string $id)
  */

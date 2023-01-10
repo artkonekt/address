@@ -1609,7 +1609,7 @@ class Countries extends Seeder
                 'id'           => 'GB',
                 'name'         => 'United Kingdom',
                 'phonecode'    => 44,
-                'is_eu_member' => 1
+                'is_eu_member' => 0
             ],
 
             [

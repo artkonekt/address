@@ -1,5 +1,47 @@
 # Address Module Changelog
 
+## 2.3.0
+##### 2022-11-24
+
+- Added PHP 8.2 support
+- Dropped Laravel 8 support
+- Changed minimum Laravel version to 9.2
+- Allowing Doctrine DBAL v3
+
+## 2.2.2
+##### 2022-11-07
+
+- Fixed UK to be non-EU in the Country Seeder
+
+## 2.2.1
+##### 2022-05-22
+
+- Removed theatrical warnings from the streamline provinces' migrations down method
+
+## 2.2.0
+##### 2022-03-10
+
+- Added Enum v4 support
+- Dropped PHP 7.3 & 7.4 support
+- Dropped Laravel 6 & 7 support
+
+## 2.1.2
+##### 2022-02-28
+
+- Added PHP 8.1 and Laravel 9 support
+- Fixed some model annotations
+- Replaced Travis CI with GitHub Actions
+
+## 2.1.1
+##### 2021-11-05
+
+- Fixed SQLite incompatibility in downwards migration
+
+## 2.1.0
+##### 2020-12-07
+
+- Added PHP 8 support
+
 ## 2.0.0
 ##### 2020-10-11
 

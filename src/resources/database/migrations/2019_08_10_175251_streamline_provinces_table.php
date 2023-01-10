@@ -50,19 +50,23 @@ class StreamlineProvincesTable extends Migration
             // creating a composite index with a field that's
             // an fkey causes original index to be dropped
             $table->index('country_id', 'provinces_country_id_foreign');
-            $table->dropUnique('provinces_country_id_code_index');
-            $table->dropIndex('provinces_code_index');
-            $table->dropForeign('provinces_parent_id_foreign');
+
+            if (!$this->isSqlite()) {
+                $table->dropIndex('provinces_code_index');
+                $table->dropUnique('provinces_country_id_code_index');
+                $table->dropForeign('provinces_parent_id_foreign');
+            }
+
             $table->dropColumn('parent_id');
         });
+    }
 
-        echo "WARNING: `provinces.type` field wasn't rolled back to be an enum\n";
-        echo "Due to limitations of enums in migrations.\n";
-        echo "See https://laravel.com/docs/5.8/migrations#modifying-columns\n";
-
-//        This does not work:
-//        Schema::table('provinces', function (Blueprint $table) {
-//            $table->enum('type', ProvinceTypeProxy::values())->default(ProvinceTypeProxy::defaultValue())->change();
-//        });
+    private function isSqlite(): bool
+    {
+        return 'sqlite' === Schema::connection($this->getConnection())
+                ->getConnection()
+                ->getPdo()
+                ->getAttribute(PDO::ATTR_DRIVER_NAME)
+            ;
     }
 }
