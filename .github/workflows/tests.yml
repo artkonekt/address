@@ -12,6 +12,9 @@ jobs:
         laravel: ['9.2', '9.52', '10.0']
         enum: ['3', '4']
         doctrine: ['2', '3']
+        exclude:
+          - php: '8.0'
+            laravel: '10.0'
     name: PHP ${{ matrix.php }} Laravel ${{ matrix.laravel }} Enum ${{ matrix.enum }} DBAL ${{ matrix.doctrine }}
     steps:
       - name: Checkout
