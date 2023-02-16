@@ -50,7 +50,7 @@ class Person extends Model implements PersonContract
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'birthdate' => 'datetime',
+        'birthdate'  => 'datetime',
     ];
 
     protected $enums = [
