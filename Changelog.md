@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2023-XX-YY
+## 2.4.0
+##### 2023-02-16
 
 - Added Laravel 10 support
 
