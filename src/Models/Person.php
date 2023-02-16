@@ -47,10 +47,10 @@ class Person extends Model implements PersonContract
      *
      * @var array
      */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'birthdate'
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'birthdate' => 'datetime',
     ];
 
     protected $enums = [
