@@ -1,5 +1,11 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2023-XX-YY
+
+- Added zones with scopes (shipping, billing, etc) and members (province, country)
+- Added `country`, `province` and `zone` models to the Relation morphMap
+
 ## 2.4.0
 ##### 2023-02-16
 
