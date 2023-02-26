@@ -49,9 +49,9 @@ class Zone extends Model implements ZoneContract
         return $this->hasMany(ZoneMemberProxy::modelClass());
     }
 
-    public function addCountry(CountryContract $country): void
+    public function addCountry(CountryContract|string $country): void
     {
-        $this->members()->create(['member_type' => ZoneMemberType::COUNTRY, 'member_id' => $country->id]);
+        $this->members()->create(['member_type' => ZoneMemberType::COUNTRY, 'member_id' => is_string($country) ? $country : $country->id]);
     }
 
     public function addProvince(ProvinceContract $province): void
