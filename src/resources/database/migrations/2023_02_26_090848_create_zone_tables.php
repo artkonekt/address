@@ -19,7 +19,7 @@ return new class() extends Migration {
             $table->id();
             $table->unsignedBigInteger('zone_id');
             $table->string('member_id');
-            $table->unsignedBigInteger('member_type');
+            $table->string('member_type');
             $table->timestamps();
 
             $table->foreign('zone_id')
