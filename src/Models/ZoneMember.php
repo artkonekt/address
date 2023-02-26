@@ -16,7 +16,6 @@ namespace Konekt\Address\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Konekt\Address\Contracts\Country;
 use Konekt\Address\Contracts\Province;

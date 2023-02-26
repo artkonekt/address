@@ -21,5 +21,6 @@ interface ZoneMember
     public function getProvince(): ?Province;
 
     public function isCountry(): bool;
+
     public function isProvince(): bool;
 }

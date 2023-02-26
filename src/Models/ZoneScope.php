@@ -27,7 +27,7 @@ use Konekt\Enum\Enum;
  * @method bool isBilling()
  * @method bool isPricing()
  * @method bool isContent()
-
+ *
  * @property-read bool $is_shipping
  * @property-read bool $is_billing
  * @property-read bool $is_pricing
@@ -47,9 +47,9 @@ class ZoneScope extends Enum implements ZoneScopeContract
     {
         static::$labels = [
             self::SHIPPING => __('Shipping'),
-            self::BILLING => __('Billing'),
-            self::PRICING => __('Pricing'),
-            self::CONTENT => __('Content'),
+            self::BILLING  => __('Billing'),
+            self::PRICING  => __('Pricing'),
+            self::CONTENT  => __('Content'),
         ];
     }
 }
