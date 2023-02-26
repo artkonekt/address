@@ -69,11 +69,11 @@ class Zones
         if (null !== $address->province_id) {
             $query->orWhere(function (Builder $query) use ($address) {
                 $query
-                    ->whereHas('members', fn(Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', $address->country_id))
-                    ->whereHas('members', fn(Builder $q) => $q->where('member_type', ZoneMemberType::PROVINCE)->where('member_id', $address->province_id));
+                    ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', $address->country_id))
+                    ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::PROVINCE)->where('member_id', $address->province_id));
             });
         } else {
-            $query->whereHas('members', fn(Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', $address->country_id));
+            $query->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', $address->country_id));
         }
 
         return $query->get();
@@ -82,14 +82,14 @@ class Zones
     public function theCountryBelongsTo(Country|string $country): Collection
     {
         return $this->preparedQuery()
-            ->whereHas('members', fn(Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', is_string($country) ? $country : $country->id))
+            ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', is_string($country) ? $country : $country->id))
             ->get();
     }
 
     public function theProvinceBelongsTo(Province $province): Collection
     {
         return $this->preparedQuery()
-            ->whereHas('members', fn(Builder $q) => $q->where('member_type', ZoneMemberType::PROVINCE)->where('member_id', $province->id))
+            ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::PROVINCE)->where('member_id', $province->id))
             ->get();
     }
 
