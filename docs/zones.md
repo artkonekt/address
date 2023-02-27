@@ -142,3 +142,54 @@ $ancientMacedonia->isAddressPartOfIt($addressInThessaloniki);
 ```
 
 ## Finding Zones for Addresses, Provinces and Countries
+
+To find the zones an address, province or country belongs to, use the `Zones`
+utility that simplifies querying zones.
+
+```php
+Zones::withAnyScope()->theCountryBelongsTo('IN');
+// Collection of `Zone` models
+```
+
+It is also possible to return zones with a specific scope.
+
+```php
+$bavaria = Province::findByCountryAndCode('DE', 'BY')
+Zone::create(['name' => 'South East Germany', 'scope' => ZoneScope::SHIPPING])->addProvince($bavaria);
+
+Zones::withShippingScope()->theProvinceBelongsTo($bavaria);
+// Illuminate\Database\Eloquent\Collection
+//  #items: array:1 [
+//    0 => Konekt\Address\Models\Zone
+//      #attributes: array:5 [
+//        "id" => 1
+//        "name" => "South East Germany"
+//        "scope" => "shipping"
+//      ]
+
+// Querying for another scope
+Zones::withBillingScope()->theProvinceBelongsTo($bavaria);
+// empty Collection
+```
+
+
+
+```php
+$addressInSweden = Address::create(['country_id' => 'SE', 'city' => 'Borås', 'name' => 'Antoinette Suromy', 'address' => 'Gustav Adolfsgatan 500', 'postalcode' => '500 00']);
+
+$scandinavia = Zone::create(['name' => 'Scandinavia', 'scope' => ZoneScope::PRICING]);
+$scandinavia->addCountries('SE', 'FI', 'DK', 'NO');
+
+Zones::withPricingScope()->theAddressBelongsTo($addressInSweden);
+// Illuminate\Database\Eloquent\Collection
+//  #items: array:1 [
+//    0 => Konekt\Address\Models\Zone
+//      #attributes: array:5 [
+//        "id" => 1
+//        "name" => "Scandinavia"
+//        "scope" => "pricing"
+//      ]
+
+Zones::withTaxationScope()->theAddressBelongsTo($addressInSweden);
+// empty Collection
+```
