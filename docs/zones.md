@@ -22,7 +22,7 @@ Zone::create(['name' => 'New York metropolitan area'])
 
 Every zone has a scope, which can be one of the followings:
 
-- shipping __(default)__,
+- shipping _(default)_,
 - billing,
 - taxation,
 - pricing,
@@ -53,13 +53,14 @@ $eu->addCountry($germany)
 
 // Adding multiple countries via their codes:
 $eu->addCountries('BE', 'FR', 'ES', 'PT', 'IT');
+
 // Adding multiple countries via models:
 $czechia = Country::find('CZ');
 $slovakia = Country::find('SK');
 $eu->addCountries($czechia, $slovakia);
 ```
 
-Provinces can be added passing their model objects:
+Provinces can be added by passing their model objects:
 
 ```php
 
