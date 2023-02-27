@@ -38,6 +38,7 @@ class ZoneScope extends Enum implements ZoneScopeContract
     public const __DEFAULT = self::SHIPPING;
     public const SHIPPING = 'shipping';
     public const BILLING = 'billing';
+    public const TAXATION = 'taxation';
     public const PRICING = 'pricing';
     public const CONTENT = 'content';
 
@@ -48,6 +49,7 @@ class ZoneScope extends Enum implements ZoneScopeContract
         static::$labels = [
             self::SHIPPING => __('Shipping'),
             self::BILLING  => __('Billing'),
+            self::TAXATION  => __('Taxation'),
             self::PRICING  => __('Pricing'),
             self::CONTENT  => __('Content'),
         ];
