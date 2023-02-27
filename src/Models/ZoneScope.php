@@ -47,11 +47,11 @@ class ZoneScope extends Enum implements ZoneScopeContract
     protected static function boot()
     {
         static::$labels = [
-            self::SHIPPING => __('Shipping'),
-            self::BILLING  => __('Billing'),
+            self::SHIPPING  => __('Shipping'),
+            self::BILLING   => __('Billing'),
             self::TAXATION  => __('Taxation'),
-            self::PRICING  => __('Pricing'),
-            self::CONTENT  => __('Content'),
+            self::PRICING   => __('Pricing'),
+            self::CONTENT   => __('Content'),
         ];
     }
 }
