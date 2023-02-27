@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Konekt\Address\Tests;
 
 use Konekt\Address\Contracts\Zone as ZoneContract;
+use Konekt\Address\Models\Address;
 use Konekt\Address\Models\Country;
 use Konekt\Address\Models\Province;
 use Konekt\Address\Models\ProvinceType;
@@ -111,5 +112,74 @@ class ZoneTest extends TestCase
         // It is not a country
         $this->assertFalse($zone->members[0]->isCountry());
         $this->assertNull($zone->members[0]->getCountry());
+    }
+
+    /** @test */
+    public function it_can_tell_whether_a_country_is_part_of_it()
+    {
+        Country::create(['id' => 'PL', 'name' => 'Poland', 'phonecode' => '48', 'is_eu_member' => true]);
+        Country::create(['id' => 'HU', 'name' => 'Hungary', 'phonecode' => '36', 'is_eu_member' => true]);
+        Country::create(['id' => 'SK', 'name' => 'Slovakia', 'phonecode' => '421', 'is_eu_member' => true]);
+
+        Country::create(['id' => 'GR', 'name' => 'Greece', 'phonecode' => '30', 'is_eu_member' => true]);
+        Country::create(['id' => 'IT', 'name' => 'Italy', 'phonecode' => '39', 'is_eu_member' => true]);
+
+        $cee = Zone::create(['name' => 'Central Europe']);
+        $cee->addCountries('PL', 'SK', 'HU');
+        $se = Zone::create(['name' => 'Southern Europe']);
+        $se->addCountries('GR', 'IT');
+
+        $this->assertTrue($cee->isCountryPartOfIt('PL'));
+        $this->assertTrue($cee->isCountryPartOfIt('HU'));
+        $this->assertTrue($cee->isCountryPartOfIt('SK'));
+        $this->assertFalse($cee->isCountryPartOfIt('GR'));
+        $this->assertFalse($cee->isCountryPartOfIt('IT'));
+
+        $this->assertTrue($se->isCountryPartOfIt('GR'));
+        $this->assertTrue($se->isCountryPartOfIt('IT'));
+        $this->assertFalse($se->isCountryPartOfIt('PL'));
+        $this->assertFalse($se->isCountryPartOfIt('HU'));
+        $this->assertFalse($se->isCountryPartOfIt('SK'));
+    }
+
+    /** @test */
+    public function it_can_tell_whether_a_province_is_part_of_it()
+    {
+        Country::create(['id' => 'AT', 'name' => 'Austria', 'phonecode' => '43', 'is_eu_member' => true]);
+        $burgenland = Province::create(['country_id' => 'AT', 'type' => ProvinceType::STATE, 'code' => 'AT-1', 'name' => 'Burgenland']);
+        $niederosterreich = Province::create(['country_id' => 'AT', 'type' => ProvinceType::STATE, 'code' => 'AT-3', 'name' => 'Niederösterreich']);
+        $tirol = Province::create(['country_id' => 'AT', 'type' => ProvinceType::STATE, 'code' => 'AT-7', 'name' => 'Tirol']);
+
+        $zone = Zone::create(['name' => 'Bordering with Hungary']);
+        $zone->addProvinces($burgenland, $niederosterreich);
+
+        $this->assertTrue($zone->isProvincePartOfIt($burgenland));
+        $this->assertTrue($zone->isProvincePartOfIt($niederosterreich));
+        $this->assertFalse($zone->isProvincePartOfIt($tirol));
+    }
+
+    /** @test */
+    public function it_can_tell_whether_an_address_is_part_of_it()
+    {
+        $ireland = Country::firstOrCreate(['id' => 'IE'], ['name' => 'Ireland', 'is_eu_member' => true, 'phonecode' => '353']);
+        $uk = Country::firstOrCreate(['id' => 'GB'], ['name' => 'Unitked Kingdom', 'is_eu_member' => false, 'phonecode' => '44']);
+
+        $leinster = Province::create(['country_id' => 'IE', 'type' => ProvinceType::PROVINCE, 'code' => 'L', 'name' => 'Leinster']);
+
+        $addressInDublin = Address::create(['country_id' => 'IE', 'city' => 'Dublin', 'province_id' => $leinster->id, 'name' => 'Seán O\'Casey', 'address' => '85 Upper Dorset Street']);
+        $addressInBelfast = Address::create(['country_id' => 'GB', 'city' => 'Belfast', 'name' => 'Ulster Museum', 'address' => 'Botanic Gardens', 'postalcode' => 'BT9 5AB']);
+
+        $leinsterAndUK = Zone::create(['name' => 'This is just a test']);
+        $leinsterAndUK->addCountry($uk);
+        $leinsterAndUK->addProvince($leinster);
+
+        $republicOfIreland = Zone::create(['name' => 'Ireland']);
+        $republicOfIreland->addCountry($ireland);
+
+        $this->assertTrue($leinsterAndUK->isAddressPartOfIt($addressInDublin));
+        $this->assertTrue($leinsterAndUK->isAddressPartOfIt($addressInBelfast));
+
+        $this->assertTrue($republicOfIreland->isAddressPartOfIt($addressInDublin));
+        $this->assertFalse($republicOfIreland->isAddressPartOfIt($addressInBelfast));
     }
 }
