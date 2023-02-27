@@ -2,17 +2,19 @@
 
 This package contains the following seeders in the `src/resources/database/seeds` folder:
 
-| Name                           | Type of Entries         | Contains                                               |
-|:-------------------------------|:------------------------|:-------------------------------------------------------|
-| `Countries`                    | [Country](country.md)   | All the countries in the World                         |
-| `CountiesOfHungary`            | [Province](province.md) | Hungarian counties (megye)                             |
-| `CountiesOfRomania`            | [Province](province.md) | Romanian counties (județ)                              |
-| `ProvincesOfNetherlands`       | [Province](province.md) | Provinces of Netherlands (provincie)                   |
-| `ProvincesAndRegionsOfBelgium` | [Province](province.md) | Belgian Provinces & Regions (gewest/région)            |
-| `ProvincesOfIndonesia`         | [Province](province.md) | Provinces, geographical units and regions of Indonesia |
-| `StatesOfGermany`              | [Province](province.md) | States of Germany (Bundesland)                         |
-| `StatesAndTerritoriesOfIndia`  | [Province](province.md) | Indian States & Union territories                      |
-| `StatesOfUsa`                  | [Province](province.md) | States, DC, territories and military areas of the USA  |
+| Name                                    | Type of Entries         | Contains                                               |
+|:----------------------------------------|:------------------------|:-------------------------------------------------------|
+| `Countries`                             | [Country](country.md)   | All the countries in the World                         |
+| `CountiesOfHungary`                     | [Province](province.md) | Hungarian counties (megye)                             |
+| `CountiesOfRomania`                     | [Province](province.md) | Romanian counties (județ)                              |
+| `ProvincesAndRegionsOfBelgium`          | [Province](province.md) | Belgian Provinces & Regions (gewest/région)            |
+| `ProvincesAndTerritoriesOfCanada`       | [Province](province.md) | Canadian Provinces & Territories (English)             |
+| `ProvincesAndTerritoriesOfCanadaFrench` | [Province](province.md) | Canadian Provinces & Territories (French)              |
+| `ProvincesOfIndonesia`                  | [Province](province.md) | Provinces, geographical units and regions of Indonesia |
+| `ProvincesOfNetherlands`                | [Province](province.md) | Provinces of Netherlands (provincie)                   |
+| `StatesAndTerritoriesOfIndia`           | [Province](province.md) | Indian States & Union territories                      |
+| `StatesOfGermany`                       | [Province](province.md) | States of Germany (Bundesland)                         |
+| `StatesOfUsa`                           | [Province](province.md) | States, DC, territories and military areas of the USA  |
 
 ### Loading
 
