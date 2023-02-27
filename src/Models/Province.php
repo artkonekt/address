@@ -30,6 +30,7 @@ use Konekt\Enum\Eloquent\CastsEnums;
  * @property Collection   $children
  *
  * @property-read Country $country
+ * @method static Province create(array $attributes = [])
  */
 class Province extends Model implements ProvinceContract
 {

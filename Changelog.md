@@ -1,5 +1,13 @@
 # Address Module Changelog
 
+## 2.5.0
+##### 2023-02-27
+
+- Added zones with scopes (shipping, billing, etc) and members (province, country)
+- Added `country`, `province` and `zone` models to the Relation morphMap
+- Added the `Zones` query class (eg. `Zones::withShippingScope()->theCountryBelongsTo('CA')`)
+- Added the provinces and territories of Canada seeder (English and French variants are separately available)
+
 ## 2.4.0
 ##### 2023-02-16
 

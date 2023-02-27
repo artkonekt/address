@@ -16,5 +16,5 @@ The following types are supported out of the box:
 | shipping    | To which goods should be delivered                                         |
 
 If you want to extend this list for your application refer to
-[Extending Enums](https://konekt.dev/concord/1.3/enums#extending-enums) in Concord's documentation.
+[Extending Enums](https://konekt.dev/concord/1.x/enums#extending-enums) in Concord's documentation.
 

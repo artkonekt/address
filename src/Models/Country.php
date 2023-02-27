@@ -31,6 +31,7 @@ use Konekt\Address\Contracts\Country as CountryContract;
  * @property-read Collection $units
  *
  * @method static Country|null find(string $id)
+ * @method static Country create(array $attributes = [])
  */
 class Country extends Model implements CountryContract
 {
