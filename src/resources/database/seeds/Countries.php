@@ -913,7 +913,7 @@ class Countries extends Seeder
 
             [
                 'id'           => 'MK',
-                'name'         => 'Macedonia, the Former Yugoslav Republic of',
+                'name'         => 'North Macedonia',
                 'phonecode'    => 389,
                 'is_eu_member' => 0
             ],

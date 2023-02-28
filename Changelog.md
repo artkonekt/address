@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2023-XX-YY
+
+- Renamed "Macedonia, the former Yugo..." to "North Macedonia"
+
 ## 2.5.0
 ##### 2023-02-27
 
