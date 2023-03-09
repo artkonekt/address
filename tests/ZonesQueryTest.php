@@ -254,7 +254,6 @@ class ZonesQueryTest extends TestCase
         return Province::byCountry($country)->whereIn('code', $provinceCodes)->get()->all();
     }
 
-
     private function seedCanadianProvinces()
     {
         $canada = Country::firstOrCreate(['id' => 'CA'], ['name' => 'Canada', 'is_eu_member' => false, 'phonecode' => '1']);
