@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2023-XX-YY
+## 2.5.1
+##### 2023-03-09
 
 - Fixed the Zones query giving all results when passing and address with a province to it
 - Fixed the old name of "Macedonia, the former Yugo..." by renaming it to "North Macedonia"
