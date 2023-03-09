@@ -3,7 +3,8 @@
 ## Unreleased
 ##### 2023-XX-YY
 
-- Renamed "Macedonia, the former Yugo..." to "North Macedonia"
+- Fixed the Zones query giving all results when passing and address with a province to it
+- Fixed the old name of "Macedonia, the former Yugo..." by renaming it to "North Macedonia"
 
 ## 2.5.0
 ##### 2023-02-27

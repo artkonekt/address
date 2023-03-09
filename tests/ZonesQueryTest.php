@@ -210,4 +210,73 @@ class ZonesQueryTest extends TestCase
         $this->assertCount(1, $norayShippingZones);
         $this->assertEquals('PostNord Territory', $norayShippingZones->first()->name);
     }
+
+    /** @test */
+    public function it_only_returns_zones_containing_the_given_province_if_an_address_is_in_a_province_and_there_are_multiple_zones_for_the_same_country_but_for_different_provinces()
+    {
+        $this->seedCanadianProvinces();
+        $quebecOntario = $this->shippingZoneForCanada('quebec-ontario', 'QC', 'ON');
+        $maritimes = $this->shippingZoneForCanada('maritimes', 'NB', 'NS', 'PE');
+        $westernCanada = $this->shippingZoneForCanada('ouest-canadien', 'AB', 'BC', 'MB', 'NF', 'NT', 'NU', 'SK', 'YT');
+
+        $addressInQuebec = Address::create(['country_id' => 'CA', 'province_id' => Province::findByCountryAndCode('CA', 'QC')->id, 'city' => 'Quebec', 'name' => 'Benoit Fourna', 'address' => '5401 Bd des Galeries', 'postalcode' => 'G2K 1N4']);
+        $addressInVancouver = Address::create(['country_id' => 'CA', 'province_id' => Province::findByCountryAndCode('CA', 'BC')->id, 'city' => 'Vancouver', 'name' => 'Gerald Durell', 'address' => '1391 E 41st Ave', 'postalcode' => 'V5W 1R7']);
+        $addressInHalifax = Address::create(['country_id' => 'CA', 'province_id' => Province::findByCountryAndCode('CA', 'NS')->id, 'city' => 'Halifax', 'name' => 'Rahul Singh', 'address' => '2585 Robie St', 'postalcode' => 'B3K 4N5']);
+
+        $zonesForTheQuebecAddress = Zones::withShippingScope()->theAddressBelongsTo($addressInQuebec);
+        $this->assertCount(1, $zonesForTheQuebecAddress);
+        $this->assertEquals($quebecOntario->id, $zonesForTheQuebecAddress->first()->id);
+
+        $zonesForTheVancouverAddress = Zones::withShippingScope()->theAddressBelongsTo($addressInVancouver);
+        $this->assertCount(1, $zonesForTheVancouverAddress);
+        $this->assertEquals($westernCanada->id, $zonesForTheVancouverAddress->first()->id);
+
+        $zonesForTheHalifaxAddress = Zones::withShippingScope()->theAddressBelongsTo($addressInHalifax);
+        $this->assertCount(1, $zonesForTheHalifaxAddress);
+        $this->assertEquals($maritimes->id, $zonesForTheHalifaxAddress->first()->id);
+    }
+
+    private function shippingZoneForCanada(string $name, string ...$provinceCodes): Zone
+    {
+        $zone = Zone::firstOrCreate(['name' => $name], ['scope' => ZoneScope::SHIPPING]);
+        if ($zone->wasRecentlyCreated) {
+            $zone->addProvinces(...$this->provinces('CA', ...$provinceCodes));
+        }
+
+        return $zone;
+    }
+
+    /**
+     * @return Province[]
+     */
+    private function provinces(string $country, string ...$provinceCodes): array
+    {
+        return Province::byCountry($country)->whereIn('code', $provinceCodes)->get()->all();
+    }
+
+
+    private function seedCanadianProvinces()
+    {
+        $canada = Country::firstOrCreate(['id' => 'CA'], ['name' => 'Canada', 'is_eu_member' => false, 'phonecode' => '1']);
+
+        $provinces = [
+            'AB' => 'Alberta',
+            'BC' => 'Colombie-Britannique',
+            'MB' => 'Manitoba',
+            'NB' => 'Nouveau-Brunswick',
+            'NF' => 'Terre-Neuve-et-Labrador',
+            'NS' => 'Nouvelle-Écosse',
+            'NT' => 'Territoires du Nord-Ouest',
+            'NU' => 'Nunavut',
+            'ON' => 'Ontario',
+            'PE' => 'Île-du-Prince-Édouard',
+            'QC' => 'Québec',
+            'SK' => 'Saskachewan',
+            'YT' => 'Yukon',
+        ];
+
+        foreach ($provinces as $code => $name) {
+            Province::firstOrCreate(['code' => $code, 'country_id' => 'CA', 'type' => 'province'], ['name' => $name]);
+        }
+    }
 }

@@ -72,10 +72,10 @@ class Zones
         $query = $this->preparedQuery();
 
         if (null !== $address->province_id) {
-            $query->orWhere(function (Builder $query) use ($address) {
+            $query->where(function (Builder $query) use ($address) {
                 $query
                     ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', $address->country_id))
-                    ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::PROVINCE)->where('member_id', $address->province_id));
+                    ->orWhereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::PROVINCE)->where('member_id', $address->province_id));
             });
         } else {
             $query->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', $address->country_id));
