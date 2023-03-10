@@ -1,9 +1,9 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2023-XX-YY
+## 2.6.0
+##### 2023-03-10
 
-- Fixed the missing `Zones::get()` method to query zones without matching with country/province/address
+- Added the `Zones::get()` method (to query zones without matching with country/province/address)
 
 ## 2.5.1
 ##### 2023-03-09
