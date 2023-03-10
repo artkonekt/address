@@ -15,11 +15,13 @@ declare(strict_types=1);
 namespace Konekt\Address\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Konekt\Address\Contracts\Country;
 use Konekt\Address\Contracts\Province;
 use Konekt\Address\Contracts\ZoneMember as ZoneMemberContract;
+use Konekt\Address\Contracts\ZoneMemberType as ZoneMemberTypeContract;
 use Konekt\Enum\Eloquent\CastsEnums;
 
 /**
@@ -29,6 +31,8 @@ use Konekt\Enum\Eloquent\CastsEnums;
  * @property Country|Province|Model $member
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ *
+ * @method static ofType(ZoneMemberTypeContract|string $type): Builder
  */
 class ZoneMember extends Model implements ZoneMemberContract
 {
@@ -63,5 +67,10 @@ class ZoneMember extends Model implements ZoneMemberContract
     public function isProvince(): bool
     {
         return $this->member_type->isProvince();
+    }
+
+    public function scopeOfType(Builder $query, ZoneMemberTypeContract|string $type): Builder
+    {
+        return $query->where('member_type', is_string($type) ? $type : $type->value());
     }
 }

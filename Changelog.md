@@ -1,5 +1,12 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2023-XX-YY
+
+- Added missing methods to the `Zone` interface (have been present in the implementation from v2.5)
+- Added the `getMemberCountryIds()` and the `getMemberProvinceIds()` methods to the Zone class/interface
+- Added the `ofType()` scope to the ZoneMember model
+
 ## 2.6.0
 ##### 2023-03-10
 
