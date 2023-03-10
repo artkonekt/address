@@ -67,6 +67,11 @@ class Zones
         return static::withScope(ZoneScope::TAXATION);
     }
 
+    public function get(): Collection
+    {
+        return $this->preparedQuery()->get();
+    }
+
     public function theAddressBelongsTo(Address $address): Collection
     {
         $query = $this->preparedQuery();
