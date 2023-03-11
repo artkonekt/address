@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the db seeder with the provinces and territories of the Canada (English)
  *
@@ -21,83 +23,83 @@ class ProvincesAndTerritoriesOfCanada extends Seeder
         DB::table('provinces')->insert([
             /** - - - - - - - - - P R O V I N C E S - - - - - - - - **/
             [
-                'name'       => 'Alberta',
+                'name' => 'Alberta',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'AB'
+                'type' => 'province',
+                'code' => 'AB'
             ],
             [
-                'name'       => 'British Columbia',
+                'name' => 'British Columbia',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'BC'
+                'type' => 'province',
+                'code' => 'BC'
             ],
             [
-                'name'       => 'Manitoba',
+                'name' => 'Manitoba',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'MB'
+                'type' => 'province',
+                'code' => 'MB'
             ],
             [
-                'name'       => 'New Brunswick',
+                'name' => 'New Brunswick',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'NB'
+                'type' => 'province',
+                'code' => 'NB'
             ],
             [
-                'name'       => 'Newfoundland',
+                'name' => 'Newfoundland',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'NL'
+                'type' => 'province',
+                'code' => 'NL'
             ],
             [
-                'name'       => 'Nova Scotia',
+                'name' => 'Nova Scotia',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'NS'
+                'type' => 'province',
+                'code' => 'NS'
             ],
             [
-                'name'       => 'Ontario',
+                'name' => 'Ontario',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'ON'
+                'type' => 'province',
+                'code' => 'ON'
             ],
             [
-                'name'       => 'Prince Edward Island',
+                'name' => 'Prince Edward Island',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'PE'
+                'type' => 'province',
+                'code' => 'PE'
             ],
             [
-                'name'       => 'Quebec',
+                'name' => 'Quebec',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'QC'
+                'type' => 'province',
+                'code' => 'QC'
             ],
             [
-                'name'       => 'Saskatchewan',
+                'name' => 'Saskatchewan',
                 'country_id' => 'CA',
-                'type'       => 'province',
-                'code'       => 'SK'
+                'type' => 'province',
+                'code' => 'SK'
             ],
             /** - - - - - - - - - T E R R I T O R I E S - - - - - - - - **/
             [
-                'name'       => 'Northwest Territories',
+                'name' => 'Northwest Territories',
                 'country_id' => 'CA',
-                'type'       => 'territory',
-                'code'       => 'NT'
+                'type' => 'territory',
+                'code' => 'NT'
             ],
             [
-                'name'       => 'Nunavut',
+                'name' => 'Nunavut',
                 'country_id' => 'CA',
-                'type'       => 'territory',
-                'code'       => 'NU'
+                'type' => 'territory',
+                'code' => 'NU'
             ],
             [
-                'name'       => 'Yukon',
+                'name' => 'Yukon',
                 'country_id' => 'CA',
-                'type'       => 'territory',
-                'code'       => 'YT'
+                'type' => 'territory',
+                'code' => 'YT'
             ],
         ]);
     }

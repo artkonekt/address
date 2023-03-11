@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the CountryTest class.
  *
@@ -14,8 +16,8 @@ namespace Konekt\Address\Tests;
 use Konekt\Address\Contracts\Country as CountryContract;
 use Konekt\Address\Models\Country;
 use Konekt\Address\Models\CountryProxy;
-use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\StatesOfUsa;
 
 class CountryTest extends TestCase
@@ -36,8 +38,8 @@ class CountryTest extends TestCase
     {
         parent::setUp();
 
-        $this->usa     = CountryProxy::find('US');
-        $this->uk      = CountryProxy::find('GB');
+        $this->usa = CountryProxy::find('US');
+        $this->uk = CountryProxy::find('GB');
         $this->romania = CountryProxy::find('RO');
         $this->germany = CountryProxy::find('DE');
     }

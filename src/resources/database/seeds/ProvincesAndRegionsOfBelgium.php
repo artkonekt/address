@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the db seeder with the provinces of the Belgium
  *
@@ -18,96 +20,96 @@ class ProvincesAndRegionsOfBelgium extends Seeder
     public function run()
     {
         \DB::table('provinces')->insert([
-            "name"       => "Brussels",
+            "name" => "Brussels",
             "country_id" => "BE",
-            "type"       => "region",
-            "code"       => "BRU"
+            "type" => "region",
+            "code" => "BRU"
         ]);
 
         $idOfFlanders = \DB::table('provinces')->insertGetId([
-            "name"       => "Flanders",
+            "name" => "Flanders",
             "country_id" => "BE",
-            "type"       => "region",
-            "code"       => "VLG"
+            "type" => "region",
+            "code" => "VLG"
         ]);
 
         $idOfWallonia = \DB::table('provinces')->insertGetId([
-            "name"       => "Wallonia",
+            "name" => "Wallonia",
             "country_id" => "BE",
-            "type"       => "region",
-            "code"       => "WAL"
+            "type" => "region",
+            "code" => "WAL"
         ]);
 
         \DB::table('provinces')->insert([
             [
-                "name"       => "Antwerp",
+                "name" => "Antwerp",
                 "country_id" => "BE",
-                "parent_id"  => $idOfFlanders,
-                "type"       => "province",
-                "code"       => "VAN"
+                "parent_id" => $idOfFlanders,
+                "type" => "province",
+                "code" => "VAN"
             ],
             [
-                "name"       => "East Flanders",
+                "name" => "East Flanders",
                 "country_id" => "BE",
-                "parent_id"  => $idOfFlanders,
-                "type"       => "province",
-                "code"       => "VOV"
+                "parent_id" => $idOfFlanders,
+                "type" => "province",
+                "code" => "VOV"
             ],
             [
-                "name"       => "Flemish Brabant",
+                "name" => "Flemish Brabant",
                 "country_id" => "BE",
-                "parent_id"  => $idOfFlanders,
-                "type"       => "province",
-                "code"       => "VBR"
+                "parent_id" => $idOfFlanders,
+                "type" => "province",
+                "code" => "VBR"
             ],
             [
-                "name"       => "Limburg",
+                "name" => "Limburg",
                 "country_id" => "BE",
-                "parent_id"  => $idOfFlanders,
-                "type"       => "province",
-                "code"       => "VLI"
+                "parent_id" => $idOfFlanders,
+                "type" => "province",
+                "code" => "VLI"
             ],
             [
-                "name"       => "West Flanders",
+                "name" => "West Flanders",
                 "country_id" => "BE",
-                "parent_id"  => $idOfFlanders,
-                "type"       => "province",
-                "code"       => "VWV"
+                "parent_id" => $idOfFlanders,
+                "type" => "province",
+                "code" => "VWV"
             ],
             [
-                "name"       => "Hainaut",
+                "name" => "Hainaut",
                 "country_id" => "BE",
-                "parent_id"  => $idOfWallonia,
-                "type"       => "province",
-                "code"       => "WHT"
+                "parent_id" => $idOfWallonia,
+                "type" => "province",
+                "code" => "WHT"
             ],
             [
-                "name"       => "Liège",
+                "name" => "Liège",
                 "country_id" => "BE",
-                "parent_id"  => $idOfWallonia,
-                "type"       => "province",
-                "code"       => "WLG"
+                "parent_id" => $idOfWallonia,
+                "type" => "province",
+                "code" => "WLG"
             ],
             [
-                "name"       => "Luxembourg",
+                "name" => "Luxembourg",
                 "country_id" => "BE",
-                "parent_id"  => $idOfWallonia,
-                "type"       => "province",
-                "code"       => "WLX"
+                "parent_id" => $idOfWallonia,
+                "type" => "province",
+                "code" => "WLX"
             ],
             [
-                "name"       => "Namur",
+                "name" => "Namur",
                 "country_id" => "BE",
-                "parent_id"  => $idOfWallonia,
-                "type"       => "province",
-                "code"       => "WNA"
+                "parent_id" => $idOfWallonia,
+                "type" => "province",
+                "code" => "WNA"
             ],
             [
-                "name"       => "Walloon Brabant",
+                "name" => "Walloon Brabant",
                 "country_id" => "BE",
-                "parent_id"  => $idOfWallonia,
-                "type"       => "province",
-                "code"       => "WBR"
+                "parent_id" => $idOfWallonia,
+                "type" => "province",
+                "code" => "WBR"
             ]
         ]);
     }

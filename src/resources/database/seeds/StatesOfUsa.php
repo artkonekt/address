@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the db seeder with the states of USA
  *
@@ -26,359 +28,359 @@ class StatesOfUsa extends Seeder
         \DB::table('provinces')->insert(
             [
                 [
-                    "code"       => "AL",
-                    "name"       => "Alabama",
+                    "code" => "AL",
+                    "name" => "Alabama",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "AK",
-                    "name"       => "Alaska",
+                    "code" => "AK",
+                    "name" => "Alaska",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "AZ",
-                    "name"       => "Arizona",
+                    "code" => "AZ",
+                    "name" => "Arizona",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "AR",
-                    "name"       => "Arkansas",
+                    "code" => "AR",
+                    "name" => "Arkansas",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "CA",
-                    "name"       => "California",
+                    "code" => "CA",
+                    "name" => "California",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "CO",
-                    "name"       => "Colorado",
+                    "code" => "CO",
+                    "name" => "Colorado",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "CT",
-                    "name"       => "Connecticut",
+                    "code" => "CT",
+                    "name" => "Connecticut",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "DE",
-                    "name"       => "Delaware",
+                    "code" => "DE",
+                    "name" => "Delaware",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "FL",
-                    "name"       => "Florida",
+                    "code" => "FL",
+                    "name" => "Florida",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "GA",
-                    "name"       => "Georgia",
+                    "code" => "GA",
+                    "name" => "Georgia",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "HI",
-                    "name"       => "Hawaii",
+                    "code" => "HI",
+                    "name" => "Hawaii",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "ID",
-                    "name"       => "Idaho",
+                    "code" => "ID",
+                    "name" => "Idaho",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "IL",
-                    "name"       => "Illinois",
+                    "code" => "IL",
+                    "name" => "Illinois",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "IN",
-                    "name"       => "Indiana",
+                    "code" => "IN",
+                    "name" => "Indiana",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "IA",
-                    "name"       => "Iowa",
+                    "code" => "IA",
+                    "name" => "Iowa",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "KS",
-                    "name"       => "Kansas",
+                    "code" => "KS",
+                    "name" => "Kansas",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "KY",
-                    "name"       => "Kentucky",
+                    "code" => "KY",
+                    "name" => "Kentucky",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "LA",
-                    "name"       => "Louisiana",
+                    "code" => "LA",
+                    "name" => "Louisiana",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "ME",
-                    "name"       => "Maine",
+                    "code" => "ME",
+                    "name" => "Maine",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MD",
-                    "name"       => "Maryland",
+                    "code" => "MD",
+                    "name" => "Maryland",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MA",
-                    "name"       => "Massachusetts",
+                    "code" => "MA",
+                    "name" => "Massachusetts",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MI",
-                    "name"       => "Michigan",
+                    "code" => "MI",
+                    "name" => "Michigan",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MN",
-                    "name"       => "Minnesota",
+                    "code" => "MN",
+                    "name" => "Minnesota",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MS",
-                    "name"       => "Mississippi",
+                    "code" => "MS",
+                    "name" => "Mississippi",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MO",
-                    "name"       => "Missouri",
+                    "code" => "MO",
+                    "name" => "Missouri",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "MT",
-                    "name"       => "Montana",
+                    "code" => "MT",
+                    "name" => "Montana",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NE",
-                    "name"       => "Nebraska",
+                    "code" => "NE",
+                    "name" => "Nebraska",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NV",
-                    "name"       => "Nevada",
+                    "code" => "NV",
+                    "name" => "Nevada",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NH",
-                    "name"       => "New Hampshire",
+                    "code" => "NH",
+                    "name" => "New Hampshire",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NJ",
-                    "name"       => "New Jersey",
+                    "code" => "NJ",
+                    "name" => "New Jersey",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NM",
-                    "name"       => "New Mexico",
+                    "code" => "NM",
+                    "name" => "New Mexico",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NY",
-                    "name"       => "New York",
+                    "code" => "NY",
+                    "name" => "New York",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "NC",
-                    "name"       => "North Carolina",
+                    "code" => "NC",
+                    "name" => "North Carolina",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "ND",
-                    "name"       => "North Dakota",
+                    "code" => "ND",
+                    "name" => "North Dakota",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "OH",
-                    "name"       => "Ohio",
+                    "code" => "OH",
+                    "name" => "Ohio",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "OK",
-                    "name"       => "Oklahoma",
+                    "code" => "OK",
+                    "name" => "Oklahoma",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "OR",
-                    "name"       => "Oregon",
+                    "code" => "OR",
+                    "name" => "Oregon",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "PA",
-                    "name"       => "Pennsylvania",
+                    "code" => "PA",
+                    "name" => "Pennsylvania",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "RI",
-                    "name"       => "Rhode Island",
+                    "code" => "RI",
+                    "name" => "Rhode Island",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "SC",
-                    "name"       => "South Carolina",
+                    "code" => "SC",
+                    "name" => "South Carolina",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "SD",
-                    "name"       => "South Dakota",
+                    "code" => "SD",
+                    "name" => "South Dakota",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "TN",
-                    "name"       => "Tennessee",
+                    "code" => "TN",
+                    "name" => "Tennessee",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "TX",
-                    "name"       => "Texas",
+                    "code" => "TX",
+                    "name" => "Texas",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "UT",
-                    "name"       => "Utah",
+                    "code" => "UT",
+                    "name" => "Utah",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "VT",
-                    "name"       => "Vermont",
+                    "code" => "VT",
+                    "name" => "Vermont",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "VA",
-                    "name"       => "Virginia",
+                    "code" => "VA",
+                    "name" => "Virginia",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "WA",
-                    "name"       => "Washington",
+                    "code" => "WA",
+                    "name" => "Washington",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "WV",
-                    "name"       => "West Virginia",
+                    "code" => "WV",
+                    "name" => "West Virginia",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "WI",
-                    "name"       => "Wisconsin",
+                    "code" => "WI",
+                    "name" => "Wisconsin",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 [
-                    "code"       => "WY",
-                    "name"       => "Wyoming",
+                    "code" => "WY",
+                    "name" => "Wyoming",
                     "country_id" => "US",
-                    "type"       => "state"
+                    "type" => "state"
                 ],
                 // -- END OF STATES
                 [
-                    "code"       => "DC",
-                    "name"       => "District of Columbia",
+                    "code" => "DC",
+                    "name" => "District of Columbia",
                     "country_id" => "US",
-                    "type"       => ProvinceType::FEDERAL_DISTRICT
+                    "type" => ProvinceType::FEDERAL_DISTRICT
                 ],
                 [
-                    "code"       => "AS",
-                    "name"       => "American Samoa",
+                    "code" => "AS",
+                    "name" => "American Samoa",
                     "country_id" => "US",
-                    "type"       => ProvinceType::TERRITORY
+                    "type" => ProvinceType::TERRITORY
                 ],
                 [
-                    "code"       => "GU",
-                    "name"       => "Guam",
+                    "code" => "GU",
+                    "name" => "Guam",
                     "country_id" => "US",
-                    "type"       => ProvinceType::TERRITORY
+                    "type" => ProvinceType::TERRITORY
                 ],
                 [
-                    "code"       => "MP",
-                    "name"       => "Northern Mariana Islands",
+                    "code" => "MP",
+                    "name" => "Northern Mariana Islands",
                     "country_id" => "US",
-                    "type"       => ProvinceType::TERRITORY
+                    "type" => ProvinceType::TERRITORY
                 ],
                 [
-                    "code"       => "PR",
-                    "name"       => "Puerto Rico",
+                    "code" => "PR",
+                    "name" => "Puerto Rico",
                     "country_id" => "US",
-                    "type"       => ProvinceType::TERRITORY
+                    "type" => ProvinceType::TERRITORY
                 ],
                 [
-                    "code"       => "VI",
-                    "name"       => "Virgin Islands",
+                    "code" => "VI",
+                    "name" => "Virgin Islands",
                     "country_id" => "US",
-                    "type"       => ProvinceType::TERRITORY
+                    "type" => ProvinceType::TERRITORY
                 ],
                 [
-                    "code"       => "AA",
-                    "name"       => "Armed Forces Americas (except Canada)",
+                    "code" => "AA",
+                    "name" => "Armed Forces Americas (except Canada)",
                     "country_id" => "US",
-                    "type"       => ProvinceType::MILITARY
+                    "type" => ProvinceType::MILITARY
                 ],
                 [
-                    "code"       => "AE",
-                    "name"       => "Armed Forces Europe, the Middle East, and Canada",
+                    "code" => "AE",
+                    "name" => "Armed Forces Europe, the Middle East, and Canada",
                     "country_id" => "US",
-                    "type"       => ProvinceType::MILITARY
+                    "type" => ProvinceType::MILITARY
                 ],
                 [
-                    "code"       => "AP",
-                    "name"       => "Armed Forces Pacific",
+                    "code" => "AP",
+                    "name" => "Armed Forces Pacific",
                     "country_id" => "US",
-                    "type"       => ProvinceType::MILITARY
+                    "type" => ProvinceType::MILITARY
                 ]
             ]
         );

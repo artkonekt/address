@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the AddressTest class.
  *
@@ -28,18 +30,18 @@ use Konekt\Enum\Enum;
 class AddressTest extends TestCase
 {
     protected $hello = [
-        'name'       => 'HELLOFRESH SE',
+        'name' => 'HELLOFRESH SE',
         'country_id' => 'DE',
-        'address'    => '37A Saarbrücker Strasse',
-        'city'       => 'Berlin'
+        'address' => '37A Saarbrücker Strasse',
+        'city' => 'Berlin'
     ];
 
     protected $avaya = [
-        'name'       => 'Avaya Inc.',
+        'name' => 'Avaya Inc.',
         'country_id' => 'US',
-        'address'    => '4655 Great America Parkway',
-        'city'       => 'Santa Clara',
-        'state'      => 'CA'
+        'address' => '4655 Great America Parkway',
+        'city' => 'Santa Clara',
+        'state' => 'CA'
     ];
 
     /** @var  Province */
@@ -79,9 +81,9 @@ class AddressTest extends TestCase
     public function can_be_created_with_minimal_data()
     {
         $address = AddressProxy::create([
-            'name'       => $this->hello['name'],
+            'name' => $this->hello['name'],
             'country_id' => $this->hello['country_id'],
-            'address'    => $this->hello['address']
+            'address' => $this->hello['address']
         ]);
 
         $this->assertInstanceOf(Address::class, $address);
@@ -99,9 +101,9 @@ class AddressTest extends TestCase
     public function address_type_is_enum()
     {
         $address = AddressProxy::create([
-            'name'       => $this->hello['name'],
+            'name' => $this->hello['name'],
             'country_id' => $this->hello['country_id'],
-            'address'    => $this->hello['address']
+            'address' => $this->hello['address']
         ]);
 
         $this->assertInstanceOf(Enum::class, $address->type);
@@ -114,9 +116,9 @@ class AddressTest extends TestCase
     public function address_type_is_null_slash_undefined_by_default()
     {
         $address = AddressProxy::create([
-            'name'       => $this->hello['name'],
+            'name' => $this->hello['name'],
             'country_id' => $this->hello['country_id'],
-            'address'    => $this->hello['address']
+            'address' => $this->hello['address']
         ]);
 
         $this->assertNull($address->type->value());
@@ -126,10 +128,10 @@ class AddressTest extends TestCase
     public function returns_the_country_model()
     {
         $address = AddressProxy::create([
-            'name'       => $this->hello['name'],
+            'name' => $this->hello['name'],
             'country_id' => $this->hello['country_id'],
-            'city'       => $this->hello['city'],
-            'address'    => $this->hello['address']
+            'city' => $this->hello['city'],
+            'address' => $this->hello['address']
         ]);
 
         $this->assertInstanceOf(Address::class, $address);
@@ -149,11 +151,11 @@ class AddressTest extends TestCase
         $this->assertInstanceOf(Province::class, $state);
 
         $address = AddressProxy::create([
-            'name'        => $this->avaya['name'],
-            'country_id'  => $this->avaya['country_id'],
+            'name' => $this->avaya['name'],
+            'country_id' => $this->avaya['country_id'],
             'province_id' => $state->id,
-            'city'        => $this->avaya['city'],
-            'address'     => $this->avaya['address']
+            'city' => $this->avaya['city'],
+            'address' => $this->avaya['address']
         ]);
 
         $this->assertInstanceOf(Province::class, $address->province);
@@ -170,12 +172,12 @@ class AddressTest extends TestCase
         $state = Province::findByCountryAndCode($this->avaya['country_id'], $this->avaya['state']);
 
         $address = AddressProxy::create([
-            'name'        => $this->avaya['name'],
-            'country_id'  => $this->avaya['country_id'],
+            'name' => $this->avaya['name'],
+            'country_id' => $this->avaya['country_id'],
             'province_id' => $state->id,
-            'city'        => $this->avaya['city'],
-            'address'     => $this->avaya['address'],
-            'type'        => AddressType::BUSINESS
+            'city' => $this->avaya['city'],
+            'address' => $this->avaya['address'],
+            'type' => AddressType::BUSINESS
         ]);
 
         $address->refresh();

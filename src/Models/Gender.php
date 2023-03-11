@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the Gender enum class.
  *
@@ -21,9 +23,9 @@ use Konekt\Enum\Enum;
  */
 class Gender extends Enum implements GenderContract
 {
-    const UNKNOWN = null;
-    const MALE    = 'm';
-    const FEMALE  = 'f';
+    public const UNKNOWN = null;
+    public const MALE = 'm';
+    public const FEMALE = 'f';
 
     protected static $labels = [];
 
@@ -31,8 +33,8 @@ class Gender extends Enum implements GenderContract
     {
         static::$labels = [
             self::UNKNOWN => __('Unknown'),
-            self::MALE    => __('Male'),
-            self::FEMALE  => __('Female')
+            self::MALE => __('Male'),
+            self::FEMALE => __('Female')
         ];
     }
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the ProvincesOfIndonesia class.
  *
@@ -44,18 +46,18 @@ class ProvincesOfIndonesia extends Seeder
 
         \DB::table('provinces')->insert([
             [
-                "name"       => "Jakarta",
+                "name" => "Jakarta",
                 "country_id" => "ID",
-                "parent_id"  => $idOfJava,
-                "type"       => "region",
-                "code"       => "JK"
+                "parent_id" => $idOfJava,
+                "type" => "region",
+                "code" => "JK"
             ],
             [
-                "name"       => "Yogyakarta",
+                "name" => "Yogyakarta",
                 "country_id" => "ID",
-                "parent_id"  => $idOfJava,
-                "type"       => "region",
-                "code"       => "YO"
+                "parent_id" => $idOfJava,
+                "type" => "region",
+                "code" => "YO"
             ]
         ]);
     }
@@ -160,11 +162,11 @@ class ProvincesOfIndonesia extends Seeder
 
         foreach ($provinces as $code => $name) {
             $result[] = [
-                "name"       => $name,
-                "code"       => $code,
+                "name" => $name,
+                "code" => $code,
                 "country_id" => "ID",
-                "parent_id"  => $parentId,
-                "type"       => "province"
+                "parent_id" => $parentId,
+                "type" => "province"
             ];
         }
 
@@ -174,10 +176,10 @@ class ProvincesOfIndonesia extends Seeder
     private function createUnitAndReturnId(string $code, string $name): int
     {
         return \DB::table('provinces')->insertGetId([
-            "name"       => $name,
+            "name" => $name,
             "country_id" => "ID",
-            "type"       => "unit",
-            "code"       => $code
+            "type" => "unit",
+            "code" => $code
         ]);
     }
 }

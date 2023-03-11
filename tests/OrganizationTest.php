@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the OrganizationTest class.
  *
@@ -68,11 +70,11 @@ class OrganizationTest extends TestCase
     public function all_fields_can_be_set()
     {
         $startAlliance = OrganizationProxy::create([
-            'name'            => 'Berlin Partner für Wirtschaft und Technologie GmbH',
-            'tax_nr'          => 'DE136629780',
+            'name' => 'Berlin Partner für Wirtschaft und Technologie GmbH',
+            'tax_nr' => 'DE136629780',
             'registration_nr' => 'HRB 13072 B',
-            'email'           => 'lukas.engenbach@berlin-partner.de',
-            'phone'           => '+49 30 46302-599'
+            'email' => 'lukas.engenbach@berlin-partner.de',
+            'phone' => '+49 30 46302-599'
         ]);
 
         $startAlliance = $startAlliance->fresh();

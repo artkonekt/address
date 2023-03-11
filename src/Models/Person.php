@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the Person model class.
  *
@@ -12,8 +14,8 @@
 namespace Konekt\Address\Models;
 
 use DateTime;
-use Konekt\Address\Contracts\Person as PersonContract;
 use Illuminate\Database\Eloquent\Model;
+use Konekt\Address\Contracts\Person as PersonContract;
 use Konekt\Enum\Eloquent\CastsEnums;
 
 /**
@@ -50,11 +52,11 @@ class Person extends Model implements PersonContract
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'birthdate'  => 'datetime',
+        'birthdate' => 'datetime',
     ];
 
     protected $enums = [
-        'gender'    => 'GenderProxy@enumClass',
+        'gender' => 'GenderProxy@enumClass',
         'nameorder' => 'NameOrderProxy@enumClass'
     ];
 

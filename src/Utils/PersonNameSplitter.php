@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the PersonNameSplitter class.
  *
@@ -32,8 +34,8 @@ class PersonNameSplitter
      */
     public static function split($name, NameOrder $nameOrder = null)
     {
-        $name      = trim($name);
-        $parts     = explode(' ', $name);
+        $name = trim($name);
+        $parts = explode(' ', $name);
         $nameOrder = $nameOrder ?: NameOrderProxy::create(); // create default if none was given
 
         switch (count($parts)) {
@@ -44,26 +46,26 @@ class PersonNameSplitter
                 if ($nameOrder->isEastern()) {
                     return [
                         'firstname' => $parts[1],
-                        'lastname'  => $parts[0]
+                        'lastname' => $parts[0]
                     ];
                 }
 
                 return [
                     'firstname' => $parts[0],
-                    'lastname'  => $parts[1]
+                    'lastname' => $parts[1]
                 ];
                 break;
             case 3:
                 if ($nameOrder->isEastern()) {
                     return [
                         'firstname' => $parts[1] . ' ' . $parts[2],
-                        'lastname'  => $parts[0]
+                        'lastname' => $parts[0]
                     ];
                 }
 
                 return [
                     'firstname' => $parts[0] . ' ' . $parts[1],
-                    'lastname'  => $parts[2]
+                    'lastname' => $parts[2]
                 ];
                 break;
         }
@@ -71,13 +73,13 @@ class PersonNameSplitter
         if ($nameOrder->isEastern()) {
             return [
                 'firstname' => Arr::last($parts),
-                'lastname'  => implode(' ', Arr::except($parts, count($parts) - 1))
+                'lastname' => implode(' ', Arr::except($parts, count($parts) - 1))
             ];
         }
 
         return [
             'firstname' => Arr::first($parts),
-            'lastname'  => implode(' ', Arr::except($parts, 0))
+            'lastname' => implode(' ', Arr::except($parts, 0))
         ];
     }
 }

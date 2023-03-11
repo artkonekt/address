@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the ProvinceTest class.
  *
@@ -20,8 +22,8 @@ use Konekt\Address\Models\Province;
 use Konekt\Address\Models\ProvinceProxy;
 use Konekt\Address\Models\ProvinceType;
 use Konekt\Address\Seeds\CountiesOfHungary;
-use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\Countries;
 
 class ProvinceTest extends TestCase
 {
@@ -40,7 +42,7 @@ class ProvinceTest extends TestCase
     /** @test */
     public function is_aware_of_its_country()
     {
-        $cluj    = Province::findByCountryAndCode('RO', 'CJ');
+        $cluj = Province::findByCountryAndCode('RO', 'CJ');
         $romania = Country::find('RO');
 
         $this->assertInstanceOf(CountryContract::class, $cluj->country);
@@ -52,9 +54,9 @@ class ProvinceTest extends TestCase
     {
         $ciongrad = Province::create([
             'country_id' => 'RO',
-            'type'       => ProvinceType::COUNTY,
-            'code'       => 'CI',
-            'name'       => 'Ciongrad'
+            'type' => ProvinceType::COUNTY,
+            'code' => 'CI',
+            'name' => 'Ciongrad'
         ]);
 
         $this->assertNotEmpty($ciongrad->id);
@@ -70,9 +72,9 @@ class ProvinceTest extends TestCase
     {
         $bichis = ProvinceProxy::create([
             'country_id' => 'RO',
-            'type'       => ProvinceType::COUNTY,
-            'code'       => 'BI',
-            'name'       => 'Bichis'
+            'type' => ProvinceType::COUNTY,
+            'code' => 'BI',
+            'name' => 'Bichis'
         ]);
 
         $this->assertNotEmpty($bichis->id);
@@ -88,9 +90,9 @@ class ProvinceTest extends TestCase
     {
         $haiduc = ProvinceProxy::create([
             'country_id' => 'RO',
-            'type'       => ProvinceType::COUNTY(),
-            'code'       => 'HA',
-            'name'       => 'Haiduc'
+            'type' => ProvinceType::COUNTY(),
+            'code' => 'HA',
+            'name' => 'Haiduc'
         ]);
 
         $this->assertNotEmpty($haiduc->id);

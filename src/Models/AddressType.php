@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the AddressType enum class.
  *
@@ -26,45 +28,45 @@ use Konekt\Enum\Enum;
  */
 class AddressType extends Enum implements AddressTypeContract
 {
-    const __DEFAULT = self::UNDEFINED;
+    public const __DEFAULT = self::UNDEFINED;
 
     /** To display on Invoices */
-    const BILLING = 'billing';
+    public const BILLING = 'billing';
 
     /** At which a business is located */
-    const BUSINESS = 'business';
+    public const BUSINESS = 'business';
 
     /** Aka legal address: that is the registered address of a person/organization */
-    const CONTRACT = 'contract';
+    public const CONTRACT = 'contract';
 
     /** To which (physical) correspondence should be sent */
-    const MAILING = 'mailing';
+    public const MAILING = 'mailing';
 
     /** At which items should be picked up */
-    const PICKUP = 'pickup';
+    public const PICKUP = 'pickup';
 
     /** Where a person lives */
-    const RESIDENTIAL = 'residential';
+    public const RESIDENTIAL = 'residential';
 
     /** To which ordered goods should be delivered */
-    const SHIPPING = 'shipping';
+    public const SHIPPING = 'shipping';
 
     /** Not specified */
-    const UNDEFINED = null;
+    public const UNDEFINED = null;
 
     protected static $labels = [];
 
     protected static function boot()
     {
         static::$labels = [
-            self::BILLING     => __('Billing'),
-            self::BUSINESS    => __('Business'),
-            self::CONTRACT    => __('Contract'),
-            self::MAILING     => __('Mailing'),
-            self::PICKUP      => __('Pickup'),
+            self::BILLING => __('Billing'),
+            self::BUSINESS => __('Business'),
+            self::CONTRACT => __('Contract'),
+            self::MAILING => __('Mailing'),
+            self::PICKUP => __('Pickup'),
             self::RESIDENTIAL => __('Residential'),
-            self::SHIPPING    => __('Shipping'),
-            self::UNDEFINED   => __('Undefined')
+            self::SHIPPING => __('Shipping'),
+            self::UNDEFINED => __('Undefined')
         ];
     }
 }

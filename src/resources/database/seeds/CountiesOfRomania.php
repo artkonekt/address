@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the db seeder with Romanian counties
  *
@@ -23,299 +25,298 @@ class CountiesOfRomania extends Seeder
     public function run()
     {
         \DB::table('provinces')->insert([
-
                 [
-                    'name'       => 'Alba',
+                    'name' => 'Alba',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'AB',
+                    'type' => 'county',
+                    'code' => 'AB',
                 ],
 
                 [
-                    'name'       => 'Arad',
+                    'name' => 'Arad',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'AR',
+                    'type' => 'county',
+                    'code' => 'AR',
                 ],
 
                 [
-                    'name'       => 'Arges',
+                    'name' => 'Arges',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'AG',
+                    'type' => 'county',
+                    'code' => 'AG',
                 ],
 
                 [
-                    'name'       => 'Bacau',
+                    'name' => 'Bacau',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BC',
+                    'type' => 'county',
+                    'code' => 'BC',
                 ],
 
                 [
-                    'name'       => 'Bihor',
+                    'name' => 'Bihor',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BH',
+                    'type' => 'county',
+                    'code' => 'BH',
                 ],
 
                 [
-                    'name'       => 'Bistrita-Nasaud',
+                    'name' => 'Bistrita-Nasaud',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BN',
+                    'type' => 'county',
+                    'code' => 'BN',
                 ],
 
                 [
-                    'name'       => 'Botosani',
+                    'name' => 'Botosani',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BT',
+                    'type' => 'county',
+                    'code' => 'BT',
                 ],
 
                 [
-                    'name'       => 'Braila',
+                    'name' => 'Braila',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BR',
+                    'type' => 'county',
+                    'code' => 'BR',
                 ],
 
                 [
-                    'name'       => 'Brasov',
+                    'name' => 'Brasov',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BV',
+                    'type' => 'county',
+                    'code' => 'BV',
                 ],
 
                 [
-                    'name'       => 'Bucuresti',
+                    'name' => 'Bucuresti',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'B ',
+                    'type' => 'county',
+                    'code' => 'B ',
                 ],
 
                 [
-                    'name'       => 'Buzau',
+                    'name' => 'Buzau',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'BZ',
+                    'type' => 'county',
+                    'code' => 'BZ',
                 ],
 
                 [
-                    'name'       => 'Caras Severin',
+                    'name' => 'Caras Severin',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'CS',
+                    'type' => 'county',
+                    'code' => 'CS',
                 ],
 
                 [
-                    'name'       => 'Calarasi',
+                    'name' => 'Calarasi',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'CL',
+                    'type' => 'county',
+                    'code' => 'CL',
                 ],
 
                 [
-                    'name'       => 'Cluj',
+                    'name' => 'Cluj',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'CJ',
+                    'type' => 'county',
+                    'code' => 'CJ',
                 ],
 
                 [
-                    'name'       => 'Constanta',
+                    'name' => 'Constanta',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'CT',
+                    'type' => 'county',
+                    'code' => 'CT',
                 ],
 
                 [
-                    'name'       => 'Covasna',
+                    'name' => 'Covasna',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'CV',
+                    'type' => 'county',
+                    'code' => 'CV',
                 ],
 
                 [
-                    'name'       => 'Dambovita',
+                    'name' => 'Dambovita',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'DB',
+                    'type' => 'county',
+                    'code' => 'DB',
                 ],
 
                 [
-                    'name'       => 'Dolj',
+                    'name' => 'Dolj',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'DJ',
+                    'type' => 'county',
+                    'code' => 'DJ',
                 ],
 
                 [
-                    'name'       => 'Galati',
+                    'name' => 'Galati',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'GL',
+                    'type' => 'county',
+                    'code' => 'GL',
                 ],
 
                 [
-                    'name'       => 'Giurgiu',
+                    'name' => 'Giurgiu',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'GR',
+                    'type' => 'county',
+                    'code' => 'GR',
                 ],
 
                 [
-                    'name'       => 'Gorj',
+                    'name' => 'Gorj',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'GJ',
+                    'type' => 'county',
+                    'code' => 'GJ',
                 ],
 
                 [
-                    'name'       => 'Harghita',
+                    'name' => 'Harghita',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'HR',
+                    'type' => 'county',
+                    'code' => 'HR',
                 ],
 
                 [
-                    'name'       => 'Hunedoara',
+                    'name' => 'Hunedoara',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'HD',
+                    'type' => 'county',
+                    'code' => 'HD',
                 ],
 
                 [
-                    'name'       => 'Ialomita',
+                    'name' => 'Ialomita',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'IL',
+                    'type' => 'county',
+                    'code' => 'IL',
                 ],
 
                 [
-                    'name'       => 'Iasi',
+                    'name' => 'Iasi',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'IS',
+                    'type' => 'county',
+                    'code' => 'IS',
                 ],
 
                 [
-                    'name'       => 'Ilfov',
+                    'name' => 'Ilfov',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'IF',
+                    'type' => 'county',
+                    'code' => 'IF',
                 ],
 
                 [
-                    'name'       => 'Maramures',
+                    'name' => 'Maramures',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'MM',
+                    'type' => 'county',
+                    'code' => 'MM',
                 ],
 
                 [
-                    'name'       => 'Mehedinti',
+                    'name' => 'Mehedinti',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'MH',
+                    'type' => 'county',
+                    'code' => 'MH',
                 ],
 
                 [
-                    'name'       => 'Mures',
+                    'name' => 'Mures',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'MS',
+                    'type' => 'county',
+                    'code' => 'MS',
                 ],
 
                 [
-                    'name'       => 'Neamt',
+                    'name' => 'Neamt',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'NT',
+                    'type' => 'county',
+                    'code' => 'NT',
                 ],
 
                 [
-                    'name'       => 'Olt',
+                    'name' => 'Olt',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'OT',
+                    'type' => 'county',
+                    'code' => 'OT',
                 ],
 
                 [
-                    'name'       => 'Prahova',
+                    'name' => 'Prahova',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'PH',
+                    'type' => 'county',
+                    'code' => 'PH',
                 ],
 
                 [
-                    'name'       => 'Satu Mare',
+                    'name' => 'Satu Mare',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'SM',
+                    'type' => 'county',
+                    'code' => 'SM',
                 ],
 
                 [
-                    'name'       => 'Salaj',
+                    'name' => 'Salaj',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'SJ',
+                    'type' => 'county',
+                    'code' => 'SJ',
                 ],
 
                 [
-                    'name'       => 'Sibiu',
+                    'name' => 'Sibiu',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'SB',
+                    'type' => 'county',
+                    'code' => 'SB',
                 ],
 
                 [
-                    'name'       => 'Suceava',
+                    'name' => 'Suceava',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'SV',
+                    'type' => 'county',
+                    'code' => 'SV',
                 ],
 
                 [
-                    'name'       => 'Teleorman',
+                    'name' => 'Teleorman',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'TR',
+                    'type' => 'county',
+                    'code' => 'TR',
                 ],
 
                 [
-                    'name'       => 'Timis',
+                    'name' => 'Timis',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'TM',
+                    'type' => 'county',
+                    'code' => 'TM',
                 ],
 
                 [
-                    'name'       => 'Tulcea',
+                    'name' => 'Tulcea',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'TL',
+                    'type' => 'county',
+                    'code' => 'TL',
                 ],
 
                 [
-                    'name'       => 'Vaslui',
+                    'name' => 'Vaslui',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'VS',
+                    'type' => 'county',
+                    'code' => 'VS',
                 ],
 
                 [
-                    'name'       => 'Valcea',
+                    'name' => 'Valcea',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'VL',
+                    'type' => 'county',
+                    'code' => 'VL',
                 ],
 
                 [
-                    'name'       => 'Vrancea',
+                    'name' => 'Vrancea',
                     'country_id' => 'RO',
-                    'type'       => 'county',
-                    'code'       => 'VN',
+                    'type' => 'county',
+                    'code' => 'VN',
                 ],
         ]);
     }
