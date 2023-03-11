@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * Contains the db seeder with the provinces of the Belgium
  *
