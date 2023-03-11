@@ -69,6 +69,15 @@ class ZoneMember extends Model implements ZoneMemberContract
         return $this->member_type->isProvince();
     }
 
+    public function getName(): string
+    {
+        return match ($this->member_type->value()) {
+            ZoneMemberType::COUNTRY,
+            ZoneMemberType::PROVINCE => $this->member->name,
+            default => $this->member_type . ':' . $this->member_id,
+        };
+    }
+
     public function scopeOfType(Builder $query, ZoneMemberTypeContract|string $type): Builder
     {
         return $query->where('member_type', is_string($type) ? $type : $type->value());
