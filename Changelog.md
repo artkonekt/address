@@ -6,7 +6,8 @@
 - Added missing methods to the `Zone` interface (have been present in the implementation from v2.5)
 - Added the `getMemberCountryIds()` and the `getMemberProvinceIds()` methods to the Zone class/interface
 - Added the `ofType()` scope to the ZoneMember model
-- Added `ZoneMember::getName()` both to the model and to the interface 
+- Added `ZoneMember::getName()` both to the model and to the interface
+- Changed the internal coding style to PSR-12 + Vanilo style 
 
 ## 2.6.0
 ##### 2023-03-10
