@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2023-XX-YY
+## 2.7.1
+##### 2023-03-31
 
 - Fixed possible null access on garbled zone members in the db
 
