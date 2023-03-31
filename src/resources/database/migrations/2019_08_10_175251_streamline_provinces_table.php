@@ -69,6 +69,6 @@ class StreamlineProvincesTable extends Migration
                 ->getConnection()
                 ->getPdo()
                 ->getAttribute(PDO::ATTR_DRIVER_NAME)
-            ;
+        ;
     }
 }
