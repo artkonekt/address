@@ -73,7 +73,7 @@ class ZoneMember extends Model implements ZoneMemberContract
     {
         return match ($this->member_type->value()) {
             ZoneMemberType::COUNTRY,
-            ZoneMemberType::PROVINCE => $this->member->name,
+            ZoneMemberType::PROVINCE => $this->member?->name ?? $this->member_type . ':' . $this->member_id,
             default => $this->member_type . ':' . $this->member_id,
         };
     }
