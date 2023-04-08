@@ -21,7 +21,8 @@ class Languages extends Seeder
 {
     public function run(): void
     {
-        DB::table('languages')->upsert([
+        DB::table('languages')->upsert(
+            [
             ['id' => 'aa', 'name' => 'Afar', 'native_name' => 'Qafaraf'],
             ['id' => 'ab', 'name' => 'Abkhazian', 'native_name' => 'Аԥсуа бызшәа'],
             ['id' => 'af', 'name' => 'Afrikaans', 'native_name' => 'Afrikaans'],
