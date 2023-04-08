@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2023-XX-YY
+
+- Added the languages table/model and its seeder (created ISO 639-1 languages)
+
 ## 2.7.1
 ##### 2023-03-31
 
