@@ -11,13 +11,13 @@ return new class () extends Migration {
     {
         if (!Schema::hasTable('languages')) {
             Schema::create('languages', function (Blueprint $table) {
-                $table->char('id', 2);
+                $table->char('id', 2)->primary();
                 $table->string('name');
                 $table->string('native_name');
 
                 $table->timestamps();
 
-                $table->primary('id');
+                //$table->primary('id');
             });
         }
     }
