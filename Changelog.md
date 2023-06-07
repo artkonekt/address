@@ -7,7 +7,7 @@
 - Dropped PHP 8.0 support
 - Dropped Enum v3 Support
 - Changed minimum Enum version to v4.1
-- Changed all enum interfaces to extend the root `EnumInterface`
+- BC: Changed all enum interfaces to extend the root `EnumInterface`
 - BC: added the `iso2Code()` and the `getName()` methods to the `Country` interface
 - Added firstname, lastname, company_name, email, phone, address2, access_code, tax_nr and registration_nr fields to the Address table/model
 

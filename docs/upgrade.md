@@ -8,6 +8,14 @@ The new minimal requirements are:
 - Laravel 10
 - Enum 4.1
 
+### Enum Interface
+
+The `AddressType`, `Gender`, `NameOrder`, `ProvinceType`, `ZoneMemberType`, and `ZoneScope`
+interfaces now extend the v4.1 `EnumInterface`, meaning they have more methods than before.
+
+It's almost certain that you don't need to do anything with it, because the base Enum class
+implements those methods anyway. Regardless of that, it's a breaking change.
+
 ## 1.x -> 2.x
 
 The new minimal requirements are:
