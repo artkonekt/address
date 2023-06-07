@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the ProvinceExtTest class.
  *
@@ -16,10 +18,10 @@ use Konekt\Address\Models\Country;
 use Konekt\Address\Models\CountryProxy;
 use Konekt\Address\Models\ProvinceProxy;
 use Konekt\Address\Models\ProvinceTypeProxy;
-use Konekt\Address\Tests\ProvinceType\ExtProvinceType;
-use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\Countries;
 use Konekt\Address\Seeds\StatesOfUsa;
+use Konekt\Address\Tests\ProvinceType\ExtProvinceType;
 
 class ProvinceExtTypeTest extends TestCase
 {
@@ -33,7 +35,7 @@ class ProvinceExtTypeTest extends TestCase
         app('concord')->registerEnum(ProvinceTypeContract::class, ExtProvinceType::class);
 
         $this->romania = CountryProxy::find('RO');
-        $this->cluj    = ProvinceProxy::findByCountryAndCode('RO', 'CJ');
+        $this->cluj = ProvinceProxy::findByCountryAndCode('RO', 'CJ');
     }
 
     /**

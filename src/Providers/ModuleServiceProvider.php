@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Contains the ModuleServiceProvider class.
  *
@@ -56,9 +59,9 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
         parent::boot();
 
         Relation::morphMap([
-            'country'  => CountryProxy::modelClass(),
+            'country' => CountryProxy::modelClass(),
             'province' => ProvinceProxy::modelClass(),
-            'zone'     => ZoneProxy::modelClass(),
+            'zone' => ZoneProxy::modelClass(),
         ]);
     }
 }

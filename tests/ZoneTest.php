@@ -182,4 +182,30 @@ class ZoneTest extends TestCase
         $this->assertTrue($republicOfIreland->isAddressPartOfIt($addressInDublin));
         $this->assertFalse($republicOfIreland->isAddressPartOfIt($addressInBelfast));
     }
+
+    /** @test */
+    public function it_can_return_the_ids_of_the_countries()
+    {
+        Country::firstOrCreate(['id' => 'NG'], ['name' => 'Nigeria', 'is_eu_member' => false, 'phonecode' => '234']);
+        Country::firstOrCreate(['id' => 'MA'], ['name' => 'Marocco', 'is_eu_member' => false, 'phonecode' => '212']);
+
+        $zone = Zone::create(['name' => 'African Zone']);
+        $zone->addCountries('NG', 'MA');
+
+        $this->assertEquals(['NG', 'MA'], $zone->getMemberCountryIds());
+    }
+
+    /** @test */
+    public function it_can_return_the_ids_of_the_provinces()
+    {
+        Country::firstOrCreate(['id' => 'HU', 'name' => 'Hungary', 'phonecode' => '36', 'is_eu_member' => true]);
+        $baz = Province::create(['country_id' => 'HU', 'type' => ProvinceType::COUNTY, 'code' => 'BZ', 'name' => 'BAZ Megye']);
+        $fejer = Province::create(['country_id' => 'HU', 'type' => ProvinceType::COUNTY, 'code' => 'FE', 'name' => 'Fejér Megye']);
+        $szabolcs = Province::create(['country_id' => 'HU', 'type' => ProvinceType::COUNTY, 'code' => 'SZ', 'name' => 'Szabolcs-Szatmár-Bereg Megye']);
+
+        $zone = Zone::create(['name' => 'Eastern Hungary']);
+        $zone->addProvinces($baz, $fejer, $szabolcs);
+
+        $this->assertEquals([$baz->id, $fejer->id, $szabolcs->id], $zone->getMemberProvinceIds());
+    }
 }

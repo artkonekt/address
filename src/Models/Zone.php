@@ -114,6 +114,16 @@ class Zone extends Model implements ZoneContract
         return (bool) $query->count();
     }
 
+    public function getMemberCountryIds(): array
+    {
+        return $this->members()->ofType(ZoneMemberType::COUNTRY)->pluck('member_id')->toArray();
+    }
+
+    public function getMemberProvinceIds(): array
+    {
+        return $this->members()->ofType(ZoneMemberType::PROVINCE)->pluck('member_id')->toArray();
+    }
+
     protected static function booted()
     {
         static::creating(function ($zone) {

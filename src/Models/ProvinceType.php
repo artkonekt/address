@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Contains the ProvinceType class.
  *
@@ -27,32 +30,32 @@ use Konekt\Enum\Enum;
  */
 class ProvinceType extends Enum implements ProvinceTypeContract
 {
-    const __DEFAULT        = self::PROVINCE;
+    public const __DEFAULT = self::PROVINCE;
 
-    const STATE            = 'state';
-    const REGION           = 'region';
-    const PROVINCE         = 'province';
-    const COUNTY           = 'county';
-    const TERRITORY        = 'territory';
-    const FEDERAL_DISTRICT = 'federal_district';
-    const MILITARY         = 'military';
-    const UNIT             = 'unit';
-    const MUNICIPALITY     = 'municipality';
+    public const STATE = 'state';
+    public const REGION = 'region';
+    public const PROVINCE = 'province';
+    public const COUNTY = 'county';
+    public const TERRITORY = 'territory';
+    public const FEDERAL_DISTRICT = 'federal_district';
+    public const MILITARY = 'military';
+    public const UNIT = 'unit';
+    public const MUNICIPALITY = 'municipality';
 
     protected static $labels = [];
 
     protected static function boot()
     {
         static::$labels = [
-            self::STATE            => __('State'),
-            self::REGION           => __('Region'),
-            self::PROVINCE         => __('Province'),
-            self::COUNTY           => __('County'),
-            self::TERRITORY        => __('Territory'),
+            self::STATE => __('State'),
+            self::REGION => __('Region'),
+            self::PROVINCE => __('Province'),
+            self::COUNTY => __('County'),
+            self::TERRITORY => __('Territory'),
             self::FEDERAL_DISTRICT => __('Federal District'),
-            self::MILITARY         => __('Military'),
-            self::UNIT             => __('Geographical Unit'),
-            self::MUNICIPALITY     => __('Municipality'),
+            self::MILITARY => __('Military'),
+            self::UNIT => __('Geographical Unit'),
+            self::MUNICIPALITY => __('Municipality'),
         ];
     }
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the PersonTest class.
  *
@@ -55,7 +57,7 @@ class PersonTest extends TestCase
     {
         $person = PersonProxy::create([
             'firstname' => 'John',
-            'lastname'  => 'Smith'
+            'lastname' => 'Smith'
         ]);
 
         $this->assertInstanceOf(Person::class, $person);
@@ -73,7 +75,7 @@ class PersonTest extends TestCase
     {
         $person = PersonProxy::create([
             'firstname' => 'Charlie',
-            'lastname'  => 'Firpo'
+            'lastname' => 'Firpo'
         ]);
 
         $this->assertInstanceOf(Person::class, $person);
@@ -92,15 +94,14 @@ class PersonTest extends TestCase
     {
         $johnny = Person::create([
             'firstname' => 'Johnny',
-            'lastname'  => 'Firpo'
-
+            'lastname' => 'Firpo'
         ]);
 
         $this->assertEquals('Johnny Firpo', $johnny->getFullName());
 
         $puskas = PersonProxy::create([
             'firstname' => 'Ferenc',
-            'lastname'  => 'Puskás',
+            'lastname' => 'Puskás',
             'nameorder' => NameOrder::EASTERN
         ]);
 
@@ -119,7 +120,7 @@ class PersonTest extends TestCase
     {
         $soros = PersonProxy::create([
             'firstname' => 'György',
-            'lastname'  => 'Soros',
+            'lastname' => 'Soros',
         ]);
 
         $soros->nameorder = NameOrder::EASTERN;
@@ -144,7 +145,7 @@ class PersonTest extends TestCase
     {
         $conchita = PersonProxy::create([
            'firstname' => 'Conchita',
-           'lastname'  => 'Wurst'
+           'lastname' => 'Wurst'
         ]);
 
         $this->assertNull($conchita->gender->value());
@@ -158,8 +159,8 @@ class PersonTest extends TestCase
     {
         $craigWood = PersonProxy::create([
             'firstname' => 'Robert Hardy',
-            'lastname'  => 'Craig-Wood',
-            'gender'    => Gender::MALE
+            'lastname' => 'Craig-Wood',
+            'gender' => Gender::MALE
         ]);
 
         $craigWood = $craigWood->fresh();
@@ -169,7 +170,7 @@ class PersonTest extends TestCase
         // Assume it's the 2008 coming out:
 
         $craigWood->firstname = 'Kate';
-        $craigWood->gender    = Gender::FEMALE();
+        $craigWood->gender = Gender::FEMALE();
         $craigWood->save();
 
         $this->assertTrue($craigWood->gender->isFemale());
@@ -188,7 +189,7 @@ class PersonTest extends TestCase
     {
         $craigWood = PersonProxy::create([
             'firstname' => 'Robert Hardy',
-            'lastname'  => 'Craig-Wood'
+            'lastname' => 'Craig-Wood'
         ]);
 
         $craigWood->gender = 'm';
@@ -204,12 +205,12 @@ class PersonTest extends TestCase
     {
         $chesley = PersonProxy::create([
             'firstname' => 'Chesley',
-            'lastname'  => 'Sullenberger',
-            'email'     => 'chesley1549@aa.com',
-            'phone'     => '(541) 754-3010',
+            'lastname' => 'Sullenberger',
+            'email' => 'chesley1549@aa.com',
+            'phone' => '(541) 754-3010',
             'birthdate' => '1951-01-15',
-            'gender'    => Gender::MALE,
-            'nin'       => '999-01-0001'
+            'gender' => Gender::MALE,
+            'nin' => '999-01-0001'
         ]);
 
         $chesley = $chesley->fresh();

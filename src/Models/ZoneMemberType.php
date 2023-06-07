@@ -38,7 +38,7 @@ class ZoneMemberType extends Enum implements ZoneMemberTypeContract
     protected static function boot()
     {
         static::$labels = [
-            self::COUNTRY  => __('Country'),
+            self::COUNTRY => __('Country'),
             self::PROVINCE => __('Province'),
         ];
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the ExtProvinceType class.
  *
@@ -15,5 +17,5 @@ use Konekt\Address\Models\ProvinceType;
 
 class ExtProvinceType extends ProvinceType
 {
-    const AUTONOMOUS_REGION = 'Autonomous Region';
+    public const AUTONOMOUS_REGION = 'Autonomous Region';
 }

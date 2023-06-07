@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Contains the db seeder with the counties of Hungary
  *
@@ -19,124 +22,124 @@ class CountiesOfHungary extends Seeder
     {
         \DB::table('provinces')->insert([
             [
-                'name'       => 'Budapest',
+                'name' => 'Budapest',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'BU'
+                'type' => 'county',
+                'code' => 'BU'
             ],
             [
-                'name'       => 'Baranya',
+                'name' => 'Baranya',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'BA'
+                'type' => 'county',
+                'code' => 'BA'
             ],
             [
-                'name'       => 'Bács-Kiskun',
+                'name' => 'Bács-Kiskun',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'BK'
+                'type' => 'county',
+                'code' => 'BK'
             ],
             [
-                'name'       => 'Békés',
+                'name' => 'Békés',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'BE'
+                'type' => 'county',
+                'code' => 'BE'
             ],
             [
-                'name'       => 'Borsod-Abaúj-Zemplén',
+                'name' => 'Borsod-Abaúj-Zemplén',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'BZ'
+                'type' => 'county',
+                'code' => 'BZ'
             ],
             [
-                'name'       => 'Csongrád',
+                'name' => 'Csongrád',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'CS'
+                'type' => 'county',
+                'code' => 'CS'
             ],
             [
-                'name'       => 'Fejér',
+                'name' => 'Fejér',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'FE'
+                'type' => 'county',
+                'code' => 'FE'
             ],
             [
-                'name'       => 'Győr-Moson-Sopron',
+                'name' => 'Győr-Moson-Sopron',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'GS'
+                'type' => 'county',
+                'code' => 'GS'
             ],
             [
-                'name'       => 'Hajdú-Bihar',
+                'name' => 'Hajdú-Bihar',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'HB'
+                'type' => 'county',
+                'code' => 'HB'
             ],
             [
-                'name'       => 'Heves',
+                'name' => 'Heves',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'HE'
+                'type' => 'county',
+                'code' => 'HE'
             ],
             [
-                'name'       => 'Jász-Nagykun-Szolnok',
+                'name' => 'Jász-Nagykun-Szolnok',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'JN'
+                'type' => 'county',
+                'code' => 'JN'
             ],
             [
-                'name'       => 'Komárom-Esztergom',
+                'name' => 'Komárom-Esztergom',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'KE'
+                'type' => 'county',
+                'code' => 'KE'
             ],
             [
-                'name'       => 'Nógrád',
+                'name' => 'Nógrád',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'NO'
+                'type' => 'county',
+                'code' => 'NO'
             ],
             [
-                'name'       => 'Pest',
+                'name' => 'Pest',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'PE'
+                'type' => 'county',
+                'code' => 'PE'
             ],
             [
-                'name'       => 'Somogy',
+                'name' => 'Somogy',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'SO'
+                'type' => 'county',
+                'code' => 'SO'
             ],
             [
-                'name'       => 'Szabolcs-Szatmár-Bereg',
+                'name' => 'Szabolcs-Szatmár-Bereg',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'SZ'
+                'type' => 'county',
+                'code' => 'SZ'
             ],
             [
-                'name'       => 'Tolna',
+                'name' => 'Tolna',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'TO'
+                'type' => 'county',
+                'code' => 'TO'
             ],
             [
-                'name'       => 'Vas',
+                'name' => 'Vas',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'VA'
+                'type' => 'county',
+                'code' => 'VA'
             ],
             [
-                'name'       => 'Veszprém',
+                'name' => 'Veszprém',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'VE'
+                'type' => 'county',
+                'code' => 'VE'
             ],
             [
-                'name'       => 'Zala',
+                'name' => 'Zala',
                 'country_id' => 'HU',
-                'type'       => 'county',
-                'code'       => 'ZA'
+                'type' => 'county',
+                'code' => 'ZA'
             ]
         ]);
     }

@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Contains the db seeder with the provinces of the Netherlands
  *
@@ -19,76 +22,76 @@ class ProvincesOfNetherlands extends Seeder
     {
         \DB::table('provinces')->insert([
             [
-                "name"       => "Drenthe",
+                "name" => "Drenthe",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "DR"
+                "type" => "province",
+                "code" => "DR"
             ],
             [
-                "name"       => "Flevoland",
+                "name" => "Flevoland",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "FL"
+                "type" => "province",
+                "code" => "FL"
             ],
             [
-                "name"       => "Friesland",
+                "name" => "Friesland",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "FR"
+                "type" => "province",
+                "code" => "FR"
             ],
             [
-                "name"       => "Gelderland",
+                "name" => "Gelderland",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "GE"
+                "type" => "province",
+                "code" => "GE"
             ],
             [
-                "name"       => "Groningen",
+                "name" => "Groningen",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "GR"
+                "type" => "province",
+                "code" => "GR"
             ],
             [
-                "name"       => "Limburg",
+                "name" => "Limburg",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "LI"
+                "type" => "province",
+                "code" => "LI"
             ],
             [
-                "name"       => "Noord-Brabant",
+                "name" => "Noord-Brabant",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "NB"
+                "type" => "province",
+                "code" => "NB"
             ],
             [
-                "name"       => "Noord-Holland",
+                "name" => "Noord-Holland",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "NH"
+                "type" => "province",
+                "code" => "NH"
             ],
             [
-                "name"       => "Overijssel",
+                "name" => "Overijssel",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "OV"
+                "type" => "province",
+                "code" => "OV"
             ],
             [
-                "name"       => "Utrecht",
+                "name" => "Utrecht",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "UT"
+                "type" => "province",
+                "code" => "UT"
             ],
             [
-                "name"       => "Zeeland",
+                "name" => "Zeeland",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "ZE"
+                "type" => "province",
+                "code" => "ZE"
             ],
             [
-                "name"       => "Zuid-Holland",
+                "name" => "Zuid-Holland",
                 "country_id" => "NL",
-                "type"       => "province",
-                "code"       => "ZH"
+                "type" => "province",
+                "code" => "ZH"
             ]
         ]);
     }

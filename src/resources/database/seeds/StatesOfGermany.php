@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Contains the db seeder with the states of Germany
  *
@@ -19,100 +22,100 @@ class StatesOfGermany extends Seeder
     {
         \DB::table('provinces')->insert([
             [
-                "name"       => "Baden-Württemberg",
+                "name" => "Baden-Württemberg",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "BW"
+                "type" => "state",
+                "code" => "BW"
             ],
             [
-                "name"       => "Bayern",
+                "name" => "Bayern",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "BY"
+                "type" => "state",
+                "code" => "BY"
             ],
             [
-                "name"       => "Berlin",
+                "name" => "Berlin",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "BE"
+                "type" => "state",
+                "code" => "BE"
             ],
             [
-                "name"       => "Brandenburg",
+                "name" => "Brandenburg",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "BB"
+                "type" => "state",
+                "code" => "BB"
             ],
             [
-                "name"       => "Bremen",
+                "name" => "Bremen",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "HB"
+                "type" => "state",
+                "code" => "HB"
             ],
             [
-                "name"       => "Hamburg",
+                "name" => "Hamburg",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "HH"
+                "type" => "state",
+                "code" => "HH"
             ],
             [
-                "name"       => "Hessen",
+                "name" => "Hessen",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "HE"
+                "type" => "state",
+                "code" => "HE"
             ],
             [
-                "name"       => "Mecklenburg-Vorpommern",
+                "name" => "Mecklenburg-Vorpommern",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "MV"
+                "type" => "state",
+                "code" => "MV"
             ],
             [
-                "name"       => "Niedersachsen",
+                "name" => "Niedersachsen",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "NI"
+                "type" => "state",
+                "code" => "NI"
             ],
             [
-                "name"       => "Nordrhein-Westfalen",
+                "name" => "Nordrhein-Westfalen",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "NW"
+                "type" => "state",
+                "code" => "NW"
             ],
             [
-                "name"       => "Rheinland-Pfalz",
+                "name" => "Rheinland-Pfalz",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "RP"
+                "type" => "state",
+                "code" => "RP"
             ],
             [
-                "name"       => "Saarland",
+                "name" => "Saarland",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "SL"
+                "type" => "state",
+                "code" => "SL"
             ],
             [
-                "name"       => "Sachsen",
+                "name" => "Sachsen",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "SN"
+                "type" => "state",
+                "code" => "SN"
             ],
             [
-                "name"       => "Sachsen-Anhalt",
+                "name" => "Sachsen-Anhalt",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "ST"
+                "type" => "state",
+                "code" => "ST"
             ],
             [
-                "name"       => "Schleswig-Holstein",
+                "name" => "Schleswig-Holstein",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "SH"
+                "type" => "state",
+                "code" => "SH"
             ],
             [
-                "name"       => "Thüringen",
+                "name" => "Thüringen",
                 "country_id" => "DE",
-                "type"       => "state",
-                "code"       => "TH"
+                "type" => "state",
+                "code" => "TH"
             ]
         ]);
     }

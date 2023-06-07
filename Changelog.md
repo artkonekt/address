@@ -1,5 +1,35 @@
 # Address Module Changelog
 
+## 2.8.0
+##### 2023-04-08
+
+- Added the languages table/model and its seeder (created ISO 639-1 languages)
+
+## 2.7.1
+##### 2023-03-31
+
+- Fixed possible null access on garbled zone members in the db
+
+## 2.7.0
+##### 2023-03-12
+
+- Added missing methods to the `Zone` interface (have been present in the implementation from v2.5)
+- Added the `getMemberCountryIds()` and the `getMemberProvinceIds()` methods to the Zone class/interface
+- Added the `ofType()` scope to the ZoneMember model
+- Added `ZoneMember::getName()` both to the model and to the interface
+- Changed the internal coding style to PSR-12 + Vanilo style 
+
+## 2.6.0
+##### 2023-03-10
+
+- Added the `Zones::get()` method (to query zones without matching with country/province/address)
+
+## 2.5.1
+##### 2023-03-09
+
+- Fixed the Zones query giving all results when passing an address with a province to it
+- Fixed the old name of "Macedonia, the former Yugo..." by renaming it to "North Macedonia"
+
 ## 2.5.0
 ##### 2023-02-27
 

@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Contains the NameOrder enum class.
  *
@@ -16,10 +19,10 @@ use Konekt\Enum\Enum;
 
 class NameOrder extends Enum implements NameOrderContract
 {
-    const __DEFAULT = self::WESTERN;
+    public const __DEFAULT = self::WESTERN;
 
-    const WESTERN   = 'western';
-    const EASTERN   = 'eastern';
+    public const WESTERN = 'western';
+    public const EASTERN = 'eastern';
 
     protected static $labels = [];
 

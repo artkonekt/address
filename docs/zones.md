@@ -1,5 +1,7 @@
 # Zones
 
+> The zones feature has been added in version `2.5.0`
+
 A zone represents a geographic area that can be composed of a set of countries and/or provinces.
 
 This can be very useful when different rules apply depending on which zone an address is located in.

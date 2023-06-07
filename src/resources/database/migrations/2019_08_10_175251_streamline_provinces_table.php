@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Konekt\Address\Models\ProvinceTypeProxy;
 
 class StreamlineProvincesTable extends Migration
@@ -67,6 +69,6 @@ class StreamlineProvincesTable extends Migration
                 ->getConnection()
                 ->getPdo()
                 ->getAttribute(PDO::ATTR_DRIVER_NAME)
-            ;
+        ;
     }
 }
