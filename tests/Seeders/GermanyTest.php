@@ -65,9 +65,9 @@ class GermanyTest extends TestCase
         $this->assertContains('Thüringen', $names);
     }
 
-    protected function setUpDatabase($application)
+    protected function setUpDatabase($app)
     {
-        parent::setUpDatabase($application);
+        parent::setUpDatabase($app);
 
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfGermany::class]);

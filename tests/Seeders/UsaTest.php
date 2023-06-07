@@ -112,9 +112,9 @@ class UsaTest extends TestCase
         $this->assertContains('Wyoming', $names);
     }
 
-    protected function setUpDatabase($application)
+    protected function setUpDatabase($app)
     {
-        parent::setUpDatabase($application);
+        parent::setUpDatabase($app);
 
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);

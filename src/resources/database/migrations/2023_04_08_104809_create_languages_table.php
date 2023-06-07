@@ -16,8 +16,6 @@ return new class () extends Migration {
                 $table->string('native_name');
 
                 $table->timestamps();
-
-                //$table->primary('id');
             });
         }
     }

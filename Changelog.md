@@ -8,6 +8,7 @@
 - Dropped Enum v3 Support
 - Changed minimum Enum version to v4.1
 - Changed all enum interfaces to extend the root `EnumInterface`
+- BC: added the `iso2Code()` and the `getName()` methods to the `Country` interface
 
 ## 2.8.0
 ##### 2023-04-08

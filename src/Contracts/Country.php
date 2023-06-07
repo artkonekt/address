@@ -19,4 +19,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 interface Country
 {
     public function provinces(): HasMany;
+
+    public function iso2Code(): string;
+
+    public function getName(): string;
 }

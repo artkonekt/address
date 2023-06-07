@@ -58,6 +58,16 @@ class Country extends Model implements CountryContract
         'is_eu_member' => 'bool'
     ];
 
+    public function iso2Code(): string
+    {
+        return $this->id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function provinces(): HasMany
     {
         return $this->hasMany(ProvinceProxy::modelClass(), 'country_id', 'id');

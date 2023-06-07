@@ -67,6 +67,13 @@ class CountryTest extends TestCase
         $this->assertCount(42, $this->romania->counties);
     }
 
+    /** @test */
+    public function the_interface_methods_return_the_appropriate_values()
+    {
+        $this->assertEquals('US', $this->usa->iso2Code());
+        $this->assertEquals($this->usa->name, $this->usa->getName());
+    }
+
     /**
      * @test
      */
@@ -80,9 +87,9 @@ class CountryTest extends TestCase
     /**
      * @inheritdoc
      */
-    protected function setUpDatabase($application)
+    protected function setUpDatabase($app)
     {
-        parent::setUpDatabase($application);
+        parent::setUpDatabase($app);
 
         $this->artisan('db:seed', ['--class' => Countries::class]);
         $this->artisan('db:seed', ['--class' => StatesOfUsa::class]);
