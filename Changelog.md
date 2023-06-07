@@ -1,5 +1,12 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2023-XX-YY
+
+- Dropped Laravel 9 support
+- Dropped PHP 8.0 support
+- Dropped Enum v3 Support
+
 ## 2.8.0
 ##### 2023-04-08
 
