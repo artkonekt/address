@@ -24,12 +24,21 @@ use Konekt\Enum\Eloquent\CastsEnums;
  *
  * @property int            $id
  * @property string         $name
+ * @property string|null    $company_name
+ * @property string|null    $firstname
+ * @property string|null    $lastname
  * @property AddressType|null $type
  * @property string         $country_id
  * @property int|null       $province_id
  * @property string|null    $postalcode     Max 12 characters
  * @property string|null    $city
  * @property string         $address
+ * @property string|null    $address2
+ * @property string|null    $email
+ * @property string|null    $phone
+ * @property string|null    $tax_nr
+ * @property string|null    $registration_nr
+ * @property string|null    $access_code
  *
  * @property-read Country $country
  * @property-read null|Province $province

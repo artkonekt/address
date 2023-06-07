@@ -38,8 +38,17 @@ class AddressTest extends TestCase
 
     protected $avaya = [
         'name' => 'Avaya Inc.',
+        'company_name' => 'Avaya Inc.',
+        'firstname' => 'Alan',
+        'lastname' => 'Masarek',
+        'access_code' => '7661',
         'country_id' => 'US',
         'address' => '4655 Great America Parkway',
+        'address2' => 'xyz',
+        'phone' => '+1555666777',
+        'email' => 'contact@avaya.com',
+        'tax_nr' => 'US123456',
+        'registration_nr' => 'US123456',
         'city' => 'Santa Clara',
         'state' => 'CA'
     ];
@@ -173,10 +182,19 @@ class AddressTest extends TestCase
 
         $address = AddressProxy::create([
             'name' => $this->avaya['name'],
+            'firstname' => $this->avaya['firstname'],
+            'lastname' => $this->avaya['lastname'],
+            'company_name' => $this->avaya['company_name'],
             'country_id' => $this->avaya['country_id'],
             'province_id' => $state->id,
             'city' => $this->avaya['city'],
             'address' => $this->avaya['address'],
+            'address2' => $this->avaya['address2'],
+            'email' => $this->avaya['email'],
+            'phone' => $this->avaya['phone'],
+            'access_code' => $this->avaya['access_code'],
+            'tax_nr' => $this->avaya['tax_nr'],
+            'registration_nr' => $this->avaya['registration_nr'],
             'type' => AddressType::BUSINESS
         ]);
 
@@ -184,6 +202,9 @@ class AddressTest extends TestCase
 
         $this->assertNotNull($address->id);
         $this->assertEquals($this->avaya['name'], $address->name);
+        $this->assertEquals($this->avaya['company_name'], $address->company_name);
+        $this->assertEquals($this->avaya['firstname'], $address->firstname);
+        $this->assertEquals($this->avaya['lastname'], $address->lastname);
 
         $this->assertEquals($this->avaya['country_id'], $address->country_id);
         $this->assertEquals($this->avaya['country_id'], $address->country->id);
@@ -194,6 +215,13 @@ class AddressTest extends TestCase
 
         $this->assertEquals($this->avaya['city'], $address->city);
         $this->assertEquals($this->avaya['address'], $address->address);
+        $this->assertEquals($this->avaya['address2'], $address->address2);
+
+        $this->assertEquals($this->avaya['email'], $address->email);
+        $this->assertEquals($this->avaya['phone'], $address->phone);
+        $this->assertEquals($this->avaya['tax_nr'], $address->tax_nr);
+        $this->assertEquals($this->avaya['registration_nr'], $address->registration_nr);
+        $this->assertEquals($this->avaya['access_code'], $address->access_code);
 
         $this->assertTrue(AddressType::BUSINESS()->equals($address->type));
     }
