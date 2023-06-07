@@ -1,5 +1,13 @@
 # Upgrade
 
+## 2.x -> 3.x
+
+The new minimal requirements are:
+
+- PHP 8.1
+- Laravel 10
+- Enum 4.1
+
 ## 1.x -> 2.x
 
 The new minimal requirements are:

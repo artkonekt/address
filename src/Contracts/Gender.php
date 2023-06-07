@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Konekt\Address\Contracts;
 
-interface Gender
+use Konekt\Enum\EnumInterface;
+
+interface Gender extends EnumInterface
 {
 }

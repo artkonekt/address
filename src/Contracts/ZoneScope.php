@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Konekt\Address\Contracts;
 
-interface ZoneScope
+use Konekt\Enum\EnumInterface;
+
+interface ZoneScope extends EnumInterface
 {
 }

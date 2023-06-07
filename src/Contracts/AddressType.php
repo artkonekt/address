@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Konekt\Address\Contracts;
 
-interface AddressType
+use Konekt\Enum\EnumInterface;
+
+interface AddressType extends EnumInterface
 {
 }

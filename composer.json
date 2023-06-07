@@ -20,7 +20,7 @@
         "illuminate/support": "^10.0",
         "doctrine/dbal": "^3.5.1",
         "konekt/concord": "^1.13",
-        "konekt/enum": "^4.0",
+        "konekt/enum": "^4.1",
         "konekt/enum-eloquent": "^1.9"
     },
     "autoload": {

@@ -6,6 +6,8 @@
 - Dropped Laravel 9 support
 - Dropped PHP 8.0 support
 - Dropped Enum v3 Support
+- Changed minimum Enum version to v4.1
+- Changed all enum interfaces to extend the root `EnumInterface`
 
 ## 2.8.0
 ##### 2023-04-08
