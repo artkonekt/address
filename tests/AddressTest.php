@@ -20,6 +20,8 @@ use Konekt\Address\Models\Address;
 use Konekt\Address\Models\AddressProxy;
 use Konekt\Address\Models\AddressType;
 use Konekt\Address\Models\Country;
+use Konekt\Address\Models\Organization;
+use Konekt\Address\Models\Person;
 use Konekt\Address\Models\Province;
 use Konekt\Address\Models\ProvinceType;
 use Konekt\Address\Seeds\CountiesOfRomania;
@@ -224,6 +226,36 @@ class AddressTest extends TestCase
         $this->assertEquals($this->avaya['access_code'], $address->access_code);
 
         $this->assertTrue(AddressType::BUSINESS()->equals($address->type));
+    }
+
+    /** @test */
+    public function it_can_be_assigned_to_an_arbitrary_model()
+    {
+        $mrTeufel = Person::create(['firstname' => 'Fritz', 'lastname' => 'Teufel']);
+        $teufelsAddress = Address::create([
+            'name' => 'Fritz Teufel',
+            'country_id' => 'JP',
+            'address' => 'Mishiazavu 123.'
+        ]);
+
+        $teufelsAddress->model()->associate($mrTeufel);
+        $teufelsAddress->save();
+
+        $intermouse = Organization::create(['name' => 'Intermouse Inc.']);
+        $hqAddress = Address::create(['name' => 'Intermouse', 'country_id' => 'JP', 'address' => '123']);
+        $hqAddress->model()->associate($intermouse);
+        $hqAddress->save();
+
+        $teufelsAddress = $teufelsAddress->fresh('model');
+        $this->assertInstanceOf(Person::class, $teufelsAddress->model);
+        $this->assertEquals($mrTeufel->id, $teufelsAddress->model->id);
+        $this->assertEquals('Fritz', $teufelsAddress->model->firstname);
+        $this->assertEquals('Teufel', $teufelsAddress->model->lastname);
+
+        $hqAddress = $hqAddress->fresh('model');
+        $this->assertInstanceOf(Organization::class, $hqAddress->model);
+        $this->assertEquals($intermouse->id, $hqAddress->model->id);
+        $this->assertEquals('Intermouse Inc.', $hqAddress->model->name);
     }
 
     /**

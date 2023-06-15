@@ -16,6 +16,7 @@ namespace Konekt\Address\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Konekt\Address\Contracts\Address as AddressContract;
 use Konekt\Enum\Eloquent\CastsEnums;
 
@@ -39,6 +40,7 @@ use Konekt\Enum\Eloquent\CastsEnums;
  * @property string|null    $tax_nr
  * @property string|null    $registration_nr
  * @property string|null    $access_code
+ * @property Model|null     $model
  *
  * @property-read Country $country
  * @property-read null|Province $province
@@ -54,12 +56,12 @@ class Address extends Model implements AddressContract
         'type' => AddressType::class
     ];
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'addresses';
+
+    public function model(): MorphTo
+    {
+        return $this->morphTo();
+    }
 
     public function country(): BelongsTo
     {

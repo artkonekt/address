@@ -15,10 +15,13 @@ declare(strict_types=1);
 namespace Konekt\Address\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 interface Address
 {
     public function country(): BelongsTo;
 
     public function province(): BelongsTo;
+
+    public function model(): MorphTo;
 }
