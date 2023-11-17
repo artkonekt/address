@@ -4,8 +4,9 @@
 ##### 2023-XX-YY
 
 - Dropped Laravel 9 support
-- Dropped PHP 8.0 support
 - Dropped Enum v3 Support
+- Dropped PHP 8.0 support
+- Added PHP 8.3 support
 - Changed minimum Enum version to v4.1
 - BC: Changed all enum interfaces to extend the root `EnumInterface`
 - BC: added the `iso2Code()` and the `getName()` methods to the `Country` interface
