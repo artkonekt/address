@@ -8,6 +8,7 @@
 - Dropped PHP 8.0 support
 - Added PHP 8.3 support
 - Added Laravel 11 support
+- Added Doctrine DBAL v4 support (required for Laravel 11)
 - Changed minimum Enum version to v4.1
 - BC: Changed all enum interfaces to extend the root `EnumInterface`
 - BC: added the `iso2Code()` and the `getName()` methods to the `Country` interface

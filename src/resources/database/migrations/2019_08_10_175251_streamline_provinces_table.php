@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Konekt\Address\Models\ProvinceTypeProxy;
 
 class StreamlineProvincesTable extends Migration
@@ -18,7 +19,7 @@ class StreamlineProvincesTable extends Migration
      */
     public function __construct()
     {
-        $platform = DB::getDoctrineSchemaManager()->getDatabasePlatform();
+        $platform = DB::getDoctrineConnection()->getDatabasePlatform();
 
         if (!$platform->hasDoctrineTypeMappingFor('enum')) {
             $platform->registerDoctrineTypeMapping('enum', 'string');
