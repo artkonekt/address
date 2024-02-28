@@ -1,14 +1,14 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2023-XX-YY
+## 3.0.0
+##### 2024-02-28
 
 - Dropped Laravel 9 support
 - Dropped Enum v3 Support
 - Dropped PHP 8.0 support
 - Added PHP 8.3 support
 - Added Laravel 11 support
-- Added Doctrine DBAL v4 support (required for Laravel 11)
+- Added Doctrine DBAL v4 support ~~(required for Laravel 11)~~
 - Removed the Doctrine based migration-workaround for modifying table with enum column that wasn't necessary after Laravel 6
 - Changed minimum Enum version to v4.1
 - BC: Changed all enum interfaces to extend the root `EnumInterface`
