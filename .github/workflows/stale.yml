@@ -1,7 +1,7 @@
 name: 'Mark Stale Issues and PRs'
 on:
   schedule:
-    - cron: '10 8 * * *'
+    - cron: '21 8 * * *'
 
 jobs:
   stale:
