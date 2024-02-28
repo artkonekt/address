@@ -8,6 +8,13 @@ The new minimal requirements are:
 - Laravel 10
 - Enum 4.1
 
+### Interface Changes
+
+If you are using custom Country or Address models in your application, make sure they comply with the following changes:
+
+1. The `iso2Code()` and the `getName()` methods have been added to the `Country` interface.
+2. The `model()` method has been added to the `Address` interface
+
 ### Enum Interface
 
 The `AddressType`, `Gender`, `NameOrder`, `ProvinceType`, `ZoneMemberType`, and `ZoneScope`
