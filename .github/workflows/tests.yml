@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         php: ['8.1', '8.2', '8.3']
-        laravel: ['10.0', '10.39', '11.x']
+        laravel: ['10.0', '10.46', '11.x']
         exclude:
           - php: '8.1'
             laravel: '11.x'
@@ -26,6 +26,10 @@ jobs:
       - name: Lock Package Versions
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}.*" --no-update -v
+      - name: Prevent Laravel 10 + Doctrine 4
+        run: |
+          is_smaller_version() [[ $(echo -e "$1\n$2"|sort -V|head -1) != $2 ]]
+          is_smaller_version "${{ matrix.laravel }}" "10.39" && composer req "doctrine/dbal:^3.5.1" --no-update || true
       - name: Composer Install
         run: composer install --prefer-dist --no-progress --no-interaction
       - name: Create SQLite Database
