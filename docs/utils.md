@@ -51,7 +51,7 @@ The method either returns the country code which the VAT number belongs to, or `
 EuropeanUnion::validateVatNumberFormat('1234');
 // => false
 
-EuropeanUnion::validateVatNumberFormat('DE332537240')
+EuropeanUnion::validateVatNumberFormat('DE332537240');
 // => 'DE'
 
 EuropeanUnion::validateVatNumberFormat('RO35409777');
