@@ -19,3 +19,4 @@
 
 - IV. Misc
     - [Seeders](seeders.md)
+    - [Utilities](utils.md)

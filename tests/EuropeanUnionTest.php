@@ -29,7 +29,9 @@ class EuropeanUnionTest extends PhpUnitTestCase
             ['UK', '1972-12-25', false],
             ['EE', '2020-02-01', true],
             ['EE', '2004-04-30', false],
+            ['HR', '2013-06-30', false],
             ['HR', '2013-07-01', true],
+            ['HR', null, true],
             ['SI', '2004-04-30', false],
             ['SI', '2004-05-01', true],
             ['SI', '2004-05-02', true],
@@ -176,7 +178,7 @@ class EuropeanUnionTest extends PhpUnitTestCase
      * @test
      * @dataProvider memberStateProvider
      */
-    public function is_member_state_test(string $country, string $date, bool $isMember): void
+    public function is_member_state_test(string $country, string|null $date, bool $isMember): void
     {
         $this->assertEquals(
             $isMember,
