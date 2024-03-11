@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2024-XX-YY
+## 3.1.0
+##### 2024-03-11
 
 - Added the `EuropeanUnion` utility class to check for members and validate tax numbers
 
