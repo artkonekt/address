@@ -186,4 +186,18 @@ class EuropeanUnionTest extends PhpUnitTestCase
             sprintf('%s should %sbe the member of the EU on %s', $country, $isMember ? '' : 'not ', $date)
         );
     }
+
+    /**
+     * @test
+     * @dataProvider memberStateProvider
+     */
+    public function is_not_member_state_tests(string $country, string|null $date, bool $isMember): void
+    {
+        $this->assertEquals(
+            !$isMember,
+            EuropeanUnion::isNotAMemberState($country, $date),
+            sprintf('%s should %sbe the member of the EU on %s', $country, $isMember ? '' : 'not ', $date)
+        );
+
+    }
 }

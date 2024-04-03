@@ -90,4 +90,9 @@ class EuropeanUnion
 
         return null === $member['left'] || $at->isBefore(Date::parse($member['left']));
     }
+
+    public static function isNotAMemberState(string $countryCode, string|DateTimeInterface $at = null): bool
+    {
+        return !self::isMemberState($countryCode, $at);
+    }
 }
