@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2024-XX-YY
+## 3.2.0
+##### 2024-04-03
 
 - Added the `EuropeanUnion::isNotAMemberState()` method
 
