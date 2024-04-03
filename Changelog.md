@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2024-XX-YY
+
+- Changed the input string processing at the `Zones::theCountryBelongsTo()` method so that it converts the argument to uppercase before comparison 
+
 ## 3.2.0
 ##### 2024-04-03
 

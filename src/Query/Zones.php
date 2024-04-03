@@ -92,7 +92,7 @@ class Zones
     public function theCountryBelongsTo(Country|string $country): Collection
     {
         return $this->preparedQuery()
-            ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', is_string($country) ? $country : $country->id))
+            ->whereHas('members', fn (Builder $q) => $q->where('member_type', ZoneMemberType::COUNTRY)->where('member_id', is_string($country) ? strtoupper($country) : $country->id))
             ->get();
     }
 
