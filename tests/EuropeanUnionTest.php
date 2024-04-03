@@ -198,6 +198,5 @@ class EuropeanUnionTest extends PhpUnitTestCase
             EuropeanUnion::isNotAMemberState($country, $date),
             sprintf('%s should %sbe the member of the EU on %s', $country, $isMember ? '' : 'not ', $date)
         );
-
     }
 }
