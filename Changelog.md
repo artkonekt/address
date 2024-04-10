@@ -3,6 +3,7 @@
 ## Unreleased
 ##### 2024-XX-YY
 
+- Added the `Zoneable` trait that can be added to models that can optionally belong to a Zone
 - Changed the input string processing at the `Zones::theCountryBelongsTo()` method so that it converts the argument to uppercase before comparison 
 
 ## 3.2.0
