@@ -87,6 +87,7 @@ that points to the id of a [zone](zones.md) record.
 It adds the following features to the model:
 
 - the `getZone(): ?Zone` method,
+- the `isZoneRestricted(): bool` and `isNotZoneRestricted(): bool` methods,
 - the `forZone(int|Zone $zone): Builder` scope,
 - the `forZones(array|Collection $zones): Builder` scope, and
 - the `zone(): BelongsTo` relationship

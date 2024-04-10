@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2024-XX-YY
+## 3.3.1
+##### 2024-04-10
 
 - Added the `isZoneRestricted()` and `isNotZoneRestricted()` methods to the `Zoneable` trait
 
