@@ -75,3 +75,39 @@ EuropeanUnion::validateVatNumberFormat('EL332537240');
 EuropeanUnion::validateVatNumberFormat('GB123456789');
 // => UK
 ```
+
+## The Zoneable Trait
+
+> Available since v3.3
+
+If you have a model that can be assigned to a [zone](zones.md), then the easiest way to add
+such behavior to it is to use the `Zoneable` trait. It requires the model to have a `zone_id` field
+that points to the id of a [zone](zones.md) record.
+
+It adds the following features to the model:
+
+- the `getZone(): ?Zone` method,
+- the `forZone(int|Zone $zone): Builder` scope,
+- the `forZones(array|Collection $zones): Builder` scope, and
+- the `zone(): BelongsTo` relationship
+
+Usage example:
+
+```php
+class ShippingMethod extends Model
+{
+    uses Zoneable;
+}
+
+$haitiShippingZones = Zones::withShippingScope()->theCountryBelongsTo('HT');
+
+$shippingMethodsForHaiti = ShippingMethod::forZones($haitiShippingZones)->get();
+```
+
+To get the zone of a "zoneable" model:
+
+```php
+$shippingMethod = ShippingMethod::find(1);
+$shippingMethod->getZone();
+// => Konekt\Address\Models\Zone
+```
