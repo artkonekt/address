@@ -34,6 +34,16 @@ trait Zoneable
         return $this->zone;
     }
 
+    public function isZoneRestricted(): bool
+    {
+        return null !== $this->zone_id;
+    }
+
+    public function isNotZoneRestricted(): bool
+    {
+        return !$this->isZoneRestricted();
+    }
+
     public function zone(): BelongsTo
     {
         return $this->belongsTo(ZoneProxy::modelClass(), 'zone_id', 'id');
