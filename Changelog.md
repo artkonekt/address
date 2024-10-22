@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## 3.3.2
+##### 2024-10-22
+
+- Fixed the AddressType enum def in the Address model to use the proxy instead of the hardcoded class by [Ouail](https://github.com/ouail) in [#9](https://github.com/artkonekt/address/pull/9)
+
 ## 3.3.1
 ##### 2024-04-10
 
