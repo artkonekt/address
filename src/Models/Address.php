@@ -53,7 +53,7 @@ class Address extends Model implements AddressContract
     protected $guarded = ['id'];
 
     protected $enums = [
-        'type' => AddressType::class
+        'type' => 'AddressTypeProxy@enumClass'
     ];
 
     protected $table = 'addresses';
