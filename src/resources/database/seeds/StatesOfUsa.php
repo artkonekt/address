@@ -15,10 +15,16 @@ declare(strict_types=1);
 namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
+use Konekt\Address\Contracts\ProvinceSeeder;
 use Konekt\Address\Models\ProvinceType;
 
-class StatesOfUsa extends Seeder
+class StatesOfUsa extends Seeder implements ProvinceSeeder
 {
+    use IsProvinceSeeder;
+
+    protected static string $forCountry = 'US';
+    protected static array $provinceTypes = [ProvinceType::STATE, ProvinceType::FEDERAL_DISTRICT, ProvinceType::MILITARY, ProvinceType::TERRITORY];
+
     /**
      * Inserts the states of USA into the provinces table
      *

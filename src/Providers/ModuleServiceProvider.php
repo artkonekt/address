@@ -31,6 +31,17 @@ use Konekt\Address\Models\ZoneMember;
 use Konekt\Address\Models\ZoneMemberType;
 use Konekt\Address\Models\ZoneProxy;
 use Konekt\Address\Models\ZoneScope;
+use Konekt\Address\Seeds\CountiesOfHungary;
+use Konekt\Address\Seeds\CountiesOfRomania;
+use Konekt\Address\Seeds\ProvincesAndRegionsOfBelgium;
+use Konekt\Address\Seeds\ProvincesAndTerritoriesOfCanada;
+use Konekt\Address\Seeds\ProvincesAndTerritoriesOfCanadaFrench;
+use Konekt\Address\Seeds\ProvinceSeeders;
+use Konekt\Address\Seeds\ProvincesOfIndonesia;
+use Konekt\Address\Seeds\ProvincesOfNetherlands;
+use Konekt\Address\Seeds\StatesAndTerritoriesOfIndia;
+use Konekt\Address\Seeds\StatesOfGermany;
+use Konekt\Address\Seeds\StatesOfUsa;
 use Konekt\Concord\BaseModuleServiceProvider;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider
@@ -53,6 +64,28 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
         ZoneScope::class,
         ZoneMemberType::class,
     ];
+
+    protected static array $provinceSeeders = [
+        CountiesOfHungary::class,
+        CountiesOfRomania::class,
+        ProvincesAndRegionsOfBelgium::class,
+        ProvincesAndTerritoriesOfCanada::class,
+        ProvincesAndTerritoriesOfCanadaFrench::class,
+        ProvincesOfIndonesia::class,
+        ProvincesOfNetherlands::class,
+        StatesAndTerritoriesOfIndia::class,
+        StatesOfGermany::class,
+        StatesOfUsa::class,
+    ];
+
+    public function register(): void
+    {
+        parent::register();
+
+        foreach (self::$provinceSeeders as $provinceSeeder) {
+            ProvinceSeeders::extend($provinceSeeder);
+        }
+    }
 
     public function boot()
     {

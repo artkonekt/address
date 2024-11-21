@@ -15,9 +15,16 @@ declare(strict_types=1);
 namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
+use Konekt\Address\Contracts\ProvinceSeeder;
+use Konekt\Address\Models\ProvinceType;
 
-class CountiesOfRomania extends Seeder
+class CountiesOfRomania extends Seeder implements ProvinceSeeder
 {
+    use IsProvinceSeeder;
+
+    protected static string $forCountry = 'RO';
+    protected static array $provinceTypes = [ProvinceType::COUNTY];
+
     /**
      * Inserts the counties of Romania into the provinces table
      *

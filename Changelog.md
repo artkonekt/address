@@ -1,5 +1,12 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2024-XX-YY
+
+- Added the konekt/xtend requirement
+- Added the `ProvinceSeeders` registry
+- Added the `ProvinceSeeder` interface and decorated all existing province seeders with it
+
 ## 3.3.2
 ##### 2024-10-22
 

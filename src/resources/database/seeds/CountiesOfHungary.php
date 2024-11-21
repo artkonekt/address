@@ -15,9 +15,16 @@ declare(strict_types=1);
 namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
+use Konekt\Address\Contracts\ProvinceSeeder;
+use Konekt\Address\Models\ProvinceType;
 
-class CountiesOfHungary extends Seeder
+class CountiesOfHungary extends Seeder implements ProvinceSeeder
 {
+    use IsProvinceSeeder;
+
+    protected static string $forCountry = 'HU';
+    protected static array $provinceTypes = [ProvinceType::COUNTY];
+
     public function run()
     {
         \DB::table('provinces')->insert([

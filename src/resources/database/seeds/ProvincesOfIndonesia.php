@@ -15,9 +15,16 @@ declare(strict_types=1);
 namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
+use Konekt\Address\Contracts\ProvinceSeeder;
+use Konekt\Address\Models\ProvinceType;
 
-class ProvincesOfIndonesia extends Seeder
+class ProvincesOfIndonesia extends Seeder implements ProvinceSeeder
 {
+    use IsProvinceSeeder;
+
+    protected static string $forCountry = 'ID';
+    protected static array $provinceTypes = [ProvinceType::UNIT, ProvinceType::PROVINCE, ProvinceType::REGION];
+
     public function run()
     {
         $this->createJavaWithProvinces();

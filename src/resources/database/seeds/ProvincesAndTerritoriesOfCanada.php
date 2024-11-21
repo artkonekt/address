@@ -16,9 +16,16 @@ namespace Konekt\Address\Seeds;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Konekt\Address\Contracts\ProvinceSeeder;
+use Konekt\Address\Models\ProvinceType;
 
-class ProvincesAndTerritoriesOfCanada extends Seeder
+class ProvincesAndTerritoriesOfCanada extends Seeder implements ProvinceSeeder
 {
+    use IsProvinceSeeder;
+
+    protected static string $forCountry = 'CA';
+    protected static array $provinceTypes = [ProvinceType::PROVINCE, ProvinceType::TERRITORY];
+
     public function run()
     {
         DB::table('provinces')->insert([

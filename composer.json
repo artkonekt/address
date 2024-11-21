@@ -22,7 +22,8 @@
         "doctrine/dbal": "^3.5.1|^4.0",
         "konekt/concord": "^1.13",
         "konekt/enum": "^4.1",
-        "konekt/enum-eloquent": "^1.9"
+        "konekt/enum-eloquent": "^1.9",
+        "konekt/xtend": "^1.2"
     },
     "autoload": {
         "psr-4": {
