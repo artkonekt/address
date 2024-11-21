@@ -23,6 +23,7 @@ class StatesOfUsa extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'US';
+
     protected static array $provinceTypes = [ProvinceType::STATE, ProvinceType::FEDERAL_DISTRICT, ProvinceType::MILITARY, ProvinceType::TERRITORY];
 
     /**

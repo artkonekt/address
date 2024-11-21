@@ -23,6 +23,7 @@ class ProvincesAndRegionsOfBelgium extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'BE';
+
     protected static array $provinceTypes = [ProvinceType::REGION, ProvinceType::PROVINCE];
 
     public function run()

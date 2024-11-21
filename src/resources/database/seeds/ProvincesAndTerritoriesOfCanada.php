@@ -24,6 +24,7 @@ class ProvincesAndTerritoriesOfCanada extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'CA';
+
     protected static array $provinceTypes = [ProvinceType::PROVINCE, ProvinceType::TERRITORY];
 
     public function run()

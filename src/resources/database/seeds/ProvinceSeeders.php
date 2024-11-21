@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Konekt\Address\Seeds;
 
-use InvalidArgumentException;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
 use Konekt\Address\Contracts\ProvinceSeeder;
 use Konekt\Extend\Concerns\HasRegistry;
 use Konekt\Extend\Concerns\RequiresClassOrInterface;
@@ -32,7 +32,7 @@ class ProvinceSeeders implements Registry
     /** @return ProvinceSeeder[] */
     public static function availableSeedersOfCountry(string $country): array
     {
-        return array_filter(self::$registry, fn($class) => $class::getCountryCode() === $country);
+        return array_filter(self::$registry, fn ($class) => $class::getCountryCode() === $country);
     }
 
     public static function extend(string $seederClass): void
