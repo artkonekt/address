@@ -23,6 +23,7 @@ class StatesOfGermany extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'DE';
+
     protected static array $provinceTypes = [ProvinceType::STATE];
 
     public function run()

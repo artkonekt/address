@@ -23,6 +23,7 @@ class CountiesOfRomania extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'RO';
+
     protected static array $provinceTypes = [ProvinceType::COUNTY];
 
     /**

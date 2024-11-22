@@ -12,5 +12,4 @@ interface ProvinceSeeder
      * @return array|ProvinceType[]
      */
     public static function getProvinceTypes(): array;
-
 }

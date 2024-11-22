@@ -23,6 +23,7 @@ class ProvincesOfIndonesia extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'ID';
+
     protected static array $provinceTypes = [ProvinceType::UNIT, ProvinceType::PROVINCE, ProvinceType::REGION];
 
     public function run()

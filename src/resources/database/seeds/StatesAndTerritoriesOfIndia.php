@@ -23,6 +23,7 @@ class StatesAndTerritoriesOfIndia extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'IN';
+
     protected static array $provinceTypes = [ProvinceType::STATE, ProvinceType::TERRITORY];
 
     public function run()

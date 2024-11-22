@@ -23,8 +23,8 @@ class ProvincesOfNetherlands extends Seeder implements ProvinceSeeder
     use IsProvinceSeeder;
 
     protected static string $forCountry = 'NL';
-    protected static array $provinceTypes = [ProvinceType::PROVINCE];
 
+    protected static array $provinceTypes = [ProvinceType::PROVINCE];
 
     public function run()
     {

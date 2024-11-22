@@ -16,7 +16,6 @@ trait IsProvinceSeeder
 
     public static function getProvinceTypes(): array
     {
-        return array_map(fn(string|ProvinceType $type) => is_string($type) ? ProvinceTypeProxy::create($type): $type, self::$provinceTypes);
+        return array_map(fn (string|ProvinceType $type) => is_string($type) ? ProvinceTypeProxy::create($type) : $type, self::$provinceTypes);
     }
-
 }
