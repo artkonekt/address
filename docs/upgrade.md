@@ -4,7 +4,8 @@
 
 The new minimal requirements are:
 
-- PHP 8.1
+- PHP **8.1**: 3.0 - 3.3;
+- PHP **8.2**: 3.4+
 - Laravel 10
 - Enum 4.1
 

@@ -7,6 +7,8 @@
 - Added the `ProvinceSeeders` registry
 - Added the `ProvinceSeeder` interface and decorated all existing province seeders with it
 - Extended the `Countries` seeder so that the list of countries can be simply read using `Countries::all()` and `Countries::byCode($code)`
+- Dropped PHP 8.1 support
+- Added PHP 8.4 support
 
 ## 3.3.2
 ##### 2024-10-22
