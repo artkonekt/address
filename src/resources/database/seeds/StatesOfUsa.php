@@ -26,12 +26,17 @@ class StatesOfUsa extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::STATE, ProvinceType::FEDERAL_DISTRICT, ProvinceType::MILITARY, ProvinceType::TERRITORY];
 
+    public static function getTitle(): string
+    {
+        return __('States, territories and other districts of the USA');
+    }
+
     /**
      * Inserts the states of USA into the provinces table
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         \DB::table('provinces')->insert(
             [

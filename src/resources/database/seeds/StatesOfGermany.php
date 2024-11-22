@@ -26,7 +26,12 @@ class StatesOfGermany extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::STATE];
 
-    public function run()
+    public static function getTitle(): string
+    {
+        return __('States of Germany');
+    }
+
+    public function run(): void
     {
         \DB::table('provinces')->insert([
             [

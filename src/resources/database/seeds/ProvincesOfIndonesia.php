@@ -26,7 +26,12 @@ class ProvincesOfIndonesia extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::UNIT, ProvinceType::PROVINCE, ProvinceType::REGION];
 
-    public function run()
+    public static function getTitle(): string
+    {
+        return __('Provinces and Regions of Indonesia');
+    }
+
+    public function run(): void
     {
         $this->createJavaWithProvinces();
         $this->createKalimantanWithProvinces();

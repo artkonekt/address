@@ -26,7 +26,12 @@ class StatesAndTerritoriesOfIndia extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::STATE, ProvinceType::TERRITORY];
 
-    public function run()
+    public static function getTitle(): string
+    {
+        return __('States and Territories of India');
+    }
+
+    public function run(): void
     {
         \DB::table('provinces')->insert([
             [

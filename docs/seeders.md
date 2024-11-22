@@ -52,11 +52,59 @@ Countries::byCode('nope');
 
 ## Provinces Seeder
 
-Besides using as a standard Laravel Seeder, the various province seeders can be used as a standalone utility classes
-to manage the provinces of the world.
-
+Besides using as a standard Laravel Seeder, the various province seeder classes can be used as a standalone utility classes
+to manage the provinces of countries.
 
 > This `ProvinceSeeders` registry was added in version `3.4.0`
+
+This package doesn't ship with the provinces of all countries, only offers a limited set of them.
+But it offers the possibility for anyone to write extensions for specific countries and register them
+
+A sample province seeder class:
+
+```php
+class RegionsOfAbsurdistan extends Seeder implements ProvinceSeeder
+{
+    use IsProvinceSeeder;
+
+    protected static string $forCountry = 'AB';
+
+    protected static array $provinceTypes = [ProvinceType::REGION]
+    
+    public static function getTitle(): string
+    {
+        return __('Regions of the Imaginary Absurdistan');
+    }
+    
+    public function run(): void
+    {
+        // insert the records here        
+    }
+}
+```
+
+To register the seeder use the following code, most commonly in the package's ServiceProvider or the app's AppServiceProvider class:
+
+```php
+public function boot()
+{
+    ProvinceSeeders::extend(RegionsOfAbsurdistan::class);
+}
+```
+
+### Obtain the Province Seeders of a Country
+
+To get the available province seeders of a country, use the following code:
+
+```php
+\Konekt\Address\Seeds\ProvinceSeeders::availableSeedersOfCountry('AB');
+// ['regions-of-absurdistan' => 'Namespace\\RegionsOfAbsurdistan']
+
+// Create the seeder:
+$seeder = ProvinceSeeders::make('regions-of-absurdistan');
+// To create the provinces:
+$seeder->run();
+```
 
 ## Loading
 
@@ -81,4 +129,4 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
 ```
 
 > For more details refer to the [seeds section](https://konekt.dev/concord/1.3/seeds) in the Concord
-docs.
+> docs.

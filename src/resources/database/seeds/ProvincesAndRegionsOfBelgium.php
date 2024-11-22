@@ -26,7 +26,12 @@ class ProvincesAndRegionsOfBelgium extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::REGION, ProvinceType::PROVINCE];
 
-    public function run()
+    public static function getTitle(): string
+    {
+        return __('Provinces and Regions of Belgium');
+    }
+
+    public function run(): void
     {
         \DB::table('provinces')->insert([
             "name" => "Brussels",

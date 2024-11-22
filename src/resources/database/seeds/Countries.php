@@ -23,7 +23,7 @@ class Countries extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         \DB::table('countries')->delete();
 

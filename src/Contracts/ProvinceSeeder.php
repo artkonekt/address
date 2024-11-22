@@ -12,4 +12,8 @@ interface ProvinceSeeder
      * @return array|ProvinceType[]
      */
     public static function getProvinceTypes(): array;
+
+    public static function getTitle(): string;
+
+    public function run(): void;
 }

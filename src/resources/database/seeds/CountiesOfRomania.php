@@ -26,12 +26,17 @@ class CountiesOfRomania extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::COUNTY];
 
+    public static function getTitle(): string
+    {
+        return __('Counties of Romania');
+    }
+
     /**
      * Inserts the counties of Romania into the provinces table
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         \DB::table('provinces')->insert([
                 [
