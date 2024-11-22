@@ -27,1780 +27,1291 @@ class Countries extends Seeder
     {
         \DB::table('countries')->delete();
 
-        \DB::table('countries')->insert([
-            [
-                'id' => 'AF',
+        foreach (array_chunk(self::all(), 50, true) as $countries) {
+            \DB::table('countries')->insert(
+                array_map(
+                    fn($record, $id) => array_merge($record, ['id' => $id]),
+                    $countries,
+                    array_keys($countries),
+                ),
+            );
+        }
+    }
+
+    /**
+     * @return null|array<string,array{name: string, phonecode: int, is_eu_member: bool}>
+     */
+    public static function byCode(string $code): ?array
+    {
+        $code = strtoupper($code);
+        $country = self::all()[$code] ?? null;
+
+        return $country ? array_merge($country, ['id' => $code]) : null;
+    }
+
+    public static function all(): array
+    {
+        return [
+            'AF' => [
                 'name' => 'Afghanistan',
                 'phonecode' => 93,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AL',
+            'AL' => [
                 'name' => 'Albania',
                 'phonecode' => 355,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'DZ',
+            'DZ' => [
                 'name' => 'Algeria',
                 'phonecode' => 213,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AS',
+            'AS' => [
                 'name' => 'American Samoa',
                 'phonecode' => 1684,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AD',
+            'AD' => [
                 'name' => 'Andorra',
                 'phonecode' => 376,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AO',
+            'AO' => [
                 'name' => 'Angola',
                 'phonecode' => 244,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AI',
+            'AI' => [
                 'name' => 'Anguilla',
                 'phonecode' => 1264,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AQ',
+            'AQ' => [
                 'name' => 'Antarctica',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AG',
+            'AG' => [
                 'name' => 'Antigua and Barbuda',
                 'phonecode' => 1268,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AR',
+            'AR' => [
                 'name' => 'Argentina',
                 'phonecode' => 54,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AM',
+            'AM' => [
                 'name' => 'Armenia',
                 'phonecode' => 374,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AW',
+            'AW' => [
                 'name' => 'Aruba',
                 'phonecode' => 297,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AU',
+            'AU' => [
                 'name' => 'Australia',
                 'phonecode' => 61,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AT',
+            'AT' => [
                 'name' => 'Austria',
                 'phonecode' => 43,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'AZ',
+            'AZ' => [
                 'name' => 'Azerbaijan',
                 'phonecode' => 994,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BS',
+            'BS' => [
                 'name' => 'Bahamas',
                 'phonecode' => 1242,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BH',
+            'BH' => [
                 'name' => 'Bahrain',
                 'phonecode' => 973,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BD',
+            'BD' => [
                 'name' => 'Bangladesh',
                 'phonecode' => 880,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BB',
+            'BB' => [
                 'name' => 'Barbados',
                 'phonecode' => 1246,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BY',
+            'BY' => [
                 'name' => 'Belarus',
                 'phonecode' => 375,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BE',
+            'BE' => [
                 'name' => 'Belgium',
                 'phonecode' => 32,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'BZ',
+            'BZ' => [
                 'name' => 'Belize',
                 'phonecode' => 501,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BJ',
+            'BJ' => [
                 'name' => 'Benin',
                 'phonecode' => 229,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BM',
+            'BM' => [
                 'name' => 'Bermuda',
                 'phonecode' => 1441,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BT',
+            'BT' => [
                 'name' => 'Bhutan',
                 'phonecode' => 975,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BO',
+            'BO' => [
                 'name' => 'Bolivia',
                 'phonecode' => 591,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BA',
+            'BA' => [
                 'name' => 'Bosnia and Herzegovina',
                 'phonecode' => 387,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BW',
+            'BW' => [
                 'name' => 'Botswana',
                 'phonecode' => 267,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BV',
+            'BV' => [
                 'name' => 'Bouvet Island',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BR',
+            'BR' => [
                 'name' => 'Brazil',
                 'phonecode' => 55,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IO',
+            'IO' => [
                 'name' => 'British Indian Ocean Territory',
                 'phonecode' => 246,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BN',
+            'BN' => [
                 'name' => 'Brunei Darussalam',
                 'phonecode' => 673,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BG',
+            'BG' => [
                 'name' => 'Bulgaria',
                 'phonecode' => 359,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'BF',
+            'BF' => [
                 'name' => 'Burkina Faso',
                 'phonecode' => 226,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BI',
+            'BI' => [
                 'name' => 'Burundi',
                 'phonecode' => 257,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KH',
+            'KH' => [
                 'name' => 'Cambodia',
                 'phonecode' => 855,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CM',
+            'CM' => [
                 'name' => 'Cameroon',
                 'phonecode' => 237,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CA',
+            'CA' => [
                 'name' => 'Canada',
                 'phonecode' => 1,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CV',
+            'CV' => [
                 'name' => 'Cape Verde',
                 'phonecode' => 238,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KY',
+            'KY' => [
                 'name' => 'Cayman Islands',
                 'phonecode' => 1345,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CF',
+            'CF' => [
                 'name' => 'Central African Republic',
                 'phonecode' => 236,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TD',
+            'TD' => [
                 'name' => 'Chad',
                 'phonecode' => 235,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CL',
+            'CL' => [
                 'name' => 'Chile',
                 'phonecode' => 56,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CN',
+            'CN' => [
                 'name' => 'China',
                 'phonecode' => 86,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CX',
+            'CX' => [
                 'name' => 'Christmas Island',
                 'phonecode' => 61,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CC',
+            'CC' => [
                 'name' => 'Cocos (Keeling) Islands',
                 'phonecode' => 672,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CO',
+            'CO' => [
                 'name' => 'Colombia',
                 'phonecode' => 57,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KM',
+            'KM' => [
                 'name' => 'Comoros',
                 'phonecode' => 269,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CG',
+            'CG' => [
                 'name' => 'Congo',
                 'phonecode' => 242,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CD',
+            'CD' => [
                 'name' => 'Congo, the Democratic Republic of the',
                 'phonecode' => 243,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CK',
+            'CK' => [
                 'name' => 'Cook Islands',
                 'phonecode' => 682,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CR',
+            'CR' => [
                 'name' => 'Costa Rica',
                 'phonecode' => 506,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CI',
+            'CI' => [
                 'name' => 'Cote D\'Ivoire',
                 'phonecode' => 225,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'HR',
+            'HR' => [
                 'name' => 'Croatia',
                 'phonecode' => 385,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'CU',
+            'CU' => [
                 'name' => 'Cuba',
                 'phonecode' => 53,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CY',
+            'CY' => [
                 'name' => 'Cyprus',
                 'phonecode' => 357,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'CZ',
+            'CZ' => [
                 'name' => 'Czech Republic',
                 'phonecode' => 420,
                 'is_eu_member' => 1
-            ]
-        ]);
-
-        \DB::table('countries')->insert([
-            [
-                'id' => 'DK',
+            ],
+            'DK' => [
                 'name' => 'Denmark',
                 'phonecode' => 45,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'DJ',
+            'DJ' => [
                 'name' => 'Djibouti',
                 'phonecode' => 253,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'DM',
+            'DM' => [
                 'name' => 'Dominica',
                 'phonecode' => 1767,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'DO',
+            'DO' => [
                 'name' => 'Dominican Republic',
                 'phonecode' => 1809,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'EC',
+            'EC' => [
                 'name' => 'Ecuador',
                 'phonecode' => 593,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'EG',
+            'EG' => [
                 'name' => 'Egypt',
                 'phonecode' => 20,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SV',
+            'SV' => [
                 'name' => 'El Salvador',
                 'phonecode' => 503,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GQ',
+            'GQ' => [
                 'name' => 'Equatorial Guinea',
                 'phonecode' => 240,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ER',
+            'ER' => [
                 'name' => 'Eritrea',
                 'phonecode' => 291,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'EE',
+            'EE' => [
                 'name' => 'Estonia',
                 'phonecode' => 372,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'ET',
+            'ET' => [
                 'name' => 'Ethiopia',
                 'phonecode' => 251,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'FK',
+            'FK' => [
                 'name' => 'Falkland Islands (Malvinas)',
                 'phonecode' => 500,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'FO',
+            'FO' => [
                 'name' => 'Faroe Islands',
                 'phonecode' => 298,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'FJ',
+            'FJ' => [
                 'name' => 'Fiji',
                 'phonecode' => 679,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'FI',
+            'FI' => [
                 'name' => 'Finland',
                 'phonecode' => 358,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'FR',
+            'FR' => [
                 'name' => 'France',
                 'phonecode' => 33,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'GF',
+            'GF' => [
                 'name' => 'French Guiana',
                 'phonecode' => 594,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PF',
+            'PF' => [
                 'name' => 'French Polynesia',
                 'phonecode' => 689,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TF',
+            'TF' => [
                 'name' => 'French Southern Territories',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GA',
+            'GA' => [
                 'name' => 'Gabon',
                 'phonecode' => 241,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GM',
+            'GM' => [
                 'name' => 'Gambia',
                 'phonecode' => 220,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GE',
+            'GE' => [
                 'name' => 'Georgia',
                 'phonecode' => 995,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'DE',
+            'DE' => [
                 'name' => 'Germany',
                 'phonecode' => 49,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'GH',
+            'GH' => [
                 'name' => 'Ghana',
                 'phonecode' => 233,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GI',
+            'GI' => [
                 'name' => 'Gibraltar',
                 'phonecode' => 350,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GR',
+            'GR' => [
                 'name' => 'Greece',
                 'phonecode' => 30,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'GL',
+            'GL' => [
                 'name' => 'Greenland',
                 'phonecode' => 299,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GD',
+            'GD' => [
                 'name' => 'Grenada',
                 'phonecode' => 1473,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GP',
+            'GP' => [
                 'name' => 'Guadeloupe',
                 'phonecode' => 590,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GU',
+            'GU' => [
                 'name' => 'Guam',
                 'phonecode' => 1671,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GT',
+            'GT' => [
                 'name' => 'Guatemala',
                 'phonecode' => 502,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GN',
+            'GN' => [
                 'name' => 'Guinea',
                 'phonecode' => 224,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GW',
+            'GW' => [
                 'name' => 'Guinea-Bissau',
                 'phonecode' => 245,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GY',
+            'GY' => [
                 'name' => 'Guyana',
                 'phonecode' => 592,
                 'is_eu_member' => 0
-            ]
-        ]);
-
-        \DB::table('countries')->insert([
-            [
-                'id' => 'HT',
+            ],
+            'HT' => [
                 'name' => 'Haiti',
                 'phonecode' => 509,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'HM',
+            'HM' => [
                 'name' => 'Heard Island and Mcdonald Islands',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VA',
+            'VA' => [
                 'name' => 'Holy See (Vatican City State)',
                 'phonecode' => 39,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'HN',
+            'HN' => [
                 'name' => 'Honduras',
                 'phonecode' => 504,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'HK',
+            'HK' => [
                 'name' => 'Hong Kong',
                 'phonecode' => 852,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'HU',
+            'HU' => [
                 'name' => 'Hungary',
                 'phonecode' => 36,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'IS',
+            'IS' => [
                 'name' => 'Iceland',
                 'phonecode' => 354,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IN',
+            'IN' => [
                 'name' => 'India',
                 'phonecode' => 91,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ID',
+            'ID' => [
                 'name' => 'Indonesia',
                 'phonecode' => 62,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IR',
+            'IR' => [
                 'name' => 'Iran, Islamic Republic of',
                 'phonecode' => 98,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IQ',
+            'IQ' => [
                 'name' => 'Iraq',
                 'phonecode' => 964,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IE',
+            'IE' => [
                 'name' => 'Ireland',
                 'phonecode' => 353,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'IL',
+            'IL' => [
                 'name' => 'Israel',
                 'phonecode' => 972,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IT',
+            'IT' => [
                 'name' => 'Italy',
                 'phonecode' => 39,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'JM',
+            'JM' => [
                 'name' => 'Jamaica',
                 'phonecode' => 1876,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'JP',
+            'JP' => [
                 'name' => 'Japan',
                 'phonecode' => 81,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'JO',
+            'JO' => [
                 'name' => 'Jordan',
                 'phonecode' => 962,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KZ',
+            'KZ' => [
                 'name' => 'Kazakhstan',
                 'phonecode' => 7,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KE',
+            'KE' => [
                 'name' => 'Kenya',
                 'phonecode' => 254,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KI',
+            'KI' => [
                 'name' => 'Kiribati',
                 'phonecode' => 686,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KP',
+            'KP' => [
                 'name' => 'Korea, Democratic People\'s Republic of',
                 'phonecode' => 850,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KR',
+            'KR' => [
                 'name' => 'Korea, Republic of',
                 'phonecode' => 82,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KW',
+            'KW' => [
                 'name' => 'Kuwait',
                 'phonecode' => 965,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KG',
+            'KG' => [
                 'name' => 'Kyrgyzstan',
                 'phonecode' => 996,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LA',
+            'LA' => [
                 'name' => 'Lao People\'s Democratic Republic',
                 'phonecode' => 856,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LV',
+            'LV' => [
                 'name' => 'Latvia',
                 'phonecode' => 371,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'LB',
+            'LB' => [
                 'name' => 'Lebanon',
                 'phonecode' => 961,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LS',
+            'LS' => [
                 'name' => 'Lesotho',
                 'phonecode' => 266,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LR',
+            'LR' => [
                 'name' => 'Liberia',
                 'phonecode' => 231,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LY',
+            'LY' => [
                 'name' => 'Libyan Arab Jamahiriya',
                 'phonecode' => 218,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LI',
+            'LI' => [
                 'name' => 'Liechtenstein',
                 'phonecode' => 423,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LT',
+            'LT' => [
                 'name' => 'Lithuania',
                 'phonecode' => 370,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'LU',
+            'LU' => [
                 'name' => 'Luxembourg',
                 'phonecode' => 352,
                 'is_eu_member' => 1
-            ]
-        ]);
-
-        \DB::table('countries')->insert([
-            [
-                'id' => 'MO',
+            ],
+            'MO' => [
                 'name' => 'Macao',
                 'phonecode' => 853,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MK',
+            'MK' => [
                 'name' => 'North Macedonia',
                 'phonecode' => 389,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MG',
+            'MG' => [
                 'name' => 'Madagascar',
                 'phonecode' => 261,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MW',
+            'MW' => [
                 'name' => 'Malawi',
                 'phonecode' => 265,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MY',
+            'MY' => [
                 'name' => 'Malaysia',
                 'phonecode' => 60,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MV',
+            'MV' => [
                 'name' => 'Maldives',
                 'phonecode' => 960,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ML',
+            'ML' => [
                 'name' => 'Mali',
                 'phonecode' => 223,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MT',
+            'MT' => [
                 'name' => 'Malta',
                 'phonecode' => 356,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'MH',
+            'MH' => [
                 'name' => 'Marshall Islands',
                 'phonecode' => 692,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MQ',
+            'MQ' => [
                 'name' => 'Martinique',
                 'phonecode' => 596,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MR',
+            'MR' => [
                 'name' => 'Mauritania',
                 'phonecode' => 222,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MU',
+            'MU' => [
                 'name' => 'Mauritius',
                 'phonecode' => 230,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'YT',
+            'YT' => [
                 'name' => 'Mayotte',
                 'phonecode' => 269,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MX',
+            'MX' => [
                 'name' => 'Mexico',
                 'phonecode' => 52,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'FM',
+            'FM' => [
                 'name' => 'Micronesia, Federated States of',
                 'phonecode' => 691,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MD',
+            'MD' => [
                 'name' => 'Moldova, Republic of',
                 'phonecode' => 373,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MC',
+            'MC' => [
                 'name' => 'Monaco',
                 'phonecode' => 377,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MN',
+            'MN' => [
                 'name' => 'Mongolia',
                 'phonecode' => 976,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MS',
+            'MS' => [
                 'name' => 'Montserrat',
                 'phonecode' => 1664,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MA',
+            'MA' => [
                 'name' => 'Morocco',
                 'phonecode' => 212,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MZ',
+            'MZ' => [
                 'name' => 'Mozambique',
                 'phonecode' => 258,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MM',
+            'MM' => [
                 'name' => 'Myanmar',
                 'phonecode' => 95,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NA',
+            'NA' => [
                 'name' => 'Namibia',
                 'phonecode' => 264,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NR',
+            'NR' => [
                 'name' => 'Nauru',
                 'phonecode' => 674,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NP',
+            'NP' => [
                 'name' => 'Nepal',
                 'phonecode' => 977,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NL',
+            'NL' => [
                 'name' => 'Netherlands',
                 'phonecode' => 31,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'AN',
+            'AN' => [
                 'name' => 'Netherlands Antilles',
                 'phonecode' => 599,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NC',
+            'NC' => [
                 'name' => 'New Caledonia',
                 'phonecode' => 687,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NZ',
+            'NZ' => [
                 'name' => 'New Zealand',
                 'phonecode' => 64,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NI',
+            'NI' => [
                 'name' => 'Nicaragua',
                 'phonecode' => 505,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NE',
+            'NE' => [
                 'name' => 'Niger',
                 'phonecode' => 227,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NG',
+            'NG' => [
                 'name' => 'Nigeria',
                 'phonecode' => 234,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NU',
+            'NU' => [
                 'name' => 'Niue',
                 'phonecode' => 683,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NF',
+            'NF' => [
                 'name' => 'Norfolk Island',
                 'phonecode' => 672,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MP',
+            'MP' => [
                 'name' => 'Northern Mariana Islands',
                 'phonecode' => 1670,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'NO',
+            'NO' => [
                 'name' => 'Norway',
                 'phonecode' => 47,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'OM',
+            'OM' => [
                 'name' => 'Oman',
                 'phonecode' => 968,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PK',
+            'PK' => [
                 'name' => 'Pakistan',
                 'phonecode' => 92,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PW',
+            'PW' => [
                 'name' => 'Palau',
                 'phonecode' => 680,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PS',
+            'PS' => [
                 'name' => 'Palestinian Territory, Occupied',
                 'phonecode' => 970,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PA',
+            'PA' => [
                 'name' => 'Panama',
                 'phonecode' => 507,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PG',
+            'PG' => [
                 'name' => 'Papua New Guinea',
                 'phonecode' => 675,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PY',
+            'PY' => [
                 'name' => 'Paraguay',
                 'phonecode' => 595,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PE',
+            'PE' => [
                 'name' => 'Peru',
                 'phonecode' => 51,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PH',
+            'PH' => [
                 'name' => 'Philippines',
                 'phonecode' => 63,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PN',
+            'PN' => [
                 'name' => 'Pitcairn',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PL',
+            'PL' => [
                 'name' => 'Poland',
                 'phonecode' => 48,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'PT',
+            'PT' => [
                 'name' => 'Portugal',
                 'phonecode' => 351,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'PR',
+            'PR' => [
                 'name' => 'Puerto Rico',
                 'phonecode' => 1787,
                 'is_eu_member' => 0
-            ]
-        ]);
-
-        \DB::table('countries')->insert([
-            [
-                'id' => 'QA',
+            ],
+            'QA' => [
                 'name' => 'Qatar',
                 'phonecode' => 974,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'RE',
+            'RE' => [
                 'name' => 'Reunion',
                 'phonecode' => 262,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'RO',
+            'RO' => [
                 'name' => 'Romania',
                 'phonecode' => 40,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'RU',
+            'RU' => [
                 'name' => 'Russian Federation',
                 'phonecode' => 7,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'RW',
+            'RW' => [
                 'name' => 'Rwanda',
                 'phonecode' => 250,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SH',
+            'SH' => [
                 'name' => 'Saint Helena',
                 'phonecode' => 290,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'KN',
+            'KN' => [
                 'name' => 'Saint Kitts and Nevis',
                 'phonecode' => 1869,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'LC',
+            'LC' => [
                 'name' => 'Saint Lucia',
                 'phonecode' => 1758,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'PM',
+            'PM' => [
                 'name' => 'Saint Pierre and Miquelon',
                 'phonecode' => 508,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VC',
+            'VC' => [
                 'name' => 'Saint Vincent and the Grenadines',
                 'phonecode' => 1784,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'WS',
+            'WS' => [
                 'name' => 'Samoa',
                 'phonecode' => 684,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SM',
+            'SM' => [
                 'name' => 'San Marino',
                 'phonecode' => 378,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ST',
+            'ST' => [
                 'name' => 'Sao Tome and Principe',
                 'phonecode' => 239,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SA',
+            'SA' => [
                 'name' => 'Saudi Arabia',
                 'phonecode' => 966,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SN',
+            'SN' => [
                 'name' => 'Senegal',
                 'phonecode' => 221,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SC',
+            'SC' => [
                 'name' => 'Seychelles',
                 'phonecode' => 248,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SL',
+            'SL' => [
                 'name' => 'Sierra Leone',
                 'phonecode' => 232,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SG',
+            'SG' => [
                 'name' => 'Singapore',
                 'phonecode' => 65,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SK',
+            'SK' => [
                 'name' => 'Slovakia',
                 'phonecode' => 421,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'SI',
+            'SI' => [
                 'name' => 'Slovenia',
                 'phonecode' => 386,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'SB',
+            'SB' => [
                 'name' => 'Solomon Islands',
                 'phonecode' => 677,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SO',
+            'SO' => [
                 'name' => 'Somalia',
                 'phonecode' => 252,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ZA',
+            'ZA' => [
                 'name' => 'South Africa',
                 'phonecode' => 27,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GS',
+            'GS' => [
                 'name' => 'South Georgia and the South Sandwich Islands',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ES',
+            'ES' => [
                 'name' => 'Spain',
                 'phonecode' => 34,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'LK',
+            'LK' => [
                 'name' => 'Sri Lanka',
                 'phonecode' => 94,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SD',
+            'SD' => [
                 'name' => 'Sudan',
                 'phonecode' => 249,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SR',
+            'SR' => [
                 'name' => 'Suriname',
                 'phonecode' => 597,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SJ',
+            'SJ' => [
                 'name' => 'Svalbard and Jan Mayen',
                 'phonecode' => 47,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SZ',
+            'SZ' => [
                 'name' => 'Swaziland',
                 'phonecode' => 268,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SE',
+            'SE' => [
                 'name' => 'Sweden',
                 'phonecode' => 46,
                 'is_eu_member' => 1
             ],
-
-            [
-                'id' => 'CH',
+            'CH' => [
                 'name' => 'Switzerland',
                 'phonecode' => 41,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SY',
+            'SY' => [
                 'name' => 'Syrian Arab Republic',
                 'phonecode' => 963,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TW',
+            'TW' => [
                 'name' => 'Taiwan, Province of China',
                 'phonecode' => 886,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TJ',
+            'TJ' => [
                 'name' => 'Tajikistan',
                 'phonecode' => 992,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TZ',
+            'TZ' => [
                 'name' => 'Tanzania, United Republic of',
                 'phonecode' => 255,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TH',
+            'TH' => [
                 'name' => 'Thailand',
                 'phonecode' => 66,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TL',
+            'TL' => [
                 'name' => 'Timor-Leste',
                 'phonecode' => 670,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TG',
+            'TG' => [
                 'name' => 'Togo',
                 'phonecode' => 228,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TK',
+            'TK' => [
                 'name' => 'Tokelau',
                 'phonecode' => 690,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TO',
+            'TO' => [
                 'name' => 'Tonga',
                 'phonecode' => 676,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TT',
+            'TT' => [
                 'name' => 'Trinidad and Tobago',
                 'phonecode' => 1868,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TN',
+            'TN' => [
                 'name' => 'Tunisia',
                 'phonecode' => 216,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TR',
+            'TR' => [
                 'name' => 'Turkey',
                 'phonecode' => 90,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TM',
+            'TM' => [
                 'name' => 'Turkmenistan',
                 'phonecode' => 7370,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TC',
+            'TC' => [
                 'name' => 'Turks and Caicos Islands',
                 'phonecode' => 1649,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'TV',
+            'TV' => [
                 'name' => 'Tuvalu',
                 'phonecode' => 688,
                 'is_eu_member' => 0
-            ]
-        ]);
-
-        \DB::table('countries')->insert([
-            [
-                'id' => 'UG',
+            ],
+            'UG' => [
                 'name' => 'Uganda',
                 'phonecode' => 256,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'UA',
+            'UA' => [
                 'name' => 'Ukraine',
                 'phonecode' => 380,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AE',
+            'AE' => [
                 'name' => 'United Arab Emirates',
                 'phonecode' => 971,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GB',
+            'GB' => [
                 'name' => 'United Kingdom',
                 'phonecode' => 44,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'US',
+            'US' => [
                 'name' => 'United States',
                 'phonecode' => 1,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'UM',
+            'UM' => [
                 'name' => 'United States Minor Outlying Islands',
                 'phonecode' => 1,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'UY',
+            'UY' => [
                 'name' => 'Uruguay',
                 'phonecode' => 598,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'UZ',
+            'UZ' => [
                 'name' => 'Uzbekistan',
                 'phonecode' => 998,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VU',
+            'VU' => [
                 'name' => 'Vanuatu',
                 'phonecode' => 678,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VE',
+            'VE' => [
                 'name' => 'Venezuela',
                 'phonecode' => 58,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VN',
+            'VN' => [
                 'name' => 'Viet Nam',
                 'phonecode' => 84,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VG',
+            'VG' => [
                 'name' => 'Virgin Islands, British',
                 'phonecode' => 1284,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'VI',
+            'VI' => [
                 'name' => 'Virgin Islands, U.s.',
                 'phonecode' => 1340,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'WF',
+            'WF' => [
                 'name' => 'Wallis and Futuna',
                 'phonecode' => 681,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'EH',
+            'EH' => [
                 'name' => 'Western Sahara',
                 'phonecode' => 212,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'YE',
+            'YE' => [
                 'name' => 'Yemen',
                 'phonecode' => 967,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ZM',
+            'ZM' => [
                 'name' => 'Zambia',
                 'phonecode' => 260,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ZW',
+            'ZW' => [
                 'name' => 'Zimbabwe',
                 'phonecode' => 263,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'RS',
+            'RS' => [
                 'name' => 'Serbia',
                 'phonecode' => 381,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AP',
+            'AP' => [
                 'name' => 'Asia / Pacific Region',
                 'phonecode' => 0,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'ME',
+            'ME' => [
                 'name' => 'Montenegro',
                 'phonecode' => 382,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'AX',
+            'AX' => [
                 'name' => 'Aland Islands',
                 'phonecode' => 358,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BQ',
+            'BQ' => [
                 'name' => 'Bonaire, Sint Eustatius and Saba',
                 'phonecode' => 599,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'CW',
+            'CW' => [
                 'name' => 'Curacao',
                 'phonecode' => 599,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'GG',
+            'GG' => [
                 'name' => 'Guernsey',
                 'phonecode' => 44,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'IM',
+            'IM' => [
                 'name' => 'Isle of Man',
                 'phonecode' => 44,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'JE',
+            'JE' => [
                 'name' => 'Jersey',
                 'phonecode' => 44,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'XK',
+            'XK' => [
                 'name' => 'Kosovo',
                 'phonecode' => 381,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'BL',
+            'BL' => [
                 'name' => 'Saint Barthelemy',
                 'phonecode' => 590,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'MF',
+            'MF' => [
                 'name' => 'Saint Martin',
                 'phonecode' => 590,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SX',
+            'SX' => [
                 'name' => 'Sint Maarten',
                 'phonecode' => 1,
                 'is_eu_member' => 0
             ],
-
-            [
-                'id' => 'SS',
+            'SS' => [
                 'name' => 'South Sudan',
                 'phonecode' => 211,
                 'is_eu_member' => 0
             ],
-        ]);
+        ];
     }
 }

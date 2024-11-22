@@ -16,6 +16,40 @@ This package contains the following seeders in the `src/resources/database/seeds
 | `StatesOfGermany`                       | [Province](province.md) | States of Germany (Bundesland)                         |
 | `StatesOfUsa`                           | [Province](province.md) | States, DC, territories and military areas of the USA  |
 
+## The Countries Seeder
+
+> This feature was added in version `3.4.0`
+
+Besides using as standard Laravel Seeder, the countries seeder can also be used as a standalone class to retrieve the
+countries of the world.
+
+### Get All Countries
+
+```php
+Countries::all();
+// [
+//   'AF' => ['id' => 'AF', 'name' => 'Afghanistan', 'phonecode' => 93, 'is_eu_member' => 0],
+//   'AL' => ['id' => 'AL', 'name' => 'Albania', 'phonecode' => 355, 'is_eu_member' => 0],
+//   'DZ' => ['id' => 'DZ', 'name' => 'Algeria', 'phonecode' => 213, 'is_eu_member' => 0],
+//   [...]
+// ]
+```
+
+### Get A Single Country By Code
+
+```php
+Countries::byCode('AS');
+// ['id' => 'AS', 'name' => 'American Samoa', 'phonecode' => 1684, 'is_eu_member' => 0]
+
+// Input is case-insensitive:
+Countries::byCode('ai');
+// ['id' => 'AI', 'name' => 'Anguilla', 'phonecode' => 1264, 'is_eu_member' => 0],
+
+// When no country exists by code, it returns NULL
+Countries::byCode('nope');
+// NULL
+```
+
 ### Loading
 
 #### With Artisan
@@ -38,5 +72,5 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
 }
 ```
 
-For more details refer to the [seeds section](https://konekt.dev/concord/1.3/seeds) in the Concord
+> For more details refer to the [seeds section](https://konekt.dev/concord/1.3/seeds) in the Concord
 docs.

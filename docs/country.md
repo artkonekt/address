@@ -4,12 +4,14 @@
 
 ### Fields
 
-| Name         | Type    |
-|--------------|---------|
-| id           | char(2) |
-| name         | string  |
-| phonecode    | int     |
-| is_eu_member | bool    |
+| Name           | Type    |
+|----------------|---------|
+| id             | char(2) |
+| name           | string  |
+| phonecode      | int     |
+| is_eu_member\* | bool    |
+
+!> \* The `is_eu_member` flag is deprecated, use the [EuropeanUnion utility class instead](utils.md#european-union)
 
 The country id is aimed to be the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 country code.
