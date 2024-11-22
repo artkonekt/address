@@ -18,10 +18,10 @@ This package contains the following seeders in the `src/resources/database/seeds
 
 ## The Countries Seeder
 
-> This feature was added in version `3.4.0`
-
-Besides using as standard Laravel Seeder, the countries seeder can also be used as a standalone class to retrieve the
+Besides using as a standard Laravel Seeder, the countries seeder can also be used as a standalone class to retrieve the
 countries of the world.
+
+> This standalone usage feature of the countries seeder was added in version `3.4.0`
 
 ### Get All Countries
 
@@ -50,15 +50,23 @@ Countries::byCode('nope');
 // NULL
 ```
 
-### Loading
+## Provinces Seeder
 
-#### With Artisan
+Besides using as a standard Laravel Seeder, the various province seeders can be used as a standalone utility classes
+to manage the provinces of the world.
+
+
+> This `ProvinceSeeders` registry was added in version `3.4.0`
+
+## Loading
+
+### With Artisan
 
 ```bash
 php artisan db:seed --class="\Konekt\Address\Seeds\Countries"
 ```
 
-#### Adding To Your App's DatabaseSeeder
+### Adding To Your App's DatabaseSeeder
 
 ```php
 class DatabaseSeeder extends \Illuminate\Database\Seeder
