@@ -30,7 +30,7 @@ class Countries extends Seeder
         foreach (array_chunk(self::all(), 50, true) as $countries) {
             \DB::table('countries')->insert(
                 array_map(
-                    fn($record, $id) => array_merge($record, ['id' => $id]),
+                    fn ($record, $id) => array_merge($record, ['id' => $id]),
                     $countries,
                     array_keys($countries),
                 ),
