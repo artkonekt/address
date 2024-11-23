@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2024-XX-YY
+## 3.4.0
+##### 2024-11-23
 
 - Added the konekt/xtend requirement
 - Added the `ProvinceSeeders` registry
