@@ -38,7 +38,7 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
 }
 ```
 
-> For more details refer to the [seeds section](https://konekt.dev/concord/1.3/seeds) in the Concord
+> For more details refer to the [seeds section](https://konekt.dev/concord/1.x/seeds) in the Concord
 > docs.
 
 ## The Countries Seeder
