@@ -202,6 +202,14 @@ ProvinceSeeders::availableSeedersOfCountry('NL');
 
 !> Be aware that there can be multiple seeders for a single country. As an example, Canada has two seeders, an English and a French one.
 
+```php
+ProvinceSeeders::availableSeedersOfCountry('CA')
+//= [
+//    "provinces_and_territories_of_canada" => "Konekt\Address\Seeds\ProvincesAndTerritoriesOfCanada",
+//    "provinces_and_territories_of_canada_french" => "Konekt\Address\Seeds\ProvincesAndTerritoriesOfCanadaFrench",
+//  ]
+```
+
 ### Extending Province Seeders
 
 **This package doesn't come with the provinces of all countries**, only offers a limited set of them.
