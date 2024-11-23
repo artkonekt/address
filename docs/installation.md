@@ -15,7 +15,7 @@ return [
 
 After this, address should be listed among the concord modules:
 
-```
+```text
 php artisan concord:modules -a
 
 +----+-----------------------+--------+---------+------------------+-----------------+

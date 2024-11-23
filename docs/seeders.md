@@ -16,6 +16,31 @@ This package contains the following seeders in the `src/resources/database/seeds
 | `StatesOfGermany`                       | [Province](province.md) | States of Germany (Bundesland)                         |
 | `StatesOfUsa`                           | [Province](province.md) | States, DC, territories and military areas of the USA  |
 
+## Loading
+
+### With Artisan
+
+```bash
+php artisan db:seed --class="\Konekt\Address\Seeds\Countries"
+```
+
+### Adding To Your App's DatabaseSeeder
+
+```php
+class DatabaseSeeder extends \Illuminate\Database\Seeder
+{
+    public function run()
+    {
+        //...
+        $this->call(\Konekt\Address\Seeds\Countries::class);
+        //...
+    }
+}
+```
+
+> For more details refer to the [seeds section](https://konekt.dev/concord/1.3/seeds) in the Concord
+> docs.
+
 ## The Countries Seeder
 
 Besides using as a standard Laravel Seeder, the countries seeder can also be used as a standalone class to retrieve the
@@ -26,6 +51,8 @@ countries of the world.
 ### Get All Countries
 
 ```php
+use Konekt\Address\Seeds\Countries;
+
 Countries::all();
 // [
 //   'AF' => ['id' => 'AF', 'name' => 'Afghanistan', 'phonecode' => 93, 'is_eu_member' => 0],
@@ -106,27 +133,4 @@ $seeder = ProvinceSeeders::make('regions-of-absurdistan');
 $seeder->run();
 ```
 
-## Loading
 
-### With Artisan
-
-```bash
-php artisan db:seed --class="\Konekt\Address\Seeds\Countries"
-```
-
-### Adding To Your App's DatabaseSeeder
-
-```php
-class DatabaseSeeder extends \Illuminate\Database\Seeder
-{
-    public function run()
-    {
-        //...
-        $this->call(\Konekt\Address\Seeds\Countries::class);
-        //...
-    }
-}
-```
-
-> For more details refer to the [seeds section](https://konekt.dev/concord/1.3/seeds) in the Concord
-> docs.

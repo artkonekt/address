@@ -97,7 +97,7 @@ Usage example:
 ```php
 class ShippingMethod extends Model
 {
-    uses Zoneable;
+    use Zoneable;
 }
 
 $haitiShippingZones = Zones::withShippingScope()->theCountryBelongsTo('HT');
