@@ -26,7 +26,7 @@ class StatesOfGermany extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::STATE];
 
-    public static function getTitle(): string
+    public static function getName(): string
     {
         return __('States of Germany');
     }

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Konekt\Address\Contracts;
 
-interface ProvinceSeeder
+use Konekt\Extend\Contracts\Registerable;
+
+interface ProvinceSeeder extends Registerable
 {
     public static function getCountryCode(): string;
 
@@ -12,8 +14,6 @@ interface ProvinceSeeder
      * @return array|ProvinceType[]
      */
     public static function getProvinceTypes(): array;
-
-    public static function getTitle(): string;
 
     public function run(): void;
 }

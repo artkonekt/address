@@ -27,7 +27,7 @@ class ProvincesAndTerritoriesOfCanada extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::PROVINCE, ProvinceType::TERRITORY];
 
-    public static function getTitle(): string
+    public static function getName(): string
     {
         return __('Provinces and Territories of Canada (English)');
     }

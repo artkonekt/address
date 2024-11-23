@@ -26,7 +26,7 @@ class CountiesOfHungary extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::COUNTY];
 
-    public static function getTitle(): string
+    public static function getName(): string
     {
         return __('Counties of Hungary');
     }

@@ -26,7 +26,7 @@ class ProvincesOfNetherlands extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::PROVINCE];
 
-    public static function getTitle(): string
+    public static function getName(): string
     {
         return __('Provinces of the Netherlands');
     }

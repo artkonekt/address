@@ -26,7 +26,7 @@ class StatesOfUsa extends Seeder implements ProvinceSeeder
 
     protected static array $provinceTypes = [ProvinceType::STATE, ProvinceType::FEDERAL_DISTRICT, ProvinceType::MILITARY, ProvinceType::TERRITORY];
 
-    public static function getTitle(): string
+    public static function getName(): string
     {
         return __('States, territories and other districts of the USA');
     }
