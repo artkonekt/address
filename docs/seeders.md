@@ -79,7 +79,8 @@ Countries::byCode('nope');
 
 ## Provinces Seeders
 
-All province seeders implement the ProvinceSeeder interface, which define 4 methods.
+All province seeders implement the [ProvinceSeeder](https://github.com/artkonekt/address/blob/3.x/src/Contracts/ProvinceSeeder.php)
+interface, which defines 4 methods.
 
 #### Country Code of the Seeder
 
@@ -92,7 +93,8 @@ StatesAndTerritoriesOfIndia::getCountryCode();
 
 #### The Contained Province Types
 
-The `getProvinceTypes()` static method returns an array of [ProvinceType](province-type.md) enum objects.
+The `getProvinceTypes()` static method returns an array of [ProvinceType](province-type.md) enum objects, which
+represents the list of the types of provinces the seeder supplies.
 
 ```php
 StatesOfUsa::getProvinceTypes();
@@ -128,15 +130,15 @@ that inserts the records in the appropriate database tables.
 
 ## Province Seeder Registry
 
-Besides using as a standard Laravel Seeder, the various province seeder classes can be used as a standalone utility classes
-to manage the provinces of countries.
-
 > This `ProvinceSeeders` registry was added in version `3.4.0`
+
+Besides using as a standard Laravel Seeder, the various province seeder classes can be used as a standalone utilities
+to manage the provinces of countries.
 
 For this purpose, the `ProvinceSeeders` registry class is available. It can be used to list, create and add new province
 seeders to the system.
 
-### Return Seeders
+### Obtain Seeders
 
 To get the **list of seeders** available use the `ids()` method:
 
@@ -163,15 +165,9 @@ To **obtain an instance** of a given seeder, use the registry's `make()` method,
 ```php
 $belgiumSeeder = ProvinceSeeders::make('provinces_and_regions_of_belgium');
 //= Konekt\Address\Seeds\ProvincesAndRegionsOfBelgium {#7788}
-```
 
-To get the available province **seeders of a country**, use the following code:
-
-```php
-ProvinceSeeders::availableSeedersOfCountry('NL');
-//= [
-//    "provinces_of_netherlands" => "Konekt\Address\Seeds\ProvincesOfNetherlands",
-//  ]
+// To insert the supplied records:
+$belgiumSeeder->run(); 
 ```
 
 The `choices()` method returns a list of key/value pairs, where the key is the seeder ID and the value is the
@@ -191,7 +187,20 @@ ProvinceSeeders::choices();
 //  "states_of_germany" => "States of Germany"
 //  "states_of_usa" => "States, territories and other districts of the USA"
 //]
-````
+```
+
+#### Seeders of a Country
+
+To get the available province **seeders of a country**, use the `availableSeedersOfCountry()` method:
+
+```php
+ProvinceSeeders::availableSeedersOfCountry('NL');
+//= [
+//    "provinces_of_netherlands" => "Konekt\Address\Seeds\ProvincesOfNetherlands",
+//  ]
+```
+
+!> Be aware that there can be multiple seeders for a single country. As an example, Canada has two seeders, an English and a French one.
 
 ### Extending Province Seeders
 
@@ -202,6 +211,12 @@ But it is possible to write extensions for specific countries and register them.
 A sample custom province seeder class:
 
 ```php
+namespace App;
+
+use Illuminate\Database\Seeder;
+use Konekt\Address\Contracts\ProvinceSeeder;
+use Konekt\Address\Models\ProvinceType;
+
 class RegionsOfAbsurdistan extends Seeder implements ProvinceSeeder
 {
     use IsProvinceSeeder;
@@ -235,7 +250,7 @@ Afterward, the province seeder will be available for the country:
 
 ```php
 ProvinceSeeders::availableSeedersOfCountry('AB');
-// ['regions-of-absurdistan' => 'Namespace\\RegionsOfAbsurdistan']
+// ['regions-of-absurdistan' => 'App\RegionsOfAbsurdistan']
 
 // Create the seeder:
 $seeder = ProvinceSeeders::make('regions-of-absurdistan');
