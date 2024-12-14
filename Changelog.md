@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2024-XX-YY
+
+- Fixed a rare SQLite migration error with Laravel 11.15+  
+
 ## 3.4.0
 ##### 2024-11-23
 
