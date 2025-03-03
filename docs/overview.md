@@ -26,3 +26,4 @@ within your applications structure.
 | 9.x     | 2.1 - 2.8 |
 | 10.x    | 2.4+      |
 | 11.x    | 3.0+      |
+| 12.x    | 3.5+      |

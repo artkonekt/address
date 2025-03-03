@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2025-XX-YY
+
+- Added Laravel 12 support
+
 ## 3.4.1
 ##### 2024-12-14
 
