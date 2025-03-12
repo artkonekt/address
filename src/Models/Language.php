@@ -29,6 +29,8 @@ class Language extends Model implements LanguageContract
 {
     public $incrementing = false;
 
+    public $keyType = 'string';
+
     protected $guarded = ['created_at', 'updated_at'];
 
     public static function findByIsoCode(string $code): ?LanguageContract

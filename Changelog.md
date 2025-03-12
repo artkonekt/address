@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2025-XX-YY
+
+- Fixed the "Operator does not exist" error when eager loading a Country relationship with PostgreSQL. [See Laravel#31011](https://github.com/laravel/framework/issues/31011#issuecomment-570533654)
+
 ## 3.5.0
 ##### 2025-03-03
 

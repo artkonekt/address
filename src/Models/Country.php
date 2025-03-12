@@ -43,6 +43,8 @@ class Country extends Model implements CountryContract
      */
     public $incrementing = false;
 
+    public $keyType = 'string';
+
     public $timestamps = false;
 
     protected $guarded = ['created_at', 'updated_at'];
