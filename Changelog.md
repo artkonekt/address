@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2025-XX-YY
+## 3.6.0
+##### 2025-03-18
 
 - Added konekt/xtend 2.0 support (v1.2 is still accepted)
 
