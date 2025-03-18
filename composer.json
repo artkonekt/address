@@ -23,7 +23,7 @@
         "konekt/concord": "^1.13",
         "konekt/enum": "^4.1",
         "konekt/enum-eloquent": "^1.9",
-        "konekt/xtend": "^1.2"
+        "konekt/xtend": "^1.2|^2.0"
     },
     "autoload": {
         "psr-4": {
