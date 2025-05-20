@@ -60,21 +60,6 @@ class Address extends Model implements AddressContract
 
     protected $table = 'addresses';
 
-    public function model(): MorphTo
-    {
-        return $this->morphTo();
-    }
-
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
-    }
-
-    public function province(): BelongsTo
-    {
-        return $this->belongsTo(ProvinceProxy::modelClass(), 'province_id');
-    }
-
     public function __toString(): string
     {
         return str_replace(
@@ -91,5 +76,20 @@ class Address extends Model implements AddressContract
             ],
             static::$toStringFormat
         );
+    }
+
+    public function model(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(CountryProxy::modelClass(), 'country_id');
+    }
+
+    public function province(): BelongsTo
+    {
+        return $this->belongsTo(ProvinceProxy::modelClass(), 'province_id');
     }
 }
