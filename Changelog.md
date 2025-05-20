@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2025-XX-YY
+
+- Added support for converting an Address to string using a static placeholder string
+
 ## 3.6.0
 ##### 2025-03-18
 

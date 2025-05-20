@@ -258,6 +258,19 @@ class AddressTest extends TestCase
         $this->assertEquals('Intermouse Inc.', $hqAddress->model->name);
     }
 
+    /** @test */
+    public function it_uses_the_default_format_when_casting_to_string()
+    {
+        $address = Address::create([
+            'name' => 'Donald Biden',
+            'country_id' => 'US',
+            'city' => 'Washington',
+            'address' => 'Floor Street 4.'
+        ]);
+
+        $this->assertEquals('Donald Biden, Floor Street 4. [Washington, US]', (string) $address);
+    }
+
     /**
      * @inheritdoc
      */

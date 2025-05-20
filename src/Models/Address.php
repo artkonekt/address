@@ -50,6 +50,8 @@ class Address extends Model implements AddressContract
 {
     use CastsEnums;
 
+    public static string $toStringFormat = '%name%, %address% [%city%, %country_id%]';
+
     protected $guarded = ['id'];
 
     protected $enums = [
@@ -71,5 +73,23 @@ class Address extends Model implements AddressContract
     public function province(): BelongsTo
     {
         return $this->belongsTo(ProvinceProxy::modelClass(), 'province_id');
+    }
+
+    public function __toString(): string
+    {
+        return str_replace(
+            [
+                '%name%', '%company_name%', '%firstname%', '%lastname%', '%city%', '%country%', '%province%', '%type%',
+                '%country_id%', '%province_id%', '%postalcode%', '%address%', '%address2%', '%email%', '%phone%',
+                '%tax_nr%', '%registration_nr%', '%access_code%'
+            ],
+            [
+                $this->name, $this->company_name, $this->firstname, $this->lastname, $this->city, $this->country?->name,
+                $this->province?->name, $this->type?->label(), $this->country_id, $this->province_id, $this->postalcode,
+                $this->address, $this->address2, $this->email, $this->phone, $this->tax_nr, $this->registration_nr,
+                $this->access_code,
+            ],
+            static::$toStringFormat
+        );
     }
 }
