@@ -7,6 +7,11 @@
 - Dropped Laravel 10 support
 - Dropped PHP 8.2 support
 - Changed the minimum Laravel version requirements to v11.46.2, v12.50 and v13.0
+- Changed the minimum Laravel version requirements to v11.46.2, v12.50 and v13.0
+- Dropped MySQL 5.7 support (it still works, but it is no longer included in the CI tests)
+- Dropped MySQL 8.0 support (it still works, but it is no longer included in the CI tests)
+- Added explicit MySQL 8.4 support (being actively tested against in the CI)
+- Changed the Postgres testing policy to use v15 and v18
 
 ## 3.7.0
 ##### 2025-05-20
