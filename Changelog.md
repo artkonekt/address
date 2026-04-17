@@ -1,7 +1,7 @@
 # Address Module Changelog
 
-## Unreleased
-##### 2026-XX-YY
+## 3.8.0
+##### 2026-04-17
 
 - Added Laravel 13 support
 - Dropped Laravel 10 support
