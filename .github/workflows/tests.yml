@@ -25,10 +25,6 @@ jobs:
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}.*" --no-update -v &&
           composer require "konekt/xtend:${{ matrix.xtend }}.*" --no-update -v
-      - name: Prevent Laravel 10 + Doctrine 4
-        run: |
-          is_smaller_version() [[ $(echo -e "$1\n$2"|sort -V|head -1) != $2 ]]
-          is_smaller_version "${{ matrix.laravel }}" "10.39" && composer req "doctrine/dbal:^3.5.1" --no-update || true
       - name: Composer Install
         run: composer install --prefer-dist --no-progress --no-interaction
       - name: Create SQLite Database
