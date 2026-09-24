@@ -193,7 +193,7 @@ class AddressTest extends TestCase
             'city' => $this->avaya['city'],
             'address' => $this->avaya['address'],
             'address2' => $this->avaya['address2'],
-            'notes' => $this->avaya['note'],
+            'notes' => $this->avaya['notes'],
             'email' => $this->avaya['email'],
             'phone' => $this->avaya['phone'],
             'access_code' => $this->avaya['access_code'],
