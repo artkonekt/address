@@ -17,8 +17,8 @@
     "require": {
         "php": "^8.3",
         "ext-pdo": "*",
-        "illuminate/database": "^11.46.2|^12.61.1|^13.12",
-        "illuminate/support": "^11.46.2|^12.61.1|^13.12",
+        "illuminate/database": "^12.61.1|^13.12",
+        "illuminate/support": "^12.61.1|^13.12",
         "doctrine/dbal": "^3.5.1|^4.0",
         "konekt/concord": "^1.14",
         "konekt/enum": "^4.1",
@@ -33,7 +33,7 @@
     },
     "require-dev": {
         "ext-sqlite3": "*",
-        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "orchestra/testbench": "^10.0|^11.0",
         "phpunit/phpunit" : "^10.0|^11.0",
         "mockery/mockery": "^1.6.1"
     },

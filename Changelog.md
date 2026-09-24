@@ -7,6 +7,7 @@
 - Added the v3.0.0 address fields to the documentation
 - Changed the minimum Laravel 12 version to v12.61.1
 - Changed the minimum Laravel 13 version to v13.12
+- Dropped Laravel 11 support
 
 ## 3.8.0
 ##### 2026-04-17
