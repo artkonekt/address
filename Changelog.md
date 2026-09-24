@@ -1,5 +1,10 @@
 # Address Module Changelog
 
+## Unreleased
+##### 2026-XX-YY
+
+- Added the `note` field to the `addresses` table
+
 ## 3.8.0
 ##### 2026-04-17
 

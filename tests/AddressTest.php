@@ -47,6 +47,7 @@ class AddressTest extends TestCase
         'country_id' => 'US',
         'address' => '4655 Great America Parkway',
         'address2' => 'xyz',
+        'note' => 'This is a note',
         'phone' => '+1555666777',
         'email' => 'contact@avaya.com',
         'tax_nr' => 'US123456',
@@ -192,6 +193,7 @@ class AddressTest extends TestCase
             'city' => $this->avaya['city'],
             'address' => $this->avaya['address'],
             'address2' => $this->avaya['address2'],
+            'note' => $this->avaya['note'],
             'email' => $this->avaya['email'],
             'phone' => $this->avaya['phone'],
             'access_code' => $this->avaya['access_code'],
@@ -218,6 +220,7 @@ class AddressTest extends TestCase
         $this->assertEquals($this->avaya['city'], $address->city);
         $this->assertEquals($this->avaya['address'], $address->address);
         $this->assertEquals($this->avaya['address2'], $address->address2);
+        $this->assertEquals($this->avaya['note'], $address->note);
 
         $this->assertEquals($this->avaya['email'], $address->email);
         $this->assertEquals($this->avaya['phone'], $address->phone);
