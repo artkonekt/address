@@ -10,14 +10,14 @@ return new class () extends Migration {
     public function up(): void
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->string('note', 511)->nullable()->after('address2');
+            $table->string('notes', 511)->nullable()->after('address2');
         });
     }
 
     public function down(): void
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->dropColumn(['note']);
+            $table->dropColumn(['notes']);
         });
     }
 };

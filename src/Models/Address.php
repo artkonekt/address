@@ -35,7 +35,7 @@ use Konekt\Enum\Eloquent\CastsEnums;
  * @property string|null    $city
  * @property string         $address
  * @property string|null    $address2
- * @property string|null    $note
+ * @property string|null    $notes
  * @property string|null    $email
  * @property string|null    $phone
  * @property string|null    $tax_nr
