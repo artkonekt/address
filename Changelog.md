@@ -4,6 +4,7 @@
 ##### 2026-XX-YY
 
 - Added the `notes` field to the `addresses` table
+- Added the v3.0.0 address fields to the documentation
 
 ## 3.8.0
 ##### 2026-04-17
