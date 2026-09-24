@@ -11,7 +11,7 @@ jobs:
         php: [ '8.3', '8.4', '8.5' ]
         laravel: [ '12.61', '12.69', '13.12', '13.33' ]
         xtend: ['1.2', '2.0']
-    name: PHP ${{ matrix.php }} Laravel ${{ matrix.laravel }} Xtend ${{ matrix.xtend }}
+    name: PHP ${{ matrix.php }} Laravel ${{ matrix.laravel }} XT ${{ matrix.xtend }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
