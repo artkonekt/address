@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         php: [ '8.3', '8.4', '8.5' ]
-        laravel: [ '11.46', '11.50', '12.50', '12.56', '13.0', '13.5' ]
+        laravel: [ '11.46', '11.56', '12.61', '12.69', '13.12', '13.33' ]
         xtend: ['1.2', '2.0']
     name: PHP ${{ matrix.php }} Laravel ${{ matrix.laravel }} Xtend ${{ matrix.xtend }}
     steps:
